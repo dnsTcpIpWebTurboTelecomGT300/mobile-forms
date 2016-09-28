@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+var server = require('../server');
+var config = require('../lib/config');
+
+/**
+ * Get port from environment and store in Server.
+ */
+var port = normalizePort(config.get("listenPort") || '3000');
+server.set('port', port);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+server.listen(port, function () {
+    console.log("OData server is listening on port " + port)
+});
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+
+    // named pipe
+    if (isNaN(port)) {
+        return val;
+    }
+
+    // port number
+    if (port >= 0) {
+        return port;
+    }
+
+    return false;
+}

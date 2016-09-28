@@ -1,0 +1,10 @@
+{
+  "listenPort": "3000",
+  "mongo": {
+    "host": "teemo-gu5b6kr5.cloudapp.net",
+    "port": "27017",
+    "base": "node_test",
+    "username": "test",
+    "password": "test"
+  }
+}
