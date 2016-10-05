@@ -1,4 +1,5 @@
 var configUtils = require('./lib/configUtils');
+var config = require('./lib/config')
 var odata = require('node-odata');
 var logger = require('morgan');
 
@@ -6,9 +7,11 @@ console.log("Starting OData server");
 console.log("Connecting to database: " + configUtils.getMongoConnectionString());
 
 var server = odata(configUtils.getMongoConnectionString());
+server.set("prefix", config.get("apiPrefix"));
 server.use(logger('dev'));
 
-var booksModel = require("./resources/books");
-server.resource('books', booksModel);
+server.resource('users', require("./models/usersModel"));
+server.resource('quizes', require("./models/quizesModel"));
+server.resource('questions', require("./models/questionsModel"));
 
 module.exports = server;

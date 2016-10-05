@@ -1,0 +1,7 @@
+module.exports = {
+    authType: String,
+    externalId: Number,
+    firstName: String,
+    lastName: String,
+    avatar: String
+};
