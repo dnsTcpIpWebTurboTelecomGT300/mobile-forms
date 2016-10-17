@@ -13,5 +13,6 @@ server.use(logger('dev'));
 server.resource('users', require("./models/usersModel"));
 server.resource('quizes', require("./models/quizesModel"));
 server.resource('questions', require("./models/questionsModel"));
+server.resource('answers', require("./models/usersAnswersModel"))
 
 module.exports = server;

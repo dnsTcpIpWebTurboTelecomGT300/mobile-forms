@@ -1,0 +1,16 @@
+module.exports = {
+    quizId: String,
+    userId: String,
+    date: Date,
+    answers: [{
+        questionId: String,
+        textValue: String,
+        dateValue: Date,
+        numericValue: Number,
+        geoValue: String,
+        imageValue: String,
+        variants: [{
+            variantId: String
+        }]
+    }]
+};
