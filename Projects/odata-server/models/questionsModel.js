@@ -4,6 +4,7 @@ module.exports = {
     required: Boolean,
     questionType: String,
     answerFormat: String,
+    isMulti: Boolean,
     variants:[{
         id: String,
         type: String,
