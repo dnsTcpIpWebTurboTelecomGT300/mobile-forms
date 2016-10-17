@@ -1,0 +1,7 @@
+module.exports = {
+    userId: String,
+    name: String,
+    description: String,
+    creationDate: Date,
+    isPublished: Boolean
+};

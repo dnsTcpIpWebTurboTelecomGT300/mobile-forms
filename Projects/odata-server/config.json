@@ -1,0 +1,11 @@
+{
+  "listenPort": "3000",
+  "apiPrefix": "api",
+  "mongo": {
+    "host": "teemo-gu5b6kr5.cloudapp.net",
+    "port": "27017",
+    "base": "dev_mobile_forms",
+    "username": "dev_admin",
+    "password": "dev1234"
+  }
+}
