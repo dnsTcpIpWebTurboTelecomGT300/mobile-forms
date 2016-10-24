@@ -33,6 +33,16 @@ angular.module('app.routes', [])
         }
       })
 
+      .state('app.quizes.new', {
+        url: '/new',
+        views: {
+          'side-menu@app': {
+            templateUrl: 'templates/quiz-edit-form.html',
+            controller: 'quizesCtrl'
+          }
+        }
+      })
+
       .state('app.quizDetail', {
         url: '/quizes/:quizId',
         params: {
@@ -46,7 +56,7 @@ angular.module('app.routes', [])
         }
       })
 
-      .state('quizDetail.edit', {
+      .state('app.quizDetail.edit', {
         url: '/quizes/:quizId/edit',
         views: {
           'quiz-edit-tab': {
@@ -55,7 +65,7 @@ angular.module('app.routes', [])
         }
       })
 
-      .state('quizDetail.info', {
+      .state('app.quizDetail.info', {
         url: '/quizes/:quizId/info',
         views: {
           'quiz-info-tab': {
@@ -64,7 +74,7 @@ angular.module('app.routes', [])
         }
       })
 
-      .state('quizDetail.answers', {
+      .state('app.quizDetail.answers', {
         url: '/quizes/:quizId/answers',
         views: {
           'quiz-answers-tab': {

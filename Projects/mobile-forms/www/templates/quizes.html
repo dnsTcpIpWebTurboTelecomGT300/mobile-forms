@@ -3,19 +3,13 @@
     <button class="button icon ion-android-search"></button>
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
-    <ion-list id="page5-list4" class="manual-list-fullwidth">
-      <ion-item class="item-icon-right" id="page5-list-item12" ui-sref="app.quizDetail({quizId:1})">
-        Мой опрос 1
-        <i class="icon ion-chevron-right icon-accessory"></i>
-      </ion-item>
-      <ion-item class="item-icon-right" id="page5-list-item13">
-        Мой опрос 2
-        <i class="icon ion-chevron-right icon-accessory"></i>
-      </ion-item>
-      <ion-item class="item-icon-right" id="page5-list-item14">
-        Мой опрос 3
+    <ion-list ng-repeat="quize in quizes" id="page5-list4" class="manual-list-fullwidth">
+      <ion-item class="item-icon-right" ui-sref="app.quizDetail.info({quizId:$index})">
+        {{quize}}
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
   </ion-content>
+  <ion-floating-button ui-sref="app.quizes.new({})" has-footer="false" button-color="#ff5252" icon="ion-plus" icon-color="#fff">
+  </ion-floating-button>
 </ion-view>

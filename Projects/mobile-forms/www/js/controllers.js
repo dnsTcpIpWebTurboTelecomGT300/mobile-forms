@@ -16,6 +16,12 @@ angular.module('app.controllers', [])
     function ($scope, $stateParams) {
       $scope.edit = $stateParams.edit;
       $scope.quizId = $stateParams.quizId;
+
+      $scope.quizes = [
+        'Опрос 1',
+        'Опрос 2',
+        'Опрос 3'
+      ]
     }])
 
   .controller('quizDetailCtrl', ['$scope', '$stateParams',
