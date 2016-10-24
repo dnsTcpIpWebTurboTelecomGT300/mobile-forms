@@ -1,0 +1,17 @@
+<ion-view title="Опрос" style="background-color:#FFFFFF;" show-tabs="true">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button icon ion-android-more-vertical"></button>
+  </ion-nav-buttons>
+
+  <ion-tabs class="tabs-positive tabs-icon-top">
+
+    <ion-tab title="Опрос" icon="ion-clipboard" ui-sref="quizDetail.info({quizId:quizId})">
+      <ion-nav-view name="quiz-info-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Ответы" icon="ion-ios-copy-outline" ui-sref="quizDetail.answers({quizId:quizId})">
+      <ion-nav-view name="quiz-answers-tab"></ion-nav-view>
+    </ion-tab>
+
+  </ion-tabs>
+</ion-view>

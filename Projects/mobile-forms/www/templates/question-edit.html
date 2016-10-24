@@ -1,0 +1,35 @@
+<ion-view title="Вопрос" id="question-edit">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button icon ion-android-more-vertical"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <ion-list id="page10-list11" class="manual-list-fullwidth">
+      <label class="item item-input item-stacked-label" id="page10-input11">
+        <span class="input-label">Текст вопроса</span>
+        <input type="text" placeholder="Текст вопроса">
+      </label>
+      <ion-toggle toggle-class="toggle-balanced" ng-checked="true" id="page10-toggle19">Обязательный вопрос</ion-toggle>
+      <label class="item item-select" id="page10-select1">
+        <span class="input-label">Тип вопроса</span>
+        <select>
+          <option></option>
+          <option>Свободный</option>
+          <option>С вариантами ответа</option>
+        </select>
+      </label>
+    </ion-list>
+    <div class="spacer" style="width: 300px; height: 30.9861px;"></div>
+    <ion-list id="page10-list14" class="manual-list-fullwidth">
+      <ion-item class="item-divider" id="page10-list-item-divider6">Варианты ответов</ion-item>
+      <ion-item class="item-icon-right" id="page10-list-item30" ui-sref="menu.variantEdit">Вариант 1
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <ion-item class="item-icon-right" id="page10-list-item31">Вариант 2
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <ion-item class="item-icon-right" id="page10-list-item32">Вариант 3
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
