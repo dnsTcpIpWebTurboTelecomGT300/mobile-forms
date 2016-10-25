@@ -3,9 +3,9 @@
     <button class="button icon ion-android-search"></button>
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
-    <ion-list ng-repeat="quize in quizes" id="page5-list4" class="manual-list-fullwidth">
-      <ion-item class="item-icon-right" ui-sref="app.quizDetail.info({quizId:$index})">
-        {{quize}}
+    <ion-list ng-repeat="quiz in quizes" id="page5-list4" class="manual-list-fullwidth">
+      <ion-item class="item-icon-right" ui-sref="app.quizDetail({quizId:$index})">
+        {{quiz}}
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>

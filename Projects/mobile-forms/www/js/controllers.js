@@ -21,7 +21,7 @@ angular.module('app.controllers', [])
         'Опрос 1',
         'Опрос 2',
         'Опрос 3'
-      ]
+      ];
     }])
 
   .controller('quizDetailCtrl', ['$scope', '$stateParams',
