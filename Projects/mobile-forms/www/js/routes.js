@@ -66,7 +66,7 @@ angular.module('app.routes', [])
       })
 
       .state('app.quizDetail.info', {
-        url: '/quizes/:quizId/info',
+        url: '/info',
         views: {
           'quiz-info-tab': {
             templateUrl: 'templates/quiz-info.html'
@@ -75,7 +75,7 @@ angular.module('app.routes', [])
       })
 
       .state('app.quizDetail.answers', {
-        url: '/quizes/:quizId/answers',
+        url: '/answers',
         views: {
           'quiz-answers-tab': {
             templateUrl: 'templates/quiz-answers.html'

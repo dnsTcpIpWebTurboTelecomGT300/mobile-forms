@@ -16,7 +16,7 @@ angular.module('app.controllers', [])
       $scope.edit = $stateParams.edit;
       $scope.quizId = $stateParams.quizId;
 
-      let url = "/quizes?$filter=userId eq 'TestId'";
+      let url = "/quizes?$filter=userId eq '02c40968-e5a7-4c4d-be1b-471b6485c637'";
       $http({
           method: 'GET',
           url: apiPrefix+url
@@ -28,10 +28,36 @@ angular.module('app.controllers', [])
           });
     }])
 
-  .controller('quizDetailCtrl', ['$scope', '$stateParams',
-    function ($scope, $stateParams) {
+  .controller('quizDetailCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix', '$filter',
+    function ($scope, $stateParams, $http, apiPrefix, $filter) {
       $scope.edit = $stateParams.edit;
       $scope.quizId = $stateParams.quizId;
+
+      let url = "/quizes("+$stateParams.quizId+")";
+      $http({
+          method: 'GET',
+          url: apiPrefix+url,
+      }).then(function successCallback(response) {
+            console.log(response);
+            let data  = response.data;
+            let date = new Date(data.creationDate);
+            data.creationDateFormated = $filter('date')(date, "dd/MM/yyyy")
+            $scope.quize = data;
+            let url = "/users("+data.userId+")";
+            $http({
+                method: 'GET',
+                url: apiPrefix+url,
+            }).then(function successCallback(response) {
+                  console.log(response);
+                  let data  = response.data;
+                  $scope.user = data;
+                }, function errorCallback(response) {
+                  console.error(response);
+                });
+
+          }, function errorCallback(response) {
+            console.error(response);
+          });
     }])
 
   .controller('quizInfoCtrl', ['$scope', '$stateParams',
