@@ -1,5 +1,4 @@
 angular.module('app.controllers', [])
-
   .controller('loginCtrl', ['$scope', '$stateParams',
     function ($scope, $stateParams) {
 
@@ -12,16 +11,21 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('quizesCtrl', ['$scope', '$stateParams',
-    function ($scope, $stateParams) {
+  .controller('quizesCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix',
+    function ($scope, $stateParams, $http, apiPrefix) {
       $scope.edit = $stateParams.edit;
       $scope.quizId = $stateParams.quizId;
 
-      $scope.quizes = [
-        'Опрос 1',
-        'Опрос 2',
-        'Опрос 3'
-      ]
+      let url = "/quizes?$filter=userId eq 'TestId'";
+      $http({
+          method: 'GET',
+          url: apiPrefix+url
+      }).then(function successCallback(response) {
+            console.log(response);
+            $scope.quizes = response.data.value;
+          }, function errorCallback(response) {
+            console.error(response);
+          });
     }])
 
   .controller('quizDetailCtrl', ['$scope', '$stateParams',
