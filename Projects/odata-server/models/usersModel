@@ -1,6 +1,6 @@
 module.exports = {
     authType: String,
-    externalId: Number,
+    externalId: String,
     firstName: String,
     lastName: String,
     avatar: String
