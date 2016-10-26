@@ -1,7 +1,4 @@
 {
-  "disallowSpacesInsideArrayBrackets": "all",
-  "disallowSpacesInsideBrackets": true,
-  "requireSpaceAfterComma":{"allExcept": ["trailing"]},
   "name": "mobile-forms",
   "version": "1.1.1",
   "description": "mobile-forms: An Ionic project",

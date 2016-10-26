@@ -14,19 +14,32 @@ angular.module('app.controllers', [])
     function($scope, $stateParams, $http, apiPrefix, AuthService) {
       $scope.edit = $stateParams.edit;
       $scope.quizId = $stateParams.quizId;
+      $scope.quizes = [];
+      var skip = 0;
+      var isOver = false;
+      $scope.moreDataCanBeLoaded = function() {
+        return !isOver;
+      };
+      $scope.loadMoreData = function() {
+        let url = '/quizes?$top=5&$skip=' + skip + '&$filter=userId eq \'' +
+        AuthService.currentUser().id + '\'';
+        skip = skip + 5;
+        $http({
+            method: 'GET',
+            url: apiPrefix + url,
+          }).then(function successCallback(response) {
+              console.log(response);
+              isOver = response.data.value.length == 0;
+              $scope.quizes = $scope.quizes.concat(response.data.value);
+            }, function errorCallback(response) {
 
-      let url = '/quizes?$filter=userId eq \'' +
-      AuthService.currentUser().id + '\'';
-      $http({
-          method: 'GET',
-          url: apiPrefix + url,
-        }).then(function successCallback(response) {
-            console.log(response);
-            $scope.quizes = response.data.value;
-          }, function errorCallback(response) {
-
-            console.error(response);
-          });
+              console.error(response);
+            });
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      };
+      $scope.$on('$stateChangeSuccess', function() {
+        $scope.loadMoreData();
+      });
     },])
 
     .controller('quizesNewCtrl', ['$scope', '$http', 'apiPrefix',
