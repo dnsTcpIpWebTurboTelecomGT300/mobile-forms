@@ -9,10 +9,8 @@
     </div>
     <div class="spacer" style="width: 300px; height: 33px;"></div>
     <form id="login-form" class="list">
-      <a ui-sref="app.quizes({edit: true})" id="login-button-vk" style="font-weight:500;color:#FFFFFF;"
-         class="button button-energized  button-block">Войти через ВКонтакте</a>
-      <a ui-sref="app.quizes({edit: false})" id="login-button-guest" style="font-weight:500;"
-         class="button button-stable  button-block">Войти как гость</a>
+      <a id="login-button-vk" style="font-weight:500;color:#FFFFFF;" class="button button-energized  button-block" ng-click="loginWithVk()">Войти через ВКонтакте</a>
+      <a id="login-button-guest" style="font-weight:500;" class="button button-stable  button-block" ng-click="loginAnonymous()">Войти как гость</a>
     </form>
   </ion-content>
 </ion-view>

@@ -6,6 +6,8 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var replace = require('replace');
+var replaceFiles = ['./www/js/app.js'];
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -49,3 +51,23 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+gulp.task('add-proxy', function() {
+  return replace({
+    regex: "https://mobile-forms.eu.auth0.com/user/ssodata",
+    replacement: "http://localhost:8100/auth",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})
+
+gulp.task('remove-proxy', function() {
+  return replace({
+    regex: "http://localhost:8100/auth",
+    replacement: "https://mobile-forms.eu.auth0.com/user/ssodata",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})

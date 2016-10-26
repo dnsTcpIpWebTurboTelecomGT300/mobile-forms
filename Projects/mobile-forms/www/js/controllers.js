@@ -1,74 +1,94 @@
 angular.module('app.controllers', [])
-  .controller('loginCtrl', ['$scope', '$stateParams',
-    function ($scope, $stateParams) {
-
-
+  .controller('loginCtrl', ['$scope', '$stateParams', 'authService',
+    function ($scope, $stateParams, authService) {
+      $scope.loginWithVk = function () {
+        authService.loginWithVk();
+      };
+      $scope.loginAnonymous = function () {
+        authService.loginAnonymous();
+      }
     }])
 
-  .controller('menuCtrl', ['$scope', '$stateParams',
-    function ($scope, $stateParams) {
+  .controller('menuCtrl', ['$scope', '$stateParams', 'authService',
+    function ($scope, $stateParams, authService) {
+      $scope.logout = function () {
+        authService.logout();
+      };
 
-
+      $scope.$on('user:updated', function(event, data) {
+        // you could inspect the data to see if what you care about changed, or just update your own scope
+        $scope.authType = authService.getAuthType();
+        $scope.profile = authService.getCurrentUserProfile();
+      });
+      //
+      // $scope.getAuthType = function () {
+      //   return authService.getAuthType();
+      // }
+      // $scope.getProfile = function () {
+      //   return authService.getCurrentUserProfile();
+      // }
+      // $scope.authType = authService.getAuthType();
+      // $scope.profile = authService.getCurrentUserProfile();
     }])
 
-  .controller('quizesCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix','AuthService',
+  .controller('quizesCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix', 'AuthService',
     function ($scope, $stateParams, $http, apiPrefix, AuthService) {
       $scope.edit = $stateParams.edit;
       $scope.quizId = $stateParams.quizId;
 
       let url = "/quizes?$filter=userId eq '" + AuthService.currentUser().id + "'";
       $http({
-          method: 'GET',
-          url: apiPrefix+url
+        method: 'GET',
+        url: apiPrefix + url
       }).then(function successCallback(response) {
-            console.log(response);
-            $scope.quizes = response.data.value;
-          }, function errorCallback(response) {
-            console.error(response);
-          });
+        console.log(response);
+        $scope.quizes = response.data.value;
+      }, function errorCallback(response) {
+        console.error(response);
+      });
     }])
 
-    .controller('quizesNewCtrl', ['$scope', '$http', 'apiPrefix', 'AuthService', '$ionicPopover', '$ionicHistory',
-      function ($scope, $http, apiPrefix, AuthService, $ionicPopover, $ionicHistory) {
-        var quiz = {
-            userId: AuthService.currentUser().id,
-            name: '',
-            description: '',
-            creationDate: new Date().toISOString(),
-            isPublished: false
-        }
-        $scope.quiz = quiz;
+  .controller('quizesNewCtrl', ['$scope', '$http', 'apiPrefix', 'AuthService', '$ionicPopover', '$ionicHistory',
+    function ($scope, $http, apiPrefix, AuthService, $ionicPopover, $ionicHistory) {
+      var quiz = {
+        userId: AuthService.currentUser().id,
+        name: '',
+        description: '',
+        creationDate: new Date().toISOString(),
+        isPublished: false
+      }
+      $scope.quiz = quiz;
 
-        $scope.save = function functionName() {
-          console.log($scope.quiz);
-          let url = "/quizes";
-          $http({
-              method: 'POST',
-              url: apiPrefix+url,
-              data: $scope.quiz
-          }).then(function successCallback(response) {
-                console.log(response);
-                $scope.quiz = response.data;
-                $scope.popover.hide();
-                $ionicHistory.goBack();
-              }, function errorCallback(response) {
-                console.error(response);
-              });
-        }
-
-        $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
-          scope: $scope
-        }).then(function(popover) {
-          $scope.popover = popover;
-        });
-
-        $scope.openPopover = function($event) {
-          $scope.popover.show($event);
-        };
-        $scope.closePopover = function() {
+      $scope.save = function functionName() {
+        console.log($scope.quiz);
+        let url = "/quizes";
+        $http({
+          method: 'POST',
+          url: apiPrefix + url,
+          data: $scope.quiz
+        }).then(function successCallback(response) {
+          console.log(response);
+          $scope.quiz = response.data;
           $scope.popover.hide();
-        };
-      }])
+          $ionicHistory.goBack();
+        }, function errorCallback(response) {
+          console.error(response);
+        });
+      }
+
+      $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
+        scope: $scope
+      }).then(function (popover) {
+        $scope.popover = popover;
+      });
+
+      $scope.openPopover = function ($event) {
+        $scope.popover.show($event);
+      };
+      $scope.closePopover = function () {
+        $scope.popover.hide();
+      };
+    }])
 
   .controller('quizDetailCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix', '$filter', '$ionicPopover',
     function ($scope, $stateParams, $http, apiPrefix, $filter, $ionicPopover) {
@@ -77,54 +97,54 @@ angular.module('app.controllers', [])
 
       $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
         scope: $scope
-      }).then(function(popover) {
+      }).then(function (popover) {
         $scope.popover = popover;
       });
 
-      $scope.openPopover = function($event) {
+      $scope.openPopover = function ($event) {
         $scope.popover.show($event);
       };
-      $scope.closePopover = function() {
+      $scope.closePopover = function () {
         $scope.popover.hide();
       };
       //Cleanup the popover when we're done with it!
-      $scope.$on('$destroy', function() {
+      $scope.$on('$destroy', function () {
         $scope.popover.remove();
       });
       // Execute action on hidden popover
-      $scope.$on('popover.hidden', function() {
+      $scope.$on('popover.hidden', function () {
         // Execute action
       });
       // Execute action on remove popover
-      $scope.$on('popover.removed', function() {
+      $scope.$on('popover.removed', function () {
         // Execute action
       });
 
-      let url = "/quizes("+$stateParams.quizId+")";
+      let url = "/quizes(" + $stateParams.quizId + ")";
       $http({
-          method: 'GET',
-          url: apiPrefix+url,
+        method: 'GET',
+        url: apiPrefix + url,
       }).then(function successCallback(response) {
-            console.log(response);
-            let data  = response.data;
-            let date = new Date(data.creationDate);
-            data.creationDateFormated = $filter('date')(date, "dd/MM/yyyy")
-            $scope.quize = data;
-            let url = "/users("+data.userId+")";
-            $http({
-                method: 'GET',
-                url: apiPrefix+url,
-            }).then(function successCallback(response) {
-                  console.log(response);
-                  let data  = response.data;
-                  $scope.user = data;
-                }, function errorCallback(response) {
-                  console.error(response);
-                });
+        console.log(response);
+        let data = response.data;
+        let date = new Date(data.creationDate);
+        data.creationDateFormated = $filter('date')(date, "dd/MM/yyyy")
+        $scope.quize = data;
+        let url = "/users(" + data.userId + ")";
+        $http({
+          method: 'GET',
+          url: apiPrefix + url,
+        }).then(function successCallback(response) {
+          console.log(response);
+          let data = response.data;
+          $scope.user = data;
+        }, function errorCallback(response) {
+          console.error(response);
+        });
 
-          }, function errorCallback(response) {
-            console.error(response);
-          });
+      }, function errorCallback(response) {
+        console.error(response);
+      });
     }])
 
   .controller('quizInfoCtrl', ['$scope', '$stateParams',

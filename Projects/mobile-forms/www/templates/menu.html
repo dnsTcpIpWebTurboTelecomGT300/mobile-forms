@@ -10,15 +10,18 @@
   </ion-side-menu-content>
   <ion-side-menu side="left" id="side-menu" style="background-color:#FFFFFF;">
     <ion-content padding="false" style="top:0px !important;" class="side-menu-left ">
-      <ion-list id="menu-list">
-        <ion-item class="item-avatar-left" id="user-info">
-          <img src="img/xUhkbvxfRUMOFIXxouyn_snap.jpg">
-          <h2>Петр</h2>
-          <p>Петров</p>
+      <ion-list id="menu-list" >
+        <ion-item class="item-avatar-left" ng-if="authType == VK_AUTH">
+          <img src="{{profile.picture}}">
+          <h2>{{profile.given_name}}</h2>
+          <p>{{profile.family_name}}</p>
+        </ion-item>
+        <ion-item class="item-avatar-left" ng-if="authType == ANON_AUTH">
+          <h2>{{profile.first_name}}</h2>
         </ion-item>
         <ion-item id="all-quizes" ui-sref="app.quizes({edit: false})" menu-close="">Список опросов</ion-item>
         <ion-item id="my-quizes" ui-sref="app.quizes({edit: true})" menu-close="">Мои опросы</ion-item>
-        <ion-item id="logout" ui-sref="login" menu-close="">Выход</ion-item>
+        <ion-item id="logout" ng-click="logout()" menu-close="">Выход</ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
