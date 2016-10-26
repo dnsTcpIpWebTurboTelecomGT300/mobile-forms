@@ -22,6 +22,7 @@ angular.module('app.routes', [])
 
       .state('app.quizes', {
         url: '/quizes',
+        cache: false,
         params: {
           edit: false
         },
@@ -38,7 +39,7 @@ angular.module('app.routes', [])
         views: {
           'side-menu@app': {
             templateUrl: 'templates/quiz-edit-form.html',
-            controller: 'quizesCtrl'
+            controller: 'quizesNewCtrl'
           }
         }
       })

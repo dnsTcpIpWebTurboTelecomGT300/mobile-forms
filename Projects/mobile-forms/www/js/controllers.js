@@ -11,12 +11,12 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('quizesCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix',
-    function ($scope, $stateParams, $http, apiPrefix) {
+  .controller('quizesCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix','AuthService',
+    function ($scope, $stateParams, $http, apiPrefix, AuthService) {
       $scope.edit = $stateParams.edit;
       $scope.quizId = $stateParams.quizId;
 
-      let url = "/quizes?$filter=userId eq '02c40968-e5a7-4c4d-be1b-471b6485c637'";
+      let url = "/quizes?$filter=userId eq '" + AuthService.currentUser().id + "'";
       $http({
           method: 'GET',
           url: apiPrefix+url
@@ -28,8 +28,50 @@ angular.module('app.controllers', [])
           });
     }])
 
+    .controller('quizesNewCtrl', ['$scope', '$http', 'apiPrefix', 'AuthService', '$ionicPopover', '$ionicHistory',
+      function ($scope, $http, apiPrefix, AuthService, $ionicPopover, $ionicHistory) {
+        var quiz = {
+            userId: AuthService.currentUser().id,
+            name: '',
+            description: '',
+            creationDate: new Date().toISOString(),
+            isPublished: false
+        }
+        $scope.quiz = quiz;
+
+        $scope.save = function functionName() {
+          console.log($scope.quiz);
+          let url = "/quizes";
+          $http({
+              method: 'POST',
+              url: apiPrefix+url,
+              data: $scope.quiz
+          }).then(function successCallback(response) {
+                console.log(response);
+                $scope.quiz = response.data;
+                $scope.popover.hide();
+                $ionicHistory.goBack();
+              }, function errorCallback(response) {
+                console.error(response);
+              });
+        }
+
+        $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
+          scope: $scope
+        }).then(function(popover) {
+          $scope.popover = popover;
+        });
+
+        $scope.openPopover = function($event) {
+          $scope.popover.show($event);
+        };
+        $scope.closePopover = function() {
+          $scope.popover.hide();
+        };
+      }])
+
   .controller('quizDetailCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix', '$filter', '$ionicPopover',
-    function ($scope, $stateParams, $http, apiPrefix, $filter,$ionicPopover) {
+    function ($scope, $stateParams, $http, apiPrefix, $filter, $ionicPopover) {
       $scope.edit = $stateParams.edit;
       $scope.quizId = $stateParams.quizId;
 
