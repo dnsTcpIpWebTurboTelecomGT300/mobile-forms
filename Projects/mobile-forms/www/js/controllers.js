@@ -10,8 +10,9 @@ angular.module('app.controllers', [])
     },])
 
   .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
-   'apiPrefix', 'AuthService',
-    function($scope, $stateParams, $http, apiPrefix, AuthService) {
+   'apiPrefix', 'AuthService', '$ionicFilterBar',
+    function($scope, $stateParams, $http,
+      apiPrefix, AuthService, $ionicFilterBar) {
       $scope.edit = $stateParams.edit;
       $scope.quizId = $stateParams.quizId;
       $scope.quizes = [];
@@ -23,6 +24,9 @@ angular.module('app.controllers', [])
       $scope.loadMoreData = function() {
         let url = '/quizes?$top=5&$skip=' + skip + '&$filter=userId eq \'' +
         AuthService.currentUser().id + '\'';
+        if ($scope.filterText) {
+          url = url + ' and indexof(name,\'' + $scope.filterText + '\') ge 0';
+        }
         skip = skip + 5;
         $http({
             method: 'GET',
@@ -40,6 +44,23 @@ angular.module('app.controllers', [])
       $scope.$on('$stateChangeSuccess', function() {
         $scope.loadMoreData();
       });
+
+      $scope.showFilterBar = function() {
+        filterBarInstance = $ionicFilterBar.show({
+          items: [],
+          cancel: function functionName() {
+            $scope.filterText = null;
+          },
+          update: function(filteredItems, filterText) {
+            skip = 0;
+            $scope.quizes = [];
+            $scope.filterText = filterText;
+            $scope.loadMoreData();
+          },
+          filterProperties: 'description'
+        });
+      };
+
     },])
 
     .controller('quizesNewCtrl', ['$scope', '$http', 'apiPrefix',
