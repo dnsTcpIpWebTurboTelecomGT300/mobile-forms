@@ -46,6 +46,7 @@ angular.module('app.routes', [])
 
       .state('app.quizDetail', {
         url: '/quizes/:quizId',
+        cache: false,
         params: {
           edit: false
         },
@@ -58,16 +59,19 @@ angular.module('app.routes', [])
       })
 
       .state('app.quizDetail.edit', {
-        url: '/quizes/:quizId/edit',
+        url: '/edit',
+        cache: false,
         views: {
-          'quiz-edit-tab': {
-            templateUrl: 'templates/quiz-edit.html'
+          'side-menu@app': {
+            templateUrl: 'templates/quiz-edit-form.html',
+            controller: 'quizDetailEditCtrl'
           }
         }
       })
 
       .state('app.quizDetail.info', {
         url: '/info',
+        cache: false,
         views: {
           'quiz-info-tab': {
             templateUrl: 'templates/quiz-info.html'
