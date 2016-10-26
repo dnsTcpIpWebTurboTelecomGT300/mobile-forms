@@ -1,6 +1,6 @@
 <ion-view title="{{edit ? 'Мои опросы' : 'Опросы' }}" animation="fade-in-out">
   <ion-nav-buttons side="right" class="has-header">
-    <button class="button icon ion-android-search"></button>
+    <button class="button icon ion-android-search" ng-click="showFilterBar()"></button>
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
     <ion-list ng-repeat="quize in quizes" id="page5-list4" class="manual-list-fullwidth">
@@ -9,6 +9,11 @@
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
+    <ion-infinite-scroll
+      ng-if="moreDataCanBeLoaded()"
+      distance="1%"
+      on-infinite="loadMoreData()">
+    </ion-infinite-scroll>
   </ion-content>
   <ion-floating-button ui-sref="app.quizes.new({})" has-footer="false" button-color="#ff5252" icon="ion-plus" icon-color="#fff">
   </ion-floating-button>
