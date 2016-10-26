@@ -1,7 +1,7 @@
 module.exports = {
     quizId: String,
     text: String,
-    required: Boolean,
+    isRequired: Boolean,
     questionType: String,
     answerFormat: String,
     isMulti: Boolean,
