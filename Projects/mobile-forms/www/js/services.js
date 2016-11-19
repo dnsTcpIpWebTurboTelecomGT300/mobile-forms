@@ -24,28 +24,27 @@ angular.module('app.services', [])
       });
     }
 
-    function createUser(userObj) {
-      return $http({
-        method: 'POST',
-        url: apiPrefix + url,
-        data: userObj
-      });
-    }
-
-    function updateUser(id, userObj) {
-      return $http({
-        method: 'PUT',
-        url: apiPrefix + url + "(" + id + ")",
-        data: userObj
-      })
+    function save(userObj) {
+      if (userObj.id) {
+        return $http({
+          method: 'PUT',
+          url: apiPrefix + url + "(" + userObj.id + ")",
+          data: userObj
+        });
+      } else {
+        return $http({
+          method: 'POST',
+          url: apiPrefix + url,
+          data: userObj
+        });
+      }
     }
 
     return {
       findUserByToken: findUserByToken,
       findUserByExternalId: findUserByExternalId,
       findOne: findOne,
-      createUser: createUser,
-      updateUser: updateUser
+      save: save
     }
   }])
 
@@ -86,11 +85,19 @@ angular.module('app.services', [])
     }
 
     function save(quiz) {
-      return $http({
-        method: 'POST',
-        url: apiPrefix + url,
-        data: quiz,
-      });
+      if (quiz.id) {
+        return $http({
+          method: 'PUT',
+          url: apiPrefix + url + '(' + quiz.id + ')',
+          data: quiz,
+        });
+      } else {
+        return $http({
+          method: 'POST',
+          url: apiPrefix + url,
+          data: quiz,
+        });
+      }
     }
 
     function remove(quizId) {
@@ -238,25 +245,23 @@ angular.module('app.services', [])
 
       function syncUserWithDatabase() {
         return $q(function (resolve, reject) {
+          debugger;
           if (userProfile.authType == ANON_AUTH) {
-            userService.createUser(userProfile).then(function (response) {
+            userService.save(userProfile).then(function (response) {
               userProfile.id = response.data.id;
               resolve(userProfile);
             });
           } else if (userProfile.authType == VK_AUTH) {
             userService.findUserByExternalId(userProfile.externalId).then(function (response) {
+              debugger;
               var userObj = response.data.value[0];
-              if (userObj == undefined) {
-                userService.createUser(userProfile).then(function (response) {
-                  userProfile.id = response.data.id;
-                  resolve(userProfile);
-                });
-              } else {
-                userService.updateUser(userObj.id, userProfile).then(function (response) {
-                  userProfile.id = response.data.id;
-                  resolve(userProfile);
-                });
+              if (userObj != undefined) {
+                userProfile.id = userObj.id;
               }
+              userService.save(userProfile).then(function (response) {
+                userProfile.id = response.data.id;
+                resolve(userProfile);
+              });
             }, function (error) {
               reject(error);
             });
