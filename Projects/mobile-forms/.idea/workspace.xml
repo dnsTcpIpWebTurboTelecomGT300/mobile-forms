@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/menu.html" afterPath="$PROJECT_DIR$/www/templates/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/question-edit.html" afterPath="$PROJECT_DIR$/www/templates/question-edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/quiz-detail.html" afterPath="$PROJECT_DIR$/www/templates/quiz-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/quiz-edit-form.html" afterPath="$PROJECT_DIR$/www/templates/quiz-edit-form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/quiz-progress.html" afterPath="$PROJECT_DIR$/www/templates/quiz-progress.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/quizes.html" afterPath="$PROJECT_DIR$/www/templates/quizes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/variant-edit.html" afterPath="$PROJECT_DIR$/www/templates/variant-edit.html" />
     </list>
     <ignored path="mobile-forms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,87 +44,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bower.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="question-edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/question-edit.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="490">
               <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="233" column="8" selection-start-line="233" selection-start-column="8" selection-end-line="233" selection-end-column="8" />
-              <folding>
-                <element signature="e#65#339#0" expanded="false" />
-                <element signature="e#156#338#0" expanded="false" />
-                <element signature="e#197#241#0" expanded="false" />
-                <element signature="e#285#332#0" expanded="false" />
-                <element signature="e#368#718#0" expanded="false" />
-                <element signature="e#459#717#0" expanded="false" />
-                <element signature="e#548#587#0" expanded="false" />
-                <element signature="e#645#709#0" expanded="false" />
-                <element signature="e#749#2304#0" expanded="false" />
-                <element signature="e#948#2302#0" expanded="false" />
-                <element signature="e#1226#1733#0" expanded="false" />
-                <element signature="e#1341#1582#0" expanded="false" />
-                <element signature="e#1617#1663#0" expanded="false" />
-                <element signature="e#1788#1828#0" expanded="false" />
-                <element signature="e#1873#2294#0" expanded="false" />
-                <element signature="e#1924#2284#0" expanded="false" />
-                <element signature="e#1977#2028#0" expanded="false" />
-                <element signature="e#2085#2231#0" expanded="false" />
-                <element signature="e#2338#3565#0" expanded="false" />
-                <element signature="e#2577#3563#0" expanded="false" />
-                <element signature="e#2599#2728#0" expanded="false" />
-                <element signature="e#2763#3196#0" expanded="false" />
-                <element signature="e#2889#3044#0" expanded="false" />
-                <element signature="e#3063#3186#0" expanded="false" />
-                <element signature="e#3093#3174#0" expanded="false" />
-                <element signature="e#3277#3309#0" expanded="false" />
-                <element signature="e#3335#3378#0" expanded="false" />
-                <element signature="e#3427#3473#0" expanded="false" />
-                <element signature="e#3516#3556#0" expanded="false" />
-                <element signature="e#3600#5849#0" expanded="false" />
-                <element signature="e#3907#5847#0" expanded="false" />
-                <element signature="e#4032#4114#0" expanded="false" />
-                <element signature="e#4151#4900#0" expanded="false" />
-                <element signature="e#4231#4392#0" expanded="false" />
-                <element signature="e#4437#4890#0" expanded="false" />
-                <element signature="e#4458#4817#0" expanded="false" />
-                <element signature="e#4590#4643#0" expanded="false" />
-                <element signature="e#4662#4803#0" expanded="false" />
-                <element signature="e#4696#4787#0" expanded="false" />
-                <element signature="e#4823#4880#0" expanded="false" />
-                <element signature="e#4981#5013#0" expanded="false" />
-                <element signature="e#5039#5082#0" expanded="false" />
-                <element signature="e#5131#5177#0" expanded="false" />
-                <element signature="e#5220#5260#0" expanded="false" />
-                <element signature="e#5357#5399#0" expanded="false" />
-                <element signature="e#5475#5839#0" expanded="false" />
-                <element signature="e#5709#5802#0" expanded="false" />
-                <element signature="e#5888#7096#0" expanded="false" />
-                <element signature="e#6203#6285#0" expanded="false" />
-                <element signature="e#6321#6727#0" expanded="false" />
-                <element signature="e#6420#6575#0" expanded="false" />
-                <element signature="e#6594#6717#0" expanded="false" />
-                <element signature="e#6624#6705#0" expanded="false" />
-                <element signature="e#6808#6840#0" expanded="false" />
-                <element signature="e#6866#6909#0" expanded="false" />
-                <element signature="e#6958#7004#0" expanded="false" />
-                <element signature="e#7047#7087#0" expanded="false" />
-                <element signature="e#7133#7206#0" expanded="false" />
-                <element signature="e#7196#7204#0" expanded="false" />
-                <element signature="e#7242#7315#0" expanded="false" />
-                <element signature="e#7305#7313#0" expanded="false" />
-                <element signature="e#7352#7425#0" expanded="false" />
-                <element signature="e#7415#7423#0" expanded="false" />
-                <element signature="e#7527#7535#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -182,21 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quiz-progress.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/quiz-progress.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="quiz-edit-form.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="quiz-edit-form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/quiz-edit-form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+            <state relative-caret-position="306">
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -237,7 +166,6 @@
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/config.xml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/templates/quiz-edit.html" />
         <option value="$PROJECT_DIR$/www/templates/popover/qd-popover-save.html" />
@@ -252,6 +180,7 @@
         <option value="$PROJECT_DIR$/www/templates/menu.html" />
         <option value="$PROJECT_DIR$/www/templates/question-edit.html" />
         <option value="$PROJECT_DIR$/www/templates/quiz-edit-form.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -888,7 +817,7 @@
       <workItem from="1477490335156" duration="22998000" />
       <workItem from="1477515059079" duration="5109000" />
       <workItem from="1479307339716" duration="98000" />
-      <workItem from="1479555029825" duration="28625000" />
+      <workItem from="1479555029825" duration="28761000" />
     </task>
     <task id="LOCAL-00001" summary="added auth">
       <created>1477510134927</created>
@@ -946,11 +875,18 @@
       <option name="project" value="LOCAL" />
       <updated>1479585055259</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="templates cleanup">
+      <created>1479585357052</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1479585357052</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95455000" />
+    <option name="totallyTimeSpent" value="95591000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1035,7 +971,8 @@
     <MESSAGE value="added quizes service" />
     <MESSAGE value="some more refactor" />
     <MESSAGE value="removed unused templates and controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed unused templates and controllers" />
+    <MESSAGE value="templates cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="templates cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1269,25 +1206,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/lib/auth0-angular/src/auth0-angular.js" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="74" selection-start-line="1" selection-start-column="74" selection-end-line="1" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -1525,8 +1447,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/quiz-edit-form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+        <state relative-caret-position="306">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding />
         </state>
       </provider>
