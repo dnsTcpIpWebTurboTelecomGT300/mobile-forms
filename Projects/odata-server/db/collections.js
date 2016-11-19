@@ -1,10 +1,7 @@
     db.createCollection ( "users", {
         validator: {
             authType: { $type: "string" },
-            externalId: { $exists: true  },
-            firstName: { $type: "string" },
-            lastName: { $type: "string" },
-            avatar: { $type: "string" }
+            firstName: { $type: "string" }
         },
         validationAction: "error",
         validationLevel: "strict"
