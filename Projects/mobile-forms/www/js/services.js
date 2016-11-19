@@ -1,64 +1,36 @@
 angular.module('app.services', [])
 
-  .service('userService', ['$http', 'apiPrefix', function ($http, apiPrefix) {
+  .service('userService', ['$http', 'apiPrefix', '$q', function ($http, apiPrefix, $q) {
     var url = "/users";
 
     function findUserByExternalId(externalId) {
-      $http({
+      return $http({
         method: 'GET',
-        url: apiPrefix + url + '?$filter=externalId eq ' + externalId,
-      }).then(function successCallback(response) {
-        console.log(response);
-        if (response.data.length > 0) {
-          return response.data[0];
-        }
-      }, function errorCallback(response) {
-        console.error(response);
+        url: apiPrefix + url + '?$filter=externalId eq \'' + externalId + '\'',
       });
     }
 
     function findUserById(id) {
-      $http({
+      return $http({
         method: 'GET',
         url: apiPrefix + url + '?$filter=id eq ' + id,
-      }).then(function successCallback(response) {
-        console.log(response);
-        if (response.data.length > 0) {
-          return response.data[0];
-        }
-      }, function errorCallback(response) {
-        console.error(response);
       });
     }
 
     function createUser(userObj) {
-      $http({
+      return $http({
         method: 'POST',
         url: apiPrefix + url,
         data: userObj
-      }).then(function successCallback(response, xhr) {
-        console.log(response);
-        if (xhr.status = 200 && response.data) {
-          return response.data;
-        }
-      }, function errorCallback(response) {
-        console.error(response);
       });
     }
 
     function updateUser(id, userObj) {
-      $http({
+      return $http({
         method: 'PUT',
         url: apiPrefix + url + "(" + id + ")",
         data: userObj
-      }).then(function successCallback(response, xhr) {
-        console.log(response);
-        if (xhr.status = 200 && response.data) {
-          return response.data;
-        }
-      }, function errorCallback(response) {
-        console.error(response);
-      });
+      })
     }
 
     return {
@@ -71,17 +43,22 @@ angular.module('app.services', [])
 
   .service('authService', ['$rootScope', '$state', 'angularAuth0', 'authManager', 'jwtHelper', '$location', '$ionicPopup',
     'ANON_AUTH', 'VK_AUTH', 'userService',
-    function ($rootScope, $state, angularAuth0, authManager, jwtHelper, $location, $ionicPopup, ANON_AUTH, VK_AUTH) {
-      var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
+    function ($rootScope, $state, angularAuth0, authManager, jwtHelper, $location, $ionicPopup, ANON_AUTH, VK_AUTH, userService) {
+      var userProfile = {};
 
       var anonProfile = {
-        "firstName": "Гость"
+        firstName: "Гость",
+        lastName: "",
+        avatar: "img/anon.jpg"
       };
 
       function loginAnonymous() {
-        localStorage.setItem("authType", ANON_AUTH);
-        localStorage.setItem("profile", anonProfile);
         console.log("Anonymous log in");
+        userProfile = anonProfile;
+        userProfile.authType = ANON_AUTH;
+        authManager.authenticate();
+        syncUserWithDatabase();
+        localStorage.setItem('profile', JSON.stringify(anonProfile));
         $rootScope.$broadcast('user:updated', ANON_AUTH, anonProfile);
         $state.go("app.quizes");
       }
@@ -98,12 +75,13 @@ angular.module('app.services', [])
         $state.go("login", {}, {reload: true});
         authManager.unauthenticate();
         userProfile = {};
+        localStorage.removeItem("profile");
+        localStorage.removeItem("id_token");
         console.log("Logged out");
       }
 
       function authenticateAndGetProfile() {
         var result = angularAuth0.parseHash(window.location.hash);
-
         if (result && result.idToken) {
           onAuthenticated(null, result);
         } else if (result && result.error) {
@@ -120,7 +98,6 @@ angular.module('app.services', [])
           });
         }
         localStorage.setItem('id_token', authResult.idToken);
-        localStorage.setItem("authType", VK_AUTH);
         authManager.authenticate();
 
         angularAuth0.getProfile(authResult.idToken, function (error, profileData) {
@@ -128,8 +105,17 @@ angular.module('app.services', [])
             return console.log(error);
           }
 
-          localStorage.setItem('profile', JSON.stringify(profileData));
-          userProfile = profileData;
+          userProfile = {
+            authType: VK_AUTH,
+            externalId: profileData.user_id,
+            firstName: profileData.given_name,
+            lastName: profileData.family_name,
+            avatar: profileData.picture
+          };
+
+          localStorage.setItem('profile', JSON.stringify(userProfile));
+
+          syncUserWithDatabase();
 
           $rootScope.$broadcast('user:updated', VK_AUTH, userProfile);
         });
@@ -139,23 +125,17 @@ angular.module('app.services', [])
       }
 
       function checkAuthOnRefresh() {
+        debugger;
+        //Если есть токен проверяем его
         var token = localStorage.getItem('id_token');
         if (token) {
           if (!jwtHelper.isTokenExpired(token)) {
             if (!$rootScope.isAuthenticated) {
               authManager.authenticate();
-              $rootScope.$broadcast('user:updated', VK_AUTH, anonProfile);
             }
-          } else {
-            $state.go("login", {}, {reload: true});
-          }
-        } else if (getAuthType() === 'anonymous') {
-          if (!$rootScope.isAuthenticated) {
-            authManager.authenticate();
-            $rootScope.$broadcast('user:updated', ANON_AUTH, anonProfile);
           }
         } else {
-          $state.go("login", {}, {reload: true});
+          authManager.redirect();
         }
       }
 
@@ -163,16 +143,31 @@ angular.module('app.services', [])
         return JSON.parse(localStorage.getItem('profile'));
       }
 
-      function getAuthType() {
-        return localStorage.getItem('authType');
-      }
-
       function syncUserWithDatabase() {
-        var userObj = userService.findUserByExternalId(getCurrentUserProfile().user_id)
+        if (userProfile.authType == ANON_AUTH) {
+          userService.createUser(userProfile).then(function (response) {
+            userProfile.id = response.data.id;
+          });
+        } else if (userProfile.authType == VK_AUTH) {
+          userService.findUserByExternalId(getCurrentUserProfile().externalId).then(function (response) {
+            var userObj = response.data.value[0];
+            if (userObj == undefined) {
+              userService.createUser(userProfile).then(function (response) {
+                userProfile.id = response.data.id;
+              });
+            } else {
+              userService.updateUser(userObj.id, userProfile).then(function (response) {
+                userProfile.id = response.data.id;
+              });
+            }
+          }, function (error) {
+            $ionicPopup(error);
+          });
+        }
+
       }
 
       return {
-        getAuthType: getAuthType,
         getCurrentUserProfile: getCurrentUserProfile,
         loginAnonymous: loginAnonymous,
         logout: logout,
@@ -180,6 +175,7 @@ angular.module('app.services', [])
         checkAuthOnRefresh: checkAuthOnRefresh,
         authenticateAndGetProfile: authenticateAndGetProfile
       }
+
     }]);
 
 

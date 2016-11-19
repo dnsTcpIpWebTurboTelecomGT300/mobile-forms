@@ -1,7 +1,8 @@
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives', 'app.services',
   'ion-floating-menu', 'auth0.auth0', 'angular-jwt', 'jett.ionic.filter.bar'])
-  
+
   .constant('apiPrefix', 'http://teemo-gu5b6kr5.cloudapp.net:3000/api/')
+  // .constant('apiPrefix', 'http://localhost:3000/api/')
   .constant("AUTH0_DOMAIN", "mobile-forms.eu.auth0.com")
   .constant("AUTH0_APP_ID", "JJmxtVcCorumFXQIKRkZxX0HyuAl0EA9")
   .constant("ANON_AUTH", "anonymous")
@@ -23,8 +24,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       }
     };
   })
-  
-  .config(function ($ionicConfigProvider, angularAuth0Provider, AUTH0_DOMAIN, AUTH0_APP_ID, ANON_AUTH, VK_AUTH) {
+
+  .config(function ($ionicConfigProvider, angularAuth0Provider, AUTH0_DOMAIN, AUTH0_APP_ID,
+                    jwtOptionsProvider, $httpProvider) {
     $ionicConfigProvider.backButton.text('').previousTitleText(false);
 
     // Initialization for the angular-auth0 library
@@ -32,9 +34,20 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       clientID: AUTH0_APP_ID,
       domain: AUTH0_DOMAIN
     });
+
+    // Configuration for angular-jwt
+    jwtOptionsProvider.config({
+      tokenGetter: function () {
+        return localStorage.getItem('id_token');
+      },
+      whiteListedDomains: ['localhost'],
+      unauthenticatedRedirectPath: '/login'
+    });
+
+    $httpProvider.interceptors.push('jwtInterceptor');
   })
 
-  .run(function ($rootScope, $ionicPlatform, authService, ANON_AUTH, VK_AUTH) {
+  .run(function ($rootScope, $ionicPlatform, authService, ANON_AUTH, VK_AUTH, authManager) {
     $rootScope.ANON_AUTH = ANON_AUTH;
     $rootScope.VK_AUTH = VK_AUTH;
 

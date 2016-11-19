@@ -15,6 +15,6 @@
       on-infinite="loadMoreData()">
     </ion-infinite-scroll>
   </ion-content>
-  <ion-floating-button ui-sref="app.quizes.new({})" has-footer="false" button-color="#ff5252" icon="ion-plus" icon-color="#fff">
+  <ion-floating-button ng-if="edit" ui-sref="app.quizes.new({})" has-footer="false" button-color="#ff5252" icon="ion-plus" icon-color="#fff">
   </ion-floating-button>
 </ion-view>

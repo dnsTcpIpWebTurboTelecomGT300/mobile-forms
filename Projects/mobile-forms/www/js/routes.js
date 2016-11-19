@@ -12,14 +12,17 @@ angular.module('app.routes', [])
         url: '/login',
         cache: false,
         templateUrl: 'templates/login.html',
-        controller: 'loginCtrl'
+        controller: 'loginCtrl',
       })
 
       .state('app', {
         url: '/app',
         cache: false,
         templateUrl: 'templates/menu.html',
-        controller: 'menuCtrl'
+        controller: 'menuCtrl',
+        data: {
+          requiresLogin: true
+        }
       })
 
       .state('app.quizes', {
@@ -33,6 +36,9 @@ angular.module('app.routes', [])
             templateUrl: 'templates/quizes.html',
             controller: 'quizesCtrl'
           }
+        },
+        data: {
+          requiresLogin: true
         }
       })
 
@@ -43,6 +49,9 @@ angular.module('app.routes', [])
             templateUrl: 'templates/quiz-edit-form.html',
             controller: 'quizesNewCtrl'
           }
+        },
+        data: {
+          requiresLogin: true
         }
       })
 
@@ -57,6 +66,9 @@ angular.module('app.routes', [])
             templateUrl: 'templates/quiz-detail.html',
             controller: 'quizDetailCtrl'
           }
+        },
+        data: {
+          requiresLogin: true
         }
       })
 
@@ -68,6 +80,9 @@ angular.module('app.routes', [])
             templateUrl: 'templates/quiz-edit-form.html',
             controller: 'quizDetailEditCtrl'
           }
+        },
+        data: {
+          requiresLogin: true
         }
       })
 
@@ -78,6 +93,9 @@ angular.module('app.routes', [])
           'quiz-info-tab': {
             templateUrl: 'templates/quiz-info.html'
           }
+        },
+        data: {
+          requiresLogin: true
         }
       })
 
@@ -87,6 +105,9 @@ angular.module('app.routes', [])
           'quiz-answers-tab': {
             templateUrl: 'templates/quiz-answers.html'
           }
+        },
+        data: {
+          requiresLogin: true
         }
       });
 

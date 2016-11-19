@@ -11,12 +11,11 @@ angular.module('app.controllers', [])
 
   .controller('menuCtrl', ['$scope', '$stateParams', 'authService',
     function ($scope, $stateParams, authService) {
+      $scope.profile = authService.getCurrentUserProfile();
       $scope.logout = function () {
         authService.logout();
       };
       $scope.$on('user:updated', function (event, data) {
-        // you could inspect the data to see if what you care about changed, or just update your own scope
-        $scope.authType = authService.getAuthType();
         $scope.profile = authService.getCurrentUserProfile();
       });
     }])
