@@ -5,11 +5,11 @@
   <ion-content padding="true">
     <form class="list">
       <ion-list class="manual-list-fullwidth">
-        <label class="item item-input item-stacked-label" id="page9-input8">
+        <label class="item item-input item-stacked-label">
           <span class="input-label">Название</span>
           <input type="text" placeholder="Название опроса" ng-model="quiz.name">
         </label>
-        <label class="item item-input item-stacked-label" id="page9-input10">
+        <label class="item item-input item-stacked-label">
           <span class="input-label">Описание</span>
           <input type="text" placeholder="Описание опроса" ng-model="quiz.description">
         </label>
@@ -18,6 +18,13 @@
     </form>
     <div style="color:#000000;"></div>
     <ion-list class="manual-list-fullwidth">
+      <ion-item class="item-divider">Список вопросов</ion-item>
+      <div ng-repeat="question in quiz.questions">
+        <ion-item class="item-icon-right">
+          {{question.text}}
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+      </div>
     </ion-list>
     <div style="color:#000000;"></div>
   </ion-content>

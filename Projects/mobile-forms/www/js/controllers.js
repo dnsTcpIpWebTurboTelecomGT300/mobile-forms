@@ -134,13 +134,18 @@ angular.module('app.controllers', [])
     },])
 
   .controller('quizDetailEditCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix',
-    '$ionicPopover', '$ionicHistory', 'quizService', '$ionicPopup', 'authService',
+    '$ionicPopover', '$ionicHistory', 'quizService', '$ionicPopup', 'authService', 'questionService',
     function ($scope, $stateParams, $http, apiPrefix, $ionicPopover,
-              $ionicHistory, quizService, $ionicPopup, authService) {
+              $ionicHistory, quizService, $ionicPopup, authService, questionService) {
+      debugger;
       if ($stateParams.quizId) {
         quizService.findOne($stateParams.quizId).then(function (response) {
           console.log(response.data);
-          $scope.quiz = response.data;
+          questionService.findAll(response.data.id).then(function (questionsResponse) {
+            console.log(response.data.value);
+            $scope.quiz = response.data;
+            $scope.quiz.questions = questionsResponse.data.value;
+          });
         });
       } else {
         $scope.quiz = {

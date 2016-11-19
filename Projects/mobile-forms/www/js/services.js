@@ -1,5 +1,20 @@
 angular.module('app.services', [])
 
+  .service('questionService', ['$http', 'apiPrefix', function ($http, apiPrefix) {
+    var url = "questions";
+
+    function findAll(quizId) {
+      return $http({
+        method: 'GET',
+        url: apiPrefix + url + '?$filter=quizId eq \'' + quizId + '\'',
+      });
+    }
+
+    return {
+      findAll: findAll
+    }
+  }])
+
   .service('userService', ['$http', 'apiPrefix', function ($http, apiPrefix) {
     var url = "users";
 
