@@ -17,10 +17,10 @@ angular.module('app.services', [])
       });
     }
 
-    function findUserById(id) {
+    function findOne(id) {
       return $http({
         method: 'GET',
-        url: apiPrefix + url + '?$filter=id eq ' + id,
+        url: apiPrefix + url + '(' + id + ')',
       });
     }
 
@@ -43,7 +43,7 @@ angular.module('app.services', [])
     return {
       findUserByToken: findUserByToken,
       findUserByExternalId: findUserByExternalId,
-      findUserById: findUserById,
+      findOne: findOne,
       createUser: createUser,
       updateUser: updateUser
     }
@@ -51,6 +51,13 @@ angular.module('app.services', [])
 
   .service('quizService', ['$http', 'apiPrefix', function ($http, apiPrefix) {
     var url = "quizes";
+
+    function findOne(quizId) {
+      return $http({
+        method: 'GET',
+        url: apiPrefix + url + '(' + quizId + ')',
+      });
+    }
 
     function findQuizes(userId, top, skip, containedText, orderBy) {
       let filters = [], textFilter, filter, topStatement, skipStatement, orderByStatement;
@@ -86,9 +93,18 @@ angular.module('app.services', [])
       });
     }
 
+    function remove(quizId) {
+      return $http({
+        method: 'DELETE',
+        url: apiPrefix + url + '(' + quizId + ')',
+      });
+    }
+
     return {
       findQuizes: findQuizes,
-      save: save
+      save: save,
+      remove: remove,
+      findOne: findOne
     }
 
   }])
@@ -174,7 +190,7 @@ angular.module('app.services', [])
           syncUserWithDatabase().then(function (synchronizedUser) {
             localStorage.setItem('profile', JSON.stringify(synchronizedUser));
             $rootScope.$broadcast('user:updated', VK_AUTH, synchronizedUser);
-            $state.go("app.quizes");
+            $state.go("app.quizes", {editable: true});
           }, function (error) {
             $ionicPopup.alert({
               title: 'Ошибка авторизации',

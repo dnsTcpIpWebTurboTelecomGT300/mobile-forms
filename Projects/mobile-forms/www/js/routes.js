@@ -29,7 +29,7 @@ angular.module('app.routes', [])
         url: '/quizes',
         cache: false,
         params: {
-          edit: false
+          editable: false
         },
         views: {
           'side-menu': {
@@ -59,7 +59,7 @@ angular.module('app.routes', [])
         url: '/quizes/:quizId',
         cache: false,
         params: {
-          edit: false
+          editable: false
         },
         views: {
           'side-menu': {

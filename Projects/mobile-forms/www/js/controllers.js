@@ -23,7 +23,7 @@ angular.module('app.controllers', [])
   .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
     'apiPrefix', 'quizService', '$ionicFilterBar', 'authService',
     function ($scope, $stateParams, $http, apiPrefix, quizService, $ionicFilterBar, authService) {
-      $scope.edit = $stateParams.edit;
+      $scope.editable = $stateParams.editable;
       $scope.quizId = $stateParams.quizId;
       $scope.quizes = [];
       $scope.moreDataCanBeLoaded = false;
@@ -32,7 +32,7 @@ angular.module('app.controllers', [])
       var skip = 0;
       $scope.loadMoreData = function () {
         quizService.findQuizes($scope.currentUser.id, 5, skip, $scope.filterText, true).then(function (response) {
-          console.log(response);
+          console.log(response.data);
           skip = skip + response.data.value.length;
           $scope.moreDataCanBeLoaded = response.data.value.length > 0;
           $scope.quizes = $scope.quizes.concat(response.data.value);
@@ -49,7 +49,7 @@ angular.module('app.controllers', [])
       $scope.showFilterBar = function () {
         filterBarInstance = $ionicFilterBar.show({
           items: [],
-          cancel: function functionName() {
+          cancel: function () {
             $scope.filterText = null;
           },
           update: function (filteredItems, filterText) {
@@ -77,23 +77,22 @@ angular.module('app.controllers', [])
 
       $scope.save = function () {
         $scope.quiz.creationDate = new Date().toISOString();
-        quizService.save($scope.quiz).then(function (response){
-          console.log(response);
+        quizService.save($scope.quiz).then(function (response) {
+          console.log(response.data);
           $scope.quiz = response.data;
           $scope.popover.hide();
           $ionicHistory.goBack();
         }, function (error) {
           $ionicPopup.alert({
-            title: 'Ошибка',
+            title: 'Ошибка сохранения',
             template: error
           });
         });
       };
 
-      $ionicPopover
-        .fromTemplateUrl('templates/popover/qd-popover-save.html', {
-          scope: $scope,
-        }).then(function (popover) {
+      $ionicPopover.fromTemplateUrl('templates/popover/qd-popover-save.html', {
+        scope: $scope,
+      }).then(function (popover) {
         $scope.popover = popover;
       });
 
@@ -107,10 +106,10 @@ angular.module('app.controllers', [])
     },])
 
   .controller('quizDetailCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix',
-    '$filter', '$ionicPopover', '$state', '$ionicPopup', '$ionicHistory',
-    function ($scope, $stateParams, $http, apiPrefix, $filter,
-              $ionicPopover, $state, $ionicPopup, $ionicHistory) {
-      $scope.edit = $stateParams.edit;
+    '$filter', '$ionicPopover', '$state', '$ionicPopup', '$ionicHistory', 'quizService', 'userService',
+    function ($scope, $stateParams, $http, apiPrefix, $filter, $ionicPopover, $state, $ionicPopup,
+              $ionicHistory, quizService, userService) {
+      $scope.editable = $stateParams.editable;
       $scope.quizId = $stateParams.quizId;
 
       $scope.edit = function () {
@@ -130,15 +129,13 @@ angular.module('app.controllers', [])
         confirmPopup.then(function (res) {
           if (res) {
             console.log('Удаление: ' + $stateParams.quizId);
-            let url = '/quizes(' + $stateParams.quizId + ')';
-            $http({
-              method: 'DELETE',
-              url: apiPrefix + url,
-            }).then(function successCallback(response) {
-              console.log(response);
+            quizService.remove($stateParams.quizId).then(function () {
               $ionicHistory.goBack();
-            }, function errorCallback(response) {
-              console.error(response);
+            }, function (error) {
+              $ionicPopup.alert({
+                title: 'Ошибка удаления',
+                template: error
+              });
             });
           } else {
             console.log('Отмена удаления');
@@ -165,76 +162,39 @@ angular.module('app.controllers', [])
         $scope.popover.remove();
       });
 
-      // Execute action on hidden popover
-      $scope.$on('popover.hidden', function () {
-        // Execute action
-      });
-
-      // Execute action on remove popover
-      $scope.$on('popover.removed', function () {
-        // Execute action
-      });
-
-      let url = '/quizes(' + $stateParams.quizId + ')';
-      $http({
-        method: 'GET',
-        url: apiPrefix + url,
-      }).then(function successCallback(response) {
-        console.log(response);
-        let data = response.data;
-        let date = new Date(data.creationDate);
-        data.creationDateFormated = $filter('date')(date, 'dd/MM/yyyy');
-        $scope.quize = data;
-        let url = '/users(' + data.userId + ')';
-        $http({
-          method: 'GET',
-          url: apiPrefix + url,
-        }).then(function successCallback(response) {
-          console.log(response);
-          let data = response.data;
-          $scope.user = data;
-        }, function errorCallback(response) {
-
-          console.error(response);
-        });
-
-      }, function errorCallback(response) {
-
-        console.error(response);
+      quizService.findOne($stateParams.quizId).then(function (response) {
+        console.log(response.data);
+        let quiz = response.data;
+        quiz.creationDateFormated = $filter('date')(new Date(quiz.creationDate), 'dd/MM/yyyy');
+        userService.findOne(quiz.userId).then(function (response) {
+          console.log(response.data);
+          $scope.quiz.user = response.data;
+        })
+        $scope.quiz = quiz;
       });
     },])
 
   .controller('quizDetailEditCtrl', ['$scope', '$stateParams',
-    '$http', 'apiPrefix', '$ionicPopover', '$ionicHistory',
+    '$http', 'apiPrefix', '$ionicPopover', '$ionicHistory', 'quizService', '$ionicPopup',
     function ($scope, $stateParams, $http,
-              apiPrefix, $ionicPopover, $ionicHistory) {
-
-      let url = '/quizes(' + $stateParams.quizId + ')';
-      $http({
-        method: 'GET',
-        url: apiPrefix + url,
-      }).then(function successCallback(response) {
-        console.log(response);
+              apiPrefix, $ionicPopover, $ionicHistory, quizService, $ionicPopup) {
+      quizService.findOne($stateParams.quizId).then(function (response) {
+        console.log(response.data);
         $scope.quiz = response.data;
-      }, function errorCallback(response) {
-
-        console.error(response);
       });
 
-      $scope.save = function functionName() {
+      $scope.save = function () {
         console.log($scope.quiz);
-        $http({
-          method: 'PUT',
-          url: apiPrefix + url,
-          data: $scope.quiz,
-        }).then(function successCallback(response) {
-          console.log(response);
+        quizService.save($scope.quiz).then(function (response) {
+          console.log(response.data);
           $scope.quiz = response.data;
           $scope.popover.hide();
           $ionicHistory.goBack();
-        }, function errorCallback(response) {
-
-          console.error(response);
+        }, function (error) {
+          $ionicPopup.alert({
+            title: 'Ошибка сохранения',
+            template: error
+          });
         });
       };
 

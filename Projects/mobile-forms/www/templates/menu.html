@@ -16,8 +16,8 @@
           <h2>{{profile.firstName}}</h2>
           <p>{{profile.lastName}}</p>
         </ion-item>
-        <ion-item id="all-quizes" ui-sref="app.quizes({edit: false})" menu-close="">Список опросов</ion-item>
-        <ion-item id="my-quizes" ng-if="profile.authType != ANON_AUTH" ui-sref="app.quizes({edit: true})" menu-close="">
+        <ion-item id="all-quizes" ui-sref="app.quizes({editable: false})" menu-close="">Список опросов</ion-item>
+        <ion-item id="my-quizes" ng-if="profile.authType != ANON_AUTH" ui-sref="app.quizes({editable: true})" menu-close="">
           Мои опросы
         </ion-item>
         <ion-item id="logout" ng-click="logout()" menu-close="">Выход</ion-item>
