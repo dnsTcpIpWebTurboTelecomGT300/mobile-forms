@@ -11,43 +11,32 @@ angular.module('app.controllers', [])
 
   .controller('menuCtrl', ['$scope', '$stateParams', 'authService',
     function ($scope, $stateParams, authService) {
-      $scope.profile = authService.getCurrentUserProfile();
+      $scope.profile = authService.getCurrentUser();
       $scope.logout = function () {
         authService.logout();
       };
       $scope.$on('user:updated', function (event, data) {
-        $scope.profile = authService.getCurrentUserProfile();
+        $scope.profile = authService.getCurrentUser();
       });
     }])
 
   .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
-    'apiPrefix', 'AuthService', '$ionicFilterBar',
-    function ($scope, $stateParams, $http,
-              apiPrefix, AuthService, $ionicFilterBar) {
+    'apiPrefix', 'quizService', '$ionicFilterBar', 'authService',
+    function ($scope, $stateParams, $http, apiPrefix, quizService, $ionicFilterBar, authService) {
       $scope.edit = $stateParams.edit;
       $scope.quizId = $stateParams.quizId;
       $scope.quizes = [];
+      $scope.moreDataCanBeLoaded = false;
+      $scope.currentUser = authService.getCurrentUser();
+
       var skip = 0;
-      var isOver = false;
-      $scope.moreDataCanBeLoaded = function () {
-        return !isOver;
-      };
       $scope.loadMoreData = function () {
-        let url = '/quizes?$top=5&$skip=' + skip + '&$filter=userId eq \'' +
-          AuthService.currentUser().id + '\'';
-        if ($scope.filterText) {
-          url = url + ' and indexof(name,\'' + $scope.filterText + '\') ge 0';
-        }
-        skip = skip + 5;
-        $http({
-          method: 'GET',
-          url: apiPrefix + url,
-        }).then(function successCallback(response) {
+        quizService.findQuizes($scope.currentUser.id, 5, skip, $scope.filterText, true).then(function (response) {
           console.log(response);
-          isOver = response.data.value.length == 0;
+          skip = skip + response.data.value.length;
+          $scope.moreDataCanBeLoaded = response.data.value.length > 0;
           $scope.quizes = $scope.quizes.concat(response.data.value);
         }, function errorCallback(response) {
-
           console.error(response);
         });
         $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -76,33 +65,28 @@ angular.module('app.controllers', [])
     },])
 
   .controller('quizesNewCtrl', ['$scope', '$http', 'apiPrefix',
-    'AuthService', '$ionicPopover', '$ionicHistory',
-    function ($scope, $http, apiPrefix, AuthService,
-              $ionicPopover, $ionicHistory) {
-      var quiz = {
-        userId: AuthService.currentUser().id,
+    'authService', '$ionicPopover', '$ionicHistory', 'quizService', '$ionicPopup',
+    function ($scope, $http, apiPrefix, authService,
+              $ionicPopover, $ionicHistory, quizService, $ionicPopup) {
+      $scope.quiz = {
+        userId: authService.getCurrentUser().id,
         name: '',
         description: '',
-        creationDate: new Date().toISOString(),
         isPublished: false,
       };
-      $scope.quiz = quiz;
 
-      $scope.save = function functionName() {
-        console.log($scope.quiz);
-        let url = '/quizes';
-        $http({
-          method: 'POST',
-          url: apiPrefix + url,
-          data: $scope.quiz,
-        }).then(function successCallback(response) {
+      $scope.save = function () {
+        $scope.quiz.creationDate = new Date().toISOString();
+        quizService.save($scope.quiz).then(function (response){
           console.log(response);
           $scope.quiz = response.data;
           $scope.popover.hide();
           $ionicHistory.goBack();
-        }, function errorCallback(response) {
-
-          console.error(response);
+        }, function (error) {
+          $ionicPopup.alert({
+            title: 'Ошибка',
+            template: error
+          });
         });
       };
 

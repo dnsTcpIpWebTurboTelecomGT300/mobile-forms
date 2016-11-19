@@ -1,7 +1,14 @@
 angular.module('app.services', [])
 
-  .service('userService', ['$http', 'apiPrefix', '$q', function ($http, apiPrefix, $q) {
-    var url = "/users";
+  .service('userService', ['$http', 'apiPrefix', function ($http, apiPrefix) {
+    var url = "users";
+
+    function findUserByToken(token) {
+      return $http({
+        method: 'GET',
+        url: apiPrefix + url + '?$filter=token eq \'' + token + '\'',
+      });
+    }
 
     function findUserByExternalId(externalId) {
       return $http({
@@ -34,6 +41,7 @@ angular.module('app.services', [])
     }
 
     return {
+      findUserByToken: findUserByToken,
       findUserByExternalId: findUserByExternalId,
       findUserById: findUserById,
       createUser: createUser,
@@ -41,9 +49,55 @@ angular.module('app.services', [])
     }
   }])
 
+  .service('quizService', ['$http', 'apiPrefix', function ($http, apiPrefix) {
+    var url = "quizes";
+
+    function findQuizes(userId, top, skip, containedText, orderBy) {
+      let filters = [], textFilter, filter, topStatement, skipStatement, orderByStatement;
+      if (userId) {
+        filters.push("userId eq \'" + userId + "\'");
+      }
+      if (containedText) {
+        filters.push('indexof(name,\'' + containedText.toLowerCase() + '\') ge 0');
+      }
+      filter = "$filter=" + filters.join(" and ");
+
+      if (top) {
+        topStatement = "$top=" + top;
+      }
+      if (skip) {
+        skipStatement = "$skip=" + skip;
+      }
+      if (orderBy) {
+        orderByStatement = '$orderby=' + "creationDate " + "desc, name asc"
+      }
+
+      return $http({
+        method: 'GET',
+        url: apiPrefix + url + "?" + [filter, topStatement, skipStatement, orderByStatement].join('&'),
+      })
+    }
+
+    function save(quiz) {
+      return $http({
+        method: 'POST',
+        url: apiPrefix + url,
+        data: quiz,
+      });
+    }
+
+    return {
+      findQuizes: findQuizes,
+      save: save
+    }
+
+  }])
+
   .service('authService', ['$rootScope', '$state', 'angularAuth0', 'authManager', 'jwtHelper', '$location', '$ionicPopup',
-    'ANON_AUTH', 'VK_AUTH', 'userService',
-    function ($rootScope, $state, angularAuth0, authManager, jwtHelper, $location, $ionicPopup, ANON_AUTH, VK_AUTH, userService) {
+    'ANON_AUTH', 'VK_AUTH', 'userService', '$q',
+    function ($rootScope, $state, angularAuth0, authManager, jwtHelper,
+              $location, $ionicPopup, ANON_AUTH, VK_AUTH, userService, $q) {
+
       var userProfile = {};
 
       var anonProfile = {
@@ -57,10 +111,11 @@ angular.module('app.services', [])
         userProfile = anonProfile;
         userProfile.authType = ANON_AUTH;
         authManager.authenticate();
-        syncUserWithDatabase();
-        localStorage.setItem('profile', JSON.stringify(anonProfile));
-        $rootScope.$broadcast('user:updated', ANON_AUTH, anonProfile);
-        $state.go("app.quizes");
+        syncUserWithDatabase().then(function (synchronizedUser) {
+          localStorage.setItem('profile', JSON.stringify(synchronizedUser));
+          $rootScope.$broadcast('user:updated', ANON_AUTH, synchronizedUser);
+          $state.go("app.quizes");
+        });
       }
 
       function loginWithVk() {
@@ -97,8 +152,10 @@ angular.module('app.services', [])
             template: 'Повторите попытку авторизации!'
           });
         }
+
         localStorage.setItem('id_token', authResult.idToken);
         authManager.authenticate();
+
 
         angularAuth0.getProfile(authResult.idToken, function (error, profileData) {
           if (error) {
@@ -107,31 +164,51 @@ angular.module('app.services', [])
 
           userProfile = {
             authType: VK_AUTH,
+            token: authResult.idToken,
             externalId: profileData.user_id,
             firstName: profileData.given_name,
             lastName: profileData.family_name,
             avatar: profileData.picture
           };
 
-          localStorage.setItem('profile', JSON.stringify(userProfile));
+          syncUserWithDatabase().then(function (synchronizedUser) {
+            localStorage.setItem('profile', JSON.stringify(synchronizedUser));
+            $rootScope.$broadcast('user:updated', VK_AUTH, synchronizedUser);
+            $state.go("app.quizes");
+          }, function (error) {
+            $ionicPopup.alert({
+              title: 'Ошибка авторизации',
+              template: error
+            });
+          });
 
-          syncUserWithDatabase();
-
-          $rootScope.$broadcast('user:updated', VK_AUTH, userProfile);
         });
 
-        $state.go("app.quizes");
         console.log("Authentication success");
       }
 
       function checkAuthOnRefresh() {
-        debugger;
         //Если есть токен проверяем его
         var token = localStorage.getItem('id_token');
         if (token) {
           if (!jwtHelper.isTokenExpired(token)) {
             if (!$rootScope.isAuthenticated) {
               authManager.authenticate();
+
+              //Подгружаем пользовательские данные по токену
+              userService.findUserByToken(token).then(function (response) {
+                if (response.data.value.length > 0) {
+                  userProfile = response.data.value[0];
+                  localStorage.setItem('profile', JSON.stringify(userProfile));
+                  $rootScope.$broadcast('user:updated', VK_AUTH, userProfile);
+                } else {
+                  $ionicPopup.alert({
+                    title: 'Ошибка авторизации',
+                    template: "Повторите авторизацию"
+                  });
+                  logout();
+                }
+              });
             }
           }
         } else {
@@ -139,36 +216,40 @@ angular.module('app.services', [])
         }
       }
 
-      function getCurrentUserProfile() {
+      function getCurrentUser() {
         return JSON.parse(localStorage.getItem('profile'));
       }
 
       function syncUserWithDatabase() {
-        if (userProfile.authType == ANON_AUTH) {
-          userService.createUser(userProfile).then(function (response) {
-            userProfile.id = response.data.id;
-          });
-        } else if (userProfile.authType == VK_AUTH) {
-          userService.findUserByExternalId(getCurrentUserProfile().externalId).then(function (response) {
-            var userObj = response.data.value[0];
-            if (userObj == undefined) {
-              userService.createUser(userProfile).then(function (response) {
-                userProfile.id = response.data.id;
-              });
-            } else {
-              userService.updateUser(userObj.id, userProfile).then(function (response) {
-                userProfile.id = response.data.id;
-              });
-            }
-          }, function (error) {
-            $ionicPopup(error);
-          });
-        }
-
+        return $q(function (resolve, reject) {
+          if (userProfile.authType == ANON_AUTH) {
+            userService.createUser(userProfile).then(function (response) {
+              userProfile.id = response.data.id;
+              resolve(userProfile);
+            });
+          } else if (userProfile.authType == VK_AUTH) {
+            userService.findUserByExternalId(userProfile.externalId).then(function (response) {
+              var userObj = response.data.value[0];
+              if (userObj == undefined) {
+                userService.createUser(userProfile).then(function (response) {
+                  userProfile.id = response.data.id;
+                  resolve(userProfile);
+                });
+              } else {
+                userService.updateUser(userObj.id, userProfile).then(function (response) {
+                  userProfile.id = response.data.id;
+                  resolve(userProfile);
+                });
+              }
+            }, function (error) {
+              reject(error);
+            });
+          }
+        });
       }
 
       return {
-        getCurrentUserProfile: getCurrentUserProfile,
+        getCurrentUser: getCurrentUser,
         loginAnonymous: loginAnonymous,
         logout: logout,
         loginWithVk: loginWithVk,
