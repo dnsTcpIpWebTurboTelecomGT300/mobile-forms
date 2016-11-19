@@ -3,8 +3,8 @@
     <button class="button icon ion-android-more-vertical" ng-click="openPopover($event)"></button>
   </ion-nav-buttons>
   <ion-content padding="true">
-    <form id="page9-form12" class="list">
-      <ion-list id="page9-list12" class="manual-list-fullwidth">
+    <form class="list">
+      <ion-list class="manual-list-fullwidth">
         <label class="item item-input item-stacked-label" id="page9-input8">
           <span class="input-label">Название</span>
           <input type="text" placeholder="Название опроса" ng-model="quiz.name">
@@ -13,12 +13,12 @@
           <span class="input-label">Описание</span>
           <input type="text" placeholder="Описание опроса" ng-model="quiz.description">
         </label>
-        <ion-toggle toggle-class="toggle-balanced" id="page9-toggle10" ng-model="quiz.isPublished">Опубликован</ion-toggle>
+        <ion-toggle toggle-class="toggle-balanced" ng-model="quiz.isPublished">Опубликован</ion-toggle>
       </ion-list>
     </form>
-    <div id="page9-markdown2" style="color:#000000;"></div>
-    <ion-list id="page9-list7" class="manual-list-fullwidth">
+    <div style="color:#000000;"></div>
+    <ion-list class="manual-list-fullwidth">
     </ion-list>
-    <div id="page9-markdown4" style="color:#000000;"></div>
+    <div style="color:#000000;"></div>
   </ion-content>
 </ion-view>

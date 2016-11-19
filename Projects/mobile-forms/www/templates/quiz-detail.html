@@ -8,23 +8,23 @@
     <ion-tab title="Опрос" icon="ion-clipboard">
       <ion-view title="Опрос" id="quiz-info" style="background-color:#FFFFFF;">
         <ion-content padding="true">
-          <ion-list id="page12-list22">
-            <ion-item class="item-avatar" id="page12-list-item44">
+          <ion-list>
+            <ion-item class="item-avatar">
               <img ng-src={{quiz.user.avatar}}>
               <h2>{{quiz.user.firstName}}</h2>
               <p>{{quiz.user.lastName}}</p>
             </ion-item>
           </ion-list>
-          <div id="page12-markdown11" style="color:#000000;">
+          <div style="color:#000000;">
             <p>Дата создания опроса: {{quiz.creationDateFormated}}</p>
           </div>
-          <h4 id="page12-heading3" style="color:#000000;">{{quiz.name}}</h4>
-          <div id="page12-markdown8" style="color:#000000;">
+          <h4 style="color:#000000;">{{quiz.name}}</h4>
+          <div style="color:#000000;">
             <p>{{quiz.description}}</p>
           </div>
-          <div id="page12-markdown5" style="color:#000000;"></div>
-          <div id="page12-markdown6" style="color:#000000;"></div>
-          <a ui-sref="menu.quizProgress" id="page12-button5" class="button button-positive  button-block">Пройти опрос</a>
+          <div style="color:#000000;"></div>
+          <div style="color:#000000;"></div>
+          <a ui-sref="menu.quizProgress" class="button button-positive  button-block">Пройти опрос</a>
         </ion-content>
       </ion-view>
     </ion-tab>
