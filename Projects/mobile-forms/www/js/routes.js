@@ -41,19 +41,6 @@ angular.module('app.routes', [])
           requiresLogin: true
         }
       })
-      //
-      // .state('app.quizes.new', {
-      //   url: '/new',
-      //   views: {
-      //     'side-menu@app': {
-      //       templateUrl: 'templates/quiz-edit-form.html',
-      //       controller: 'quizesNewCtrl'
-      //     }
-      //   },
-      //   data: {
-      //     requiresLogin: true
-      //   }
-      // })
 
       .state('app.quizDetail', {
         url: '/quizes/:quizId',
@@ -84,9 +71,21 @@ angular.module('app.routes', [])
         data: {
           requiresLogin: true
         }
+      })
+
+      .state('app.quizDetail.edit', {
+        url: '/edit',
+        cache: false,
+        views: {
+          'side-menu@app': {
+            templateUrl: 'templates/quiz-edit-form.html',
+            controller: 'quizDetailEditCtrl'
+          }
+        },
+        data: {
+          requiresLogin: true
+        }
       });
 
-
     $urlRouterProvider.otherwise('/login');
-
   });
