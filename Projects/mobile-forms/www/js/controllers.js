@@ -213,11 +213,6 @@ angular.module('app.controllers', [])
       };
     },])
 
-  .controller('quizInfoCtrl', ['$scope', '$stateParams',
-    function ($scope, $stateParams) {
-
-    },])
-
   .controller('questionEditCtrl', ['$scope', '$stateParams',
     function ($scope, $stateParams) {
 

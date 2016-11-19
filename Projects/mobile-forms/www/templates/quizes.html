@@ -4,7 +4,7 @@
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
     <ion-list ng-repeat="quiz in quizes" id="page5-list4" class="manual-list-fullwidth">
-      <ion-item class="item-icon-right" ui-sref="app.quizDetail.info({quizId:quiz.id, editable: editable})">
+      <ion-item class="item-icon-right" ui-sref="app.quizDetail({quizId:quiz.id, editable: editable})">
         {{quiz.name}}
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>

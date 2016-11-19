@@ -84,31 +84,6 @@ angular.module('app.routes', [])
         data: {
           requiresLogin: true
         }
-      })
-
-      .state('app.quizDetail.info', {
-        url: '/info',
-        cache: false,
-        views: {
-          'quiz-info-tab': {
-            templateUrl: 'templates/quiz-info.html'
-          }
-        },
-        data: {
-          requiresLogin: true
-        }
-      })
-
-      .state('app.quizDetail.answers', {
-        url: '/answers',
-        views: {
-          'quiz-answers-tab': {
-            templateUrl: 'templates/quiz-answers.html'
-          }
-        },
-        data: {
-          requiresLogin: true
-        }
       });
 
 
