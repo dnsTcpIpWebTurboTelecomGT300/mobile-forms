@@ -20,7 +20,7 @@
     <ion-list class="manual-list-fullwidth">
       <ion-item class="item-divider">Список вопросов</ion-item>
       <div ng-repeat="question in quiz.questions">
-        <ion-item class="item-icon-right">
+        <ion-item class="item-icon-right" ui-sref="app.quizDetail.edit.questionDetail({questionId:question.id})">
           {{question.text}}
           <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
@@ -28,4 +28,6 @@
     </ion-list>
     <div style="color:#000000;"></div>
   </ion-content>
+  <ion-floating-button ui-sref="app.quizDetail.edit.questionDetail.new({quizId:quiz.id})" has-footer="false" button-color="#ff5252" icon="ion-plus" icon-color="#fff">
+  </ion-floating-button>
 </ion-view>

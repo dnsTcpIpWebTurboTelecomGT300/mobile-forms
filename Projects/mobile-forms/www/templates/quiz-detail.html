@@ -6,7 +6,7 @@
   <ion-tabs class="tabs-positive tabs-icon-top">
 
     <ion-tab title="Опрос" icon="ion-clipboard">
-      <ion-view title="Опрос" id="quiz-info" style="background-color:#FFFFFF;">
+      <ion-view title="Опрос" style="background-color:#FFFFFF;">
         <ion-content padding="true">
           <ion-list>
             <ion-item class="item-avatar">
@@ -16,7 +16,7 @@
             </ion-item>
           </ion-list>
           <div style="color:#000000;">
-            <p>Дата создания опроса: {{quiz.creationDateFormated}}</p>
+            <p>Дата создания опроса: {{quiz.creationDate | date : 'dd/MM/yyyy'}}</p>
           </div>
           <h4 style="color:#000000;">{{quiz.name}}</h4>
           <div style="color:#000000;">

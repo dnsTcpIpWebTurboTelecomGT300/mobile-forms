@@ -73,13 +73,39 @@ angular.module('app.routes', [])
         }
       })
 
-      .state('app.quizDetail.edit', {
-        url: '/edit',
+      .state('app.quizDetail.new', {
+        url: '/new',
         cache: false,
         views: {
           'side-menu@app': {
             templateUrl: 'templates/quiz-edit-form.html',
             controller: 'quizDetailEditCtrl'
+          }
+        },
+        data: {
+          requiresLogin: true
+        }
+      })
+
+      .state('app.quizDetail.edit.questionDetail', {
+        url: '/questions/:questionId',
+        views: {
+          'side-menu@app': {
+            templateUrl: 'templates/question-edit.html',
+            controller: 'questionEditCtrl'
+          }
+        },
+        data: {
+          requiresLogin: true
+        }
+      })
+
+      .state('app.quizDetail.edit.questionDetail.new', {
+        url: '/new',
+        views: {
+          'side-menu@app': {
+            templateUrl: 'templates/question-edit.html',
+            controller: 'questionEditCtrl'
           }
         },
         data: {

@@ -1,35 +1,46 @@
 <ion-view title="Вопрос" id="question-edit">
   <ion-nav-buttons side="right" class="has-header">
-    <button class="button icon ion-android-more-vertical"></button>
+    <button class="button icon ion-android-more-vertical" ng-click="openPopover($event)"></button>
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
     <ion-list class="manual-list-fullwidth">
       <label class="item item-input item-stacked-label">
         <span class="input-label">Текст вопроса</span>
-        <input type="text" placeholder="Текст вопроса">
+        <input type="text" placeholder="Текст вопроса" ng-model="question.text">
       </label>
-      <ion-toggle toggle-class="toggle-balanced" ng-checked="true">Обязательный вопрос</ion-toggle>
+      <ion-toggle toggle-class="toggle-balanced" ng-checked="false" ng-model="question.isRequired">Обязательный вопрос
+      </ion-toggle>
       <label class="item item-select">
         <span class="input-label">Тип вопроса</span>
-        <select>
-          <option></option>
-          <option>Свободный</option>
-          <option>С вариантами ответа</option>
+        <select ng-model="question.questionType">
+          <option value=""></option>
+          <option value="free">Свободный</option>
+          <option value="select">С вариантами ответа</option>
         </select>
       </label>
+      <label ng-if="question.questionType == 'free'" class="item item-select">
+        <span class="input-label">Формат ответа</span>
+        <select ng-model="question.answerFormat">
+          <option value=""></option>
+          <option value="text">Текст</option>
+          <option value="date">Дата</option>
+          <option value="image">Изображение</option>
+          <option value="getData">Местоположение</option>
+        </select>
+      </label>
+      <ion-toggle ng-if="question.questionType == 'select'" toggle-class="toggle-balanced" ng-checked="false"
+                  ng-model="question.isMulti">Множественный выбор
+      </ion-toggle>
     </ion-list>
     <div class="spacer" style="width: 300px; height: 30.9861px;"></div>
-    <ion-list class="manual-list-fullwidth">
+    <ion-list ng-if="question.questionType == 'select'" class="manual-list-fullwidth">
       <ion-item class="item-divider">Варианты ответов</ion-item>
-      <ion-item class="item-icon-right" ui-sref="menu.variantEdit">Вариант 1
-        <i class="icon ion-chevron-right icon-accessory"></i>
-      </ion-item>
-      <ion-item class="item-icon-right">Вариант 2
-        <i class="icon ion-chevron-right icon-accessory"></i>
-      </ion-item>
-      <ion-item class="item-icon-right">Вариант 3
-        <i class="icon ion-chevron-right icon-accessory"></i>
-      </ion-item>
+      <div ng-repeat="variant in question.variants">
+        <ion-item class="item-icon-right">Вариант {{$index}}
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+      </div>
     </ion-list>
   </ion-content>
+  <ion-floating-button has-footer="false" button-color="#ff5252" icon="ion-plus" icon-color="#fff"></ion-floating-button>
 </ion-view>

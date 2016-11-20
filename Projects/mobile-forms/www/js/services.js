@@ -1,58 +1,216 @@
 angular.module('app.services', [])
 
-  .service('questionService', ['$http', 'apiPrefix', function ($http, apiPrefix) {
-    var url = "questions";
+  .service('answerService', ['$http', 'apiPrefix', '$q', function ($http, apiPrefix, $q) {
+    var url = "answers";
 
-    function findAll(quizId) {
-      return $http({
-        method: 'GET',
-        url: apiPrefix + url + '?$filter=quizId eq \'' + quizId + '\'',
+    function findOne(answerId) {
+      return $q(function (resolve, reject) {
+        $http({
+          method: 'GET',
+          url: apiPrefix + url + '(' + answerId + ')',
+        }).then(function (response) {
+          resolve(response.data);
+        }, function (error) {
+          reject(error);
+        })
       });
     }
 
+    function remove(answerId) {
+      return $http({
+        method: 'DELETE',
+        url: apiPrefix + url + '(' + answerId + ')',
+      });
+    }
+
+    function removeAll(answers) {
+      answers.forEach(function (item, i, arr) {
+        remove(item.id);
+      });
+    }
+
+    function findByQuizId(quizId) {
+      return $q(function (resolve, reject) {
+        $http({
+          method: 'GET',
+          url: apiPrefix + url + '?$filter=quizId eq \'' + quizId + '\'',
+        }).then(function (response) {
+          resolve(response.data.value);
+        }, function (error) {
+          reject(error);
+        })
+      });
+    }
+
+    function findByQuestionId() {
+
+    }
+
+    function removeByQuizId(quizId) {
+      findByQuizId(quizId).then(function (answers) {
+        removeAll(answers)
+      })
+    }
+
     return {
-      findAll: findAll
+      findOne: findOne,
+      remove: remove,
+      removeByQuizId: removeByQuizId,
+      findByQuizId: findByQuizId
+    }
+
+  }])
+
+  .service('questionService', ['$http', 'apiPrefix', '$q', function ($http, apiPrefix, $q) {
+    var url = "questions";
+
+    function removeAll(questions) {
+      questions.forEach(function (item, i, arr) {
+        remove(item.id);
+      });
+    }
+
+    function findOne(questionId) {
+      return $q(function (resolve, reject) {
+        $http({
+          method: 'GET',
+          url: apiPrefix + url + '(' + questionId + ')',
+        }).then(function (response) {
+          resolve(response.data);
+        }, function (error) {
+          reject(error);
+        })
+      });
+    }
+
+    function findAll(quizId) {
+      return $q(function (resolve, reject) {
+        $http({
+          method: 'GET',
+          url: apiPrefix + url + '?$filter=quizId eq \'' + quizId + '\'',
+        }).then(function (response) {
+          resolve(response.data.value);
+        }, function (error) {
+          reject(error);
+        })
+      });
+    }
+
+    function save(question) {
+      return $q(function (resolve, reject) {
+        if (question.id) {
+          $http({
+            method: 'PUT',
+            url: apiPrefix + url + "(" + question.id + ")",
+            data: question
+          }).then(function (response) {
+            resolve(response.data)
+          }, function (error) {
+            reject(error);
+          })
+        } else {
+          $http({
+            method: 'POST',
+            url: apiPrefix + url,
+            data: question
+          }).then(function (response) {
+            resolve(response.data)
+          }, function (error) {
+            reject(error);
+          })
+        }
+      });
+    }
+
+    function remove(questionId) {
+      return $http({
+        method: 'DELETE',
+        url: apiPrefix + url + '(' + questionId + ')',
+      });
+    }
+
+    function removeByQuizId(quizId) {
+      findAll(quizId).then(function (quizes) {
+        removeAll(quizes);
+      })
+    }
+
+    return {
+      findAll: findAll,
+      save: save,
+      findOne: findOne,
+      remove: remove,
+      removeByQuizId: removeByQuizId,
+      removeAll: removeAll
     }
   }])
 
-  .service('userService', ['$http', 'apiPrefix', function ($http, apiPrefix) {
+  .service('userService', ['$http', 'apiPrefix', '$q', function ($http, apiPrefix, $q) {
     var url = "users";
 
     function findUserByToken(token) {
-      return $http({
-        method: 'GET',
-        url: apiPrefix + url + '?$filter=token eq \'' + token + '\'',
+      return $q(function (resolve, reject) {
+        $http({
+          method: 'GET',
+          url: apiPrefix + url + '?$filter=token eq \'' + token + '\'',
+        }).then(function (response) {
+          resolve(response.data.value[0]);
+        }, function (error) {
+          reject(error);
+        })
       });
     }
 
     function findUserByExternalId(externalId) {
-      return $http({
-        method: 'GET',
-        url: apiPrefix + url + '?$filter=externalId eq \'' + externalId + '\'',
+      return $q(function (resolve, reject) {
+        $http({
+          method: 'GET',
+          url: apiPrefix + url + '?$filter=externalId eq \'' + externalId + '\'',
+        }).then(function (response) {
+          resolve(response.data.value[0]);
+        }, function (error) {
+          reject(error);
+        })
       });
     }
 
     function findOne(id) {
-      return $http({
-        method: 'GET',
-        url: apiPrefix + url + '(' + id + ')',
+      return $q(function (resolve, reject) {
+        $http({
+          method: 'GET',
+          url: apiPrefix + url + '(' + id + ')',
+        }).then(function (response) {
+          resolve(response.data);
+        }, function (error) {
+          reject(error);
+        })
       });
     }
 
     function save(userObj) {
-      if (userObj.id) {
-        return $http({
-          method: 'PUT',
-          url: apiPrefix + url + "(" + userObj.id + ")",
-          data: userObj
-        });
-      } else {
-        return $http({
-          method: 'POST',
-          url: apiPrefix + url,
-          data: userObj
-        });
-      }
+      return $q(function (resolve, reject) {
+        if (userObj.id) {
+          $http({
+            method: 'PUT',
+            url: apiPrefix + url + "(" + userObj.id + ")",
+            data: userObj
+          }).then(function (response) {
+            resolve(response.data)
+          }, function (error) {
+            reject(error);
+          })
+        } else {
+          $http({
+            method: 'POST',
+            url: apiPrefix + url,
+            data: userObj
+          }).then(function (response) {
+            resolve(response.data)
+          }, function (error) {
+            reject(error);
+          })
+        }
+      });
     }
 
     return {
@@ -63,73 +221,104 @@ angular.module('app.services', [])
     }
   }])
 
-  .service('quizService', ['$http', 'apiPrefix', function ($http, apiPrefix) {
-    var url = "quizes";
+  .service('quizService', ['$http', 'apiPrefix', '$q', 'questionService', 'answerService', 'userService',
+    function ($http, apiPrefix, $q, questionService, answerService, userService) {
+      var url = "quizes";
+      var questionsUrl = "questions";
 
-    function findOne(quizId) {
-      return $http({
-        method: 'GET',
-        url: apiPrefix + url + '(' + quizId + ')',
-      });
-    }
-
-    function findQuizes(userId, top, skip, containedText, orderBy) {
-      let filters = [], textFilter, filter, topStatement, skipStatement, orderByStatement;
-      if (userId) {
-        filters.push("userId eq \'" + userId + "\'");
-      }
-      if (containedText) {
-        filters.push('indexof(name,\'' + containedText.toLowerCase() + '\') ge 0');
-      }
-      filter = "$filter=" + filters.join(" and ");
-
-      if (top) {
-        topStatement = "$top=" + top;
-      }
-      if (skip) {
-        skipStatement = "$skip=" + skip;
-      }
-      if (orderBy) {
-        orderByStatement = '$orderby=' + "creationDate " + "desc, name asc"
-      }
-
-      return $http({
-        method: 'GET',
-        url: apiPrefix + url + "?" + [filter, topStatement, skipStatement, orderByStatement].join('&'),
-      })
-    }
-
-    function save(quiz) {
-      if (quiz.id) {
-        return $http({
-          method: 'PUT',
-          url: apiPrefix + url + '(' + quiz.id + ')',
-          data: quiz,
-        });
-      } else {
-        return $http({
-          method: 'POST',
-          url: apiPrefix + url,
-          data: quiz,
+      function findOne(quizId) {
+        return $q(function (resolve, reject) {
+          $http({
+            method: 'GET',
+            url: apiPrefix + url + '(' + quizId + ')',
+          }).then(function (response) {
+            var quiz = response.data;
+            userService.findOne(quiz.userId).then(function (user) {
+              quiz.user = user;
+              resolve(quiz)
+            }, function (error) {
+              reject(error);
+            })
+          }, function (error) {
+            reject(error);
+          })
         });
       }
-    }
 
-    function remove(quizId) {
-      return $http({
-        method: 'DELETE',
-        url: apiPrefix + url + '(' + quizId + ')',
-      });
-    }
+      function findQuizes(userId, top, skip, containedText, orderBy) {
+        let filters = [], textFilter, filter, topStatement, skipStatement, orderByStatement;
+        if (userId) {
+          filters.push("userId eq \'" + userId + "\'");
+        }
+        if (containedText) {
+          filters.push('indexof(name,\'' + containedText.toLowerCase() + '\') ge 0');
+        }
+        filter = "$filter=" + filters.join(" and ");
+        if (top) {
+          topStatement = "$top=" + top;
+        }
+        if (skip) {
+          skipStatement = "$skip=" + skip;
+        }
+        if (orderBy) {
+          orderByStatement = '$orderby=' + "creationDate " + "desc, name asc"
+        }
 
-    return {
-      findQuizes: findQuizes,
-      save: save,
-      remove: remove,
-      findOne: findOne
-    }
+        return $q(function (resolve, reject) {
+          $http({
+            method: 'GET',
+            url: apiPrefix + url + "?" + [filter, topStatement, skipStatement, orderByStatement].join('&'),
+          }).then(function (response) {
+            resolve(response.data.value);
+          }, function (error) {
+            reject(error);
+          })
+        });
+      }
 
-  }])
+      function save(quiz) {
+        return $q(function (resolve, reject) {
+          if (quiz.id) {
+            $http({
+              method: 'PUT',
+              url: apiPrefix + url + '(' + quiz.id + ')',
+              data: quiz,
+            }).then(function (response) {
+              resolve(response.data)
+            }, function (error) {
+              reject(error);
+            })
+          } else {
+            $http({
+              method: 'POST',
+              url: apiPrefix + url,
+              data: quiz,
+            }).then(function (response) {
+              resolve(response.data)
+            }, function (error) {
+              reject(error);
+            })
+          }
+        });
+      }
+
+      function remove(quizId) {
+        questionService.removeByQuizId(quizId);
+        answerService.removeByQuizId(quizId);
+        return $http({
+          method: 'DELETE',
+          url: apiPrefix + url + '(' + quizId + ')',
+        });
+      }
+
+      return {
+        findQuizes: findQuizes,
+        save: save,
+        remove: remove,
+        findOne: findOne
+      }
+
+    }])
 
   .service('authService', ['$rootScope', '$state', 'angularAuth0', 'authManager', 'jwtHelper', '$location', '$ionicPopup',
     'ANON_AUTH', 'VK_AUTH', 'userService', '$q',
@@ -234,9 +423,9 @@ angular.module('app.services', [])
               authManager.authenticate();
 
               //Подгружаем пользовательские данные по токену
-              userService.findUserByToken(token).then(function (response) {
-                if (response.data.value.length > 0) {
-                  userProfile = response.data.value[0];
+              userService.findUserByToken(token).then(function (user) {
+                if (user) {
+                  userProfile = user;
                   localStorage.setItem('profile', JSON.stringify(userProfile));
                   $rootScope.$broadcast('user:updated', VK_AUTH, userProfile);
                 } else {
@@ -260,21 +449,18 @@ angular.module('app.services', [])
 
       function syncUserWithDatabase() {
         return $q(function (resolve, reject) {
-          debugger;
           if (userProfile.authType == ANON_AUTH) {
-            userService.save(userProfile).then(function (response) {
-              userProfile.id = response.data.id;
+            userService.save(userProfile).then(function (user) {
+              userProfile.id = user.id;
               resolve(userProfile);
             });
           } else if (userProfile.authType == VK_AUTH) {
-            userService.findUserByExternalId(userProfile.externalId).then(function (response) {
-              debugger;
-              var userObj = response.data.value[0];
-              if (userObj != undefined) {
-                userProfile.id = userObj.id;
+            userService.findUserByExternalId(userProfile.externalId).then(function (user) {
+              if (user != undefined) {
+                userProfile.id = user.id;
               }
-              userService.save(userProfile).then(function (response) {
-                userProfile.id = response.data.id;
+              userService.save(userProfile).then(function (user) {
+                userProfile.id = user.id;
                 resolve(userProfile);
               });
             }, function (error) {
