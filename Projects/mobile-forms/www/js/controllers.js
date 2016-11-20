@@ -79,7 +79,7 @@ angular.module('app.controllers', [])
       //Действие редактирование
       $scope.edit = function () {
         $scope.popover.hide();
-        $state.go('app.quizDetail.edit');
+        $state.go('.edit');
       };
 
       //Действие удаление
@@ -120,17 +120,28 @@ angular.module('app.controllers', [])
         }
       ];
 
-
       //Инициализируем поповер
-      initPopover($ionicPopover, $scope, 'templates/popover/qd-popover.html');
+      $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
+        scope: $scope,
+      }).then(function (popover) {
+        $scope.popover = popover;
+      });
+      $scope.openPopover = function ($event) {
+        $scope.popover.show($event);
+      };
+      $scope.closePopover = function () {
+        $scope.popover.hide();
+      };
+      $scope.$on('$destroy', function () {
+        $scope.popover.remove();
+      });
 
     },])
 
   .controller('quizDetailEditCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix',
-    '$ionicPopover', '$ionicHistory', 'quizService', '$ionicPopup', 'authService', 'questionService',
+    '$ionicPopover', '$ionicHistory', 'quizService', '$ionicPopup', 'authService', 'questionService', '$state',
     function ($scope, $stateParams, $http, apiPrefix, $ionicPopover,
-              $ionicHistory, quizService, $ionicPopup, authService, questionService) {
-
+              $ionicHistory, quizService, $ionicPopup, authService, questionService, $state) {
       //Провреяем была ли открыта форма на редактирование существующего
       if ($stateParams.quizId) {
 
@@ -176,19 +187,34 @@ angular.module('app.controllers', [])
         }
       ];
 
-      initPopover($ionicPopover, $scope, 'templates/popover/qd-popover.html');
+      $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
+        scope: $scope,
+      }).then(function (popover) {
+        $scope.popover = popover;
+      });
+      $scope.openPopover = function ($event) {
+        $scope.popover.show($event);
+      };
+      $scope.closePopover = function () {
+        $scope.popover.hide();
+      };
+      $scope.$on('$destroy', function () {
+        $scope.popover.remove();
+      });
     },])
 
   .controller('questionEditCtrl', ['$scope', '$stateParams', 'questionService', '$ionicPopover', '$ionicHistory', '$ionicPopup',
     function ($scope, $stateParams, questionService, $ionicPopover, $ionicHistory, $ionicPopup) {
+      debugger;
 
-      //Дейтсвие сохранения
-      $scope.save = function () {
+      //Дейтсвие сохранения вопроса
+      $scope.saveQuestion = function () {
         console.log($scope.question);
+        debugger;
         questionService.save($scope.question).then(function (question) {
           console.log(question);
           $scope.question = question;
-          $scope.popover.hide();
+          $scope.questionPopover.hide();
           $ionicHistory.goBack();
         }, function (error) {
           $ionicPopup.alert({
@@ -197,45 +223,70 @@ angular.module('app.controllers', [])
           });
         });
       };
-      $scope.actions = [
-        {
-          text: 'Сохранить',
-          actionFunction: $scope.save
+
+      //Добавляем действие удаления вопроса
+      $scope.deleteQuestion = function () {
+        $scope.questionPopover.hide();
+        var confirmPopup = $ionicPopup.confirm({
+          title: 'Удаление вопроса',
+          template: 'Вы уверены что хотите удалить вопрос?',
+          cancelText: 'Нет',
+          okText: 'Да',
+        });
+        confirmPopup.then(function (res) {
+          if (res) {
+            console.log('Удаление: ' + $stateParams.questionId);
+            questionService.remove($stateParams.questionId).then(function () {
+              $ionicHistory.goBack();
+            }, function (error) {
+              $ionicPopup.alert({
+                title: 'Ошибка удаления',
+                template: error
+              });
+            });
+          } else {
+            console.log('Отмена удаления');
+          }
+        });
+      };
+
+      //Дейтсвие сохранения варианта
+      $scope.saveVariant = function () {
+        debugger;
+        if ($stateParams.variantIndex) {
+          $scope.question.variants[$stateParams.variantIndex] = $scope.variant;
+        } else {
+          $scope.question.variants.push($scope.variant);
         }
-      ];
+        $scope.variantPopover.hide();
+        $ionicHistory.goBack();
+      };
+
+      //Дейтсвие удаления варианта
+      $scope.deleteVariant = function () {
+        $scope.variantPopover.hide();
+        var confirmPopup = $ionicPopup.confirm({
+          title: 'Удаление варианта',
+          template: 'Вы уверены что хотите удалить вариант?',
+          cancelText: 'Нет',
+          okText: 'Да',
+        });
+        confirmPopup.then(function (res) {
+          if (res) {
+            $scope.question.variants.splice($stateParams.variantIndex, 1);
+            $scope.variantPopover.hide();
+            $ionicHistory.goBack();
+          } else {
+            console.log('Отмена удаления');
+          }
+        });
+      };
+
+
+
 
       //Проверяем если была открыта форма на редактирование, подгружаем вопрос
       if ($stateParams.questionId) {
-
-        //Добавляем действие удаления
-        $scope.delete = function () {
-          $scope.popover.hide();
-          var confirmPopup = $ionicPopup.confirm({
-            title: 'Удаление вопроса',
-            template: 'Вы уверены что хотите удалить вопрос?',
-            cancelText: 'Нет',
-            okText: 'Да',
-          });
-          confirmPopup.then(function (res) {
-            if (res) {
-              console.log('Удаление: ' + $stateParams.questionId);
-              questionService.remove($stateParams.questionId).then(function () {
-                $ionicHistory.goBack();
-              }, function (error) {
-                $ionicPopup.alert({
-                  title: 'Ошибка удаления',
-                  template: error
-                });
-              });
-            } else {
-              console.log('Отмена удаления');
-            }
-          });
-        };
-        $scope.actions.push({
-          text: 'Удалить',
-          actionFunction: $scope.delete
-        });
 
         //Подгружаем вопрос
         questionService.findOne($stateParams.questionId).then(function (question) {
@@ -243,19 +294,185 @@ angular.module('app.controllers', [])
           $scope.question = question;
         });
 
+        //Действия для вопросов
+        var questionActions = [{
+          text: 'Сохранить',
+          actionFunction: $scope.saveQuestion
+        }, {
+          text: 'Удалить',
+          actionFunction: $scope.deleteQuestion
+        }];
+
+
       } else {
         $scope.question = {
           quizId: $stateParams.quizId
-        }
+        };
+
+        //Действия для вопросов
+        var questionActions = [{
+          text: 'Сохранить',
+          actionFunction: $scope.saveQuestion
+        }];
+
+        //Действия для опросов
+        var variantActions = [{
+          text: 'Сохранить',
+          actionFunction: $scope.saveVariant
+        }];
+
+      }
+
+      //Если было открыто редактирование варианта
+      if ($stateParams.variantIndex) {
+        $scope.variant = $scope.question.variants[$stateParams.variantIndex];
+
+        //Действия для вариантов
+        var variantActions = [{
+          text: 'Сохранить',
+          actionFunction: $scope.saveVariant
+        }, {
+          text: 'Удалить',
+          actionFunction: $scope.deleteVariant
+        }];
+
+      } else {
+        $scope.variant = {};
+
+        //Действия для вариантов
+        var variantActions = [{
+          text: 'Сохранить',
+          actionFunction: $scope.saveVariant
+        }];
       }
 
       //Инициализируем поповер
-      initPopover($ionicPopover, $scope, 'templates/popover/qd-popover.html');
+      $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
+        scope: $scope,
+      }).then(function (popover) {
+        $scope.questionPopover = popover;
+      });
+      $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
+        scope: $scope,
+      }).then(function (popover) {
+        $scope.variantPopover = popover;
+      });
+
+      $scope.openPopover = function ($event) {
+        switch ($event.target.id) {
+          case "question-popover":
+            $scope.actions = questionActions;
+            $scope.questionPopover.show($event);
+            break;
+          case "variant-popover":
+            $scope.actions = variantActions;
+            $scope.variantPopover.show($event);
+            break;
+        }
+      };
+      $scope.closePopover = function ($event) {
+        switch ($event.target.id) {
+          case "question-popover":
+            $scope.questionPopover.hide();
+            break;
+          case "variant-popover":
+            $scope.variantPopover.hide();
+            break;
+        }
+      };
+      $scope.$on('$destroy', function () {
+        $scope.questionPopover.remove();
+        $scope.variantPopover.remove();
+      });
     },])
 
-  .controller('variantEditCtrl', ['$scope', '$stateParams',
-    function ($scope, $stateParams) {
+  .controller('variantEditCtrl', ['$scope', '$stateParams', '$ionicPopover', '$ionicHistory', '$ionicPopup',
+    function ($scope, $stateParams, $ionicPopover, $ionicHistory, $ionicPopup) {
+      //Если был передан индекс варианта
+      if ($stateParams.variantIndex) {
+        $scope.variant = $stateParams.question.variants[$stateParams.variantIndex];
 
+        //Дейтсвие сохранения
+        $scope.save = function () {
+          $stateParams.question.variants[$stateParams.variantIndex] = $scope.variant;
+          $scope.$apply();
+          $scope.popover.hide();
+          $ionicHistory.goBack();
+        };
+
+        //Дейтсвие удаления
+        $scope.delete = function () {
+          $scope.popover.hide();
+          var confirmPopup = $ionicPopup.confirm({
+            title: 'Удаление варианта',
+            template: 'Вы уверены что хотите удалить вариант?',
+            cancelText: 'Нет',
+            okText: 'Да',
+          });
+          confirmPopup.then(function (res) {
+            if (res) {
+              $stateParams.variant.splice($stateParams.variantIndex, 1);
+              $scope.$apply();
+              $scope.popover.hide();
+              $ionicHistory.goBack();
+            } else {
+              console.log('Отмена удаления');
+            }
+          });
+        };
+
+        //Доступные действия - сохранить, удалить
+        $scope.actions = [
+          {
+            text: 'Сохранить',
+            actionFunction: $scope.save
+          },
+          {
+            text: 'Удалить',
+            actionFunction: $scope.delete
+          }
+        ];
+
+      } else {
+        $scope.variant = {};
+
+        //Дейтсвие сохранения
+        $scope.save = function () {
+          $stateParams.question.variants.push($scope.variant);
+          $scope.$apply();
+          $scope.popover.hide();
+          $ionicHistory.goBack();
+        };
+
+        $scope.actions = [
+          {
+            text: 'Сохранить',
+            actionFunction: $scope.save
+          }
+        ];
+      }
+
+      //Инициализируем поповер
+      $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
+        scope: $scope,
+      }).then(function (popover) {
+        $scope.questionPopover = popover;
+      });
+      $scope.openPopover = function ($event) {
+        switch ($event.target.id) {
+          case "question-popover":
+            break;
+          case "variant-popover":
+            break;
+        }
+        $scope.popover.show($event);
+      };
+      $scope.closePopover = function ($event) {
+        $scope.popover.hide();
+      };
+      $scope.$on('$destroy', function () {
+        $scope.popover.remove();
+      });
     },])
 
   .controller('quizProgressCtrl', ['$scope', '$stateParams',
@@ -268,19 +485,3 @@ angular.module('app.controllers', [])
 
     },]);
 
-function initPopover($ionicPopover, $scope, templateUrl) {
-  $ionicPopover.fromTemplateUrl(templateUrl, {
-    scope: $scope,
-  }).then(function (popover) {
-    $scope.popover = popover;
-  });
-  $scope.openPopover = function ($event) {
-    $scope.popover.show($event);
-  };
-  $scope.closePopover = function () {
-    $scope.popover.hide();
-  };
-  $scope.$on('$destroy', function () {
-    $scope.popover.remove();
-  });
-}

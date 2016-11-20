@@ -1,13 +1,38 @@
-<ion-view title="Вариант ответа" id="variant-edit">
+<ion-view title="Вариант ответа">
   <ion-nav-buttons side="right" class="has-header">
-    <button class="button icon ion-android-more-vertical"></button>
+    <button class="button icon ion-android-more-vertical" id="variant-popover" ng-click="openPopover($event)"></button>
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
     <ion-list class="manual-list-fullwidth">
-      <label class="item item-select" id="page11-select4">
-        <span class="input-label">Формат</span>
-        <select></select>
+      <label class="item item-select">
+        <span class="input-label">Тип</span>
+        <select ng-model="variant.type">
+          <option value=""></option>
+          <option value="text">Текст</option>
+          <option value="image">Изображение</option>
+          <option value="geoData">Местоположение</option>
+        </select>
       </label>
+      <div ng-switch on="variant.type">
+        <div ng-switch-when="text">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Значение</span>
+            <input type="text" placeholder="Текст вопроса" ng-model="variant.textValue">
+          </label>
+        </div>
+        <div ng-switch-when="image">
+          <label class="item item-input item-stacked-label" style="text-align: center;">
+            <img ng-if="variant.imageValue" data-ng-src="{{variant.imageValue}}">
+            <i ng-if="!variant.imageValue" class="icon ion-image" style="font-size: 200px;"> </i>
+          </label>
+        </div>
+        <div ng-switch-when="geoData">
+          <label class="item item-input item-stacked-label" style="text-align: center;">
+            <i ng-if="!variant.geoValue" class="icon ion-map center" style="font-size: 200px;"></i>
+          </label>
+        </div>
+        <div ng-switch-default></div>
+      </div>
     </ion-list>
   </ion-content>
 </ion-view>

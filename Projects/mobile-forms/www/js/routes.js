@@ -89,6 +89,9 @@ angular.module('app.routes', [])
 
       .state('app.quizDetail.edit.questionDetail', {
         url: '/questions/:questionId',
+        params: {
+          question: {}
+        },
         views: {
           'side-menu@app': {
             templateUrl: 'templates/question-edit.html',
@@ -102,9 +105,46 @@ angular.module('app.routes', [])
 
       .state('app.quizDetail.edit.questionDetail.new', {
         url: '/new',
+        params: {
+          quiz: {}
+        },
         views: {
           'side-menu@app': {
             templateUrl: 'templates/question-edit.html',
+            controller: 'questionEditCtrl'
+          }
+        },
+        data: {
+          requiresLogin: true
+        }
+      })
+
+      .state('app.quizDetail.edit.questionDetail.variant', {
+        url: '/variant/:variantIndex',
+        parent: 'app.quizDetail.edit.questionDetail',
+        params: {
+          question: {}
+        },
+        views: {
+          'side-menu@app': {
+            templateUrl: 'templates/variant-edit.html',
+            controller: 'questionEditCtrl'
+          }
+        },
+        data: {
+          requiresLogin: true
+        }
+      })
+
+      .state('app.quizDetail.edit.questionDetail.variant.new', {
+        url: '/new',
+        parent: 'app.quizDetail.edit.questionDetail',
+        params: {
+          question: {}
+        },
+        views: {
+          'side-menu@app': {
+            templateUrl: 'templates/variant-edit.html',
             controller: 'questionEditCtrl'
           }
         },

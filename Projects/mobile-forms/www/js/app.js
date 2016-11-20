@@ -32,7 +32,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     $httpProvider.interceptors.push('jwtInterceptor');
   })
 
-  .run(function ($rootScope, $ionicPlatform, authService, ANON_AUTH, VK_AUTH, authManager) {
+  .run(function ($rootScope, $ionicPlatform, authService, ANON_AUTH, VK_AUTH) {
     $rootScope.ANON_AUTH = ANON_AUTH;
     $rootScope.VK_AUTH = VK_AUTH;
 

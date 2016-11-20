@@ -25,19 +25,7 @@
     		quizId: { $type: "string" },
     		text: { $type: "string"},
     		isRequired : { $type: "bool"},
-            questionType: { $type: "string" },
-    		$or: [
-                { 
-                    answerFormat: { $type: "string" }
-                },
-                { 
-                    $and: [
-                        { questionType: { $type: "string" } },
-                        { isMulti: {$type: "bool"} },
-                        { "variants.0": { $exists: true } } 
-                    ]
-                }
-            ]
+            questionType: { $type: "string" }
     	},
     	validationAction: "error",
     	validationLevel: "strict"
