@@ -31,7 +31,11 @@ angular.module('app.controllers', [])
 
       var skip = 0;
       $scope.loadMoreData = function () {
-        quizService.findQuizes($scope.currentUser.id, 5, skip, $scope.filterText, true).then(function (quizes) {
+        var userId;
+        if ($scope.editable) {
+          userId = $scope.currentUser.id;
+        }
+        quizService.findQuizes(userId, 5, skip, $scope.filterText, true).then(function (quizes) {
           console.log(quizes);
           skip = skip + quizes.length;
           $scope.moreDataCanBeLoaded = quizes.length > 0;

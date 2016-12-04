@@ -335,19 +335,18 @@ angular.module('app.services', [])
       var anonProfile = {
         firstName: "Гость",
         lastName: "",
-        avatar: "img/anon.jpg"
+        avatar: "img/anon.jpg",
+        authType: ANON_AUTH
       };
 
       function loginAnonymous() {
-        console.log("Anonymous log in");
-        userProfile = anonProfile;
-        userProfile.authType = ANON_AUTH;
-        authManager.authenticate();
-        syncUserWithDatabase().then(function (synchronizedUser) {
-          localStorage.setItem('profile', JSON.stringify(synchronizedUser));
-          $rootScope.$broadcast('user:updated', ANON_AUTH, synchronizedUser);
-          $state.go("app.quizes");
-        });
+        angularAuth0.login({
+          email: "mineloveguitar@gmail.com",
+          password: "anon_user",
+          connection: 'Username-Password-Authentication',
+          responseType: 'token',
+          popup: true
+        }, onAnonAuthenticated, null);
       }
 
       function loginWithVk() {
@@ -374,6 +373,42 @@ angular.module('app.services', [])
         } else if (result && result.error) {
           onAuthenticated(result.error);
         }
+      }
+
+      function onAnonAuthenticated(error, authResult) {
+        if (error) {
+          console.log("Authentication error");
+          return $ionicPopup.alert({
+            title: 'Ошибка авторизации!',
+            template: 'Повторите попытку авторизации!'
+          });
+        }
+
+        localStorage.setItem('id_token', authResult.idToken);
+        authManager.authenticate();
+
+        angularAuth0.getProfile(authResult.idToken, function (error, profileData) {
+          if (error) {
+            return console.log(error);
+          }
+
+          userProfile = anonProfile;
+          userProfile.token = authResult.idToken;
+
+          syncUserWithDatabase().then(function (synchronizedUser) {
+            localStorage.setItem('profile', JSON.stringify(synchronizedUser));
+            $rootScope.$broadcast('user:updated', ANON_AUTH, synchronizedUser);
+            $state.go("app.quizes", {editable: false});
+          }, function (error) {
+            $ionicPopup.alert({
+              title: 'Ошибка авторизации',
+              template: error
+            });
+          });
+
+        });
+
+        console.log("Anon authentication success");
       }
 
       function onAuthenticated(error, authResult) {
@@ -475,13 +510,19 @@ angular.module('app.services', [])
         });
       }
 
+      function isAnonUser() {
+        var currentUser = getCurrentUser();
+        return currentUser.authType === ANON_AUTH;
+      }
+
       return {
         getCurrentUser: getCurrentUser,
         loginAnonymous: loginAnonymous,
         logout: logout,
         loginWithVk: loginWithVk,
         checkAuthOnRefresh: checkAuthOnRefresh,
-        authenticateAndGetProfile: authenticateAndGetProfile
+        authenticateAndGetProfile: authenticateAndGetProfile,
+        isAnonUser: isAnonUser
       }
 
     }]);
