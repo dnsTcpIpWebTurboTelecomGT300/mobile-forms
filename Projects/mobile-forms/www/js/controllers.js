@@ -20,54 +20,53 @@ angular.module('app.controllers', [])
       });
     }])
 
-  .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
-    'apiPrefix', 'quizService', '$ionicFilterBar', 'authService',
-    function($scope, $stateParams, $http,
-      apiPrefix, quizService, $ionicFilterBar, authService) {
-      $scope.editable = $stateParams.editable;
-      $scope.quizId = $stateParams.quizId;
-      $scope.quizes = [];
-      $scope.moreDataCanBeLoaded = false;
-      $scope.currentUser = authService.getCurrentUser();
+    .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
+        'apiPrefix', 'quizService', '$ionicFilterBar', 'authService',
+        function ($scope, $stateParams, $http, apiPrefix, quizService, $ionicFilterBar, authService) {
+          $scope.editable = $stateParams.editable;
+          $scope.quizId = $stateParams.quizId;
+          $scope.quizes = [];
+          $scope.moreDataCanBeLoaded = false;
+          $scope.currentUser = authService.getCurrentUser();
 
-      var skip = 0;
+          var skip = 0;
+          $scope.loadMoreData = function () {
+            var userId;
+            if ($scope.editable) {
+              userId = $scope.currentUser.id;
+            }
+            quizService.findQuizes(userId, 5, skip, $scope.filterText, true).then(function (quizes) {
+              console.log(quizes);
+              skip = skip + quizes.length;
+              $scope.moreDataCanBeLoaded = quizes.length > 0;
+              $scope.quizes = $scope.quizes.concat(quizes);
+            }, function errorCallback(response) {
+              console.error(response);
+            });
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+          };
 
-        var userId;
-        if ($scope.editable) {
-          userId = $scope.currentUser.id;
-        }
-        quizService.findQuizes(userId, 5, skip, $scope.filterText, true).then(function (quizes) {
-          console.log(quizes);
-          skip = skip + quizes.length;
-          $scope.moreDataCanBeLoaded = quizes.length > 0;
-          $scope.quizes = $scope.quizes.concat(quizes);
-        }, function errorCallback(response) {
-          console.error(response);
-        });
-        $scope.$broadcast('scroll.infiniteScrollComplete');
-      };
-
-      $scope.$on('$stateChangeSuccess', function() {
-        $scope.loadMoreData();
-      });
-
-      $scope.showFilterBar = function() {
-        filterBarInstance = $ionicFilterBar.show({
-          items: [],
-          cancel: function() {
-            $scope.filterText = null;
-          },
-          update: function(filteredItems, filterText) {
-            skip = 0;
-            $scope.quizes = [];
-            $scope.filterText = filterText;
+          $scope.$on('$stateChangeSuccess', function () {
             $scope.loadMoreData();
-          },
-          filterProperties: 'description'
-        });
-      };
+          });
 
-    },])
+          $scope.showFilterBar = function () {
+            filterBarInstance = $ionicFilterBar.show({
+              items: [],
+              cancel: function () {
+                $scope.filterText = null;
+              },
+              update: function (filteredItems, filterText) {
+                skip = 0;
+                $scope.quizes = [];
+                $scope.filterText = filterText;
+                $scope.loadMoreData();
+              },
+              filterProperties: 'description'
+            });
+          };
+
+        },])
 
   .controller('quizDetailCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix',
     '$filter', '$ionicPopover', '$state', '$ionicPopup', '$ionicHistory',
