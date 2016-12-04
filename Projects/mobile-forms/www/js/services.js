@@ -246,7 +246,12 @@ angular.module('app.services', [])
       }
 
       function findQuizes(userId, top, skip, containedText, orderBy) {
-        let filters = [], textFilter, filter, topStatement, skipStatement, orderByStatement;
+        var filters = [];
+        var textFilter;
+        var filter;
+        var topStatement;
+        var skipStatement;
+        var orderByStatement;
         if (userId) {
           filters.push("userId eq \'" + userId + "\'");
         }
