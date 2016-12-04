@@ -64,6 +64,16 @@ angular.module('app.services', [])
   .service('questionService', ['$http', 'apiPrefix', '$q', function ($http, apiPrefix, $q) {
     var url = "questions";
 
+    var currentQuestion;
+
+    var addQuestion = function(question) {
+        currentQuestion = question;
+    };
+
+    var getQuestion = function(){
+        return currentQuestion;
+    };
+
     function removeAll(questions) {
       questions.forEach(function (item, i, arr) {
         remove(item.id);
@@ -141,7 +151,9 @@ angular.module('app.services', [])
       findOne: findOne,
       remove: remove,
       removeByQuizId: removeByQuizId,
-      removeAll: removeAll
+      removeAll: removeAll,
+      addQuestion: addQuestion,
+      getQuestion: getQuestion
     }
   }])
 
@@ -485,5 +497,3 @@ angular.module('app.services', [])
       }
 
     }]);
-
-

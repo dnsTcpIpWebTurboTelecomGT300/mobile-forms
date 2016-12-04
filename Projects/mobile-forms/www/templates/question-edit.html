@@ -35,11 +35,15 @@
     <ion-list ng-if="question.questionType == 'select'" class="manual-list-fullwidth">
       <ion-item class="item-divider">Варианты ответов</ion-item>
       <div ng-repeat="variant in question.variants" class="item item-text-wrap">
-        <ion-item class="item-icon-right" ui-sref="app.quizDetail.edit.questionDetail.variant({variantIndex:$index, question: question)">Вариант {{$index}}
+        <ion-item class="item-icon-right" ui-sref="app.quizDetail.edit.questionDetail.variant({variantIndex:$index, question: question})">Вариант {{$index}}
           <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
       </div>
     </ion-list>
   </ion-content>
-  <ion-floating-button ui-sref="app.quizDetail.edit.questionDetail.variant.new({question:question})" has-footer="false" button-color="#ff5252" icon="ion-plus" icon-color="#fff"></ion-floating-button>
+  <span ng-if="question.questionType == 'select'" class="animate-if">
+    <!-- <ion-floating-button ui-sref="app.quizDetail.edit.questionDetail.variant.new({question:question})" has-footer="false" button-color="#ff5252" icon="ion-plus" icon-color="#fff"></ion-floating-button> -->
+    <ion-floating-button ng-click="goToVarint($event)" has-footer="false" button-color="#ff5252" icon="ion-plus" icon-color="#fff"></ion-floating-button>
+  </span>
+
 </ion-view>

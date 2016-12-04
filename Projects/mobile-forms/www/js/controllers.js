@@ -1,28 +1,29 @@
 angular.module('app.controllers', [])
   .controller('loginCtrl', ['$scope', '$stateParams', 'authService',
-    function ($scope, $stateParams, authService) {
-      $scope.loginWithVk = function () {
+    function($scope, $stateParams, authService) {
+      $scope.loginWithVk = function() {
         authService.loginWithVk();
       };
-      $scope.loginAnonymous = function () {
+      $scope.loginAnonymous = function() {
         authService.loginAnonymous();
-      }
+      };
     }])
 
   .controller('menuCtrl', ['$scope', '$stateParams', 'authService',
-    function ($scope, $stateParams, authService) {
+    function($scope, $stateParams, authService) {
       $scope.profile = authService.getCurrentUser();
-      $scope.logout = function () {
+      $scope.logout = function() {
         authService.logout();
       };
-      $scope.$on('user:updated', function (event, data) {
+      $scope.$on('user:updated', function(event, data) {
         $scope.profile = authService.getCurrentUser();
       });
     }])
 
   .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
     'apiPrefix', 'quizService', '$ionicFilterBar', 'authService',
-    function ($scope, $stateParams, $http, apiPrefix, quizService, $ionicFilterBar, authService) {
+    function($scope, $stateParams, $http,
+      apiPrefix, quizService, $ionicFilterBar, authService) {
       $scope.editable = $stateParams.editable;
       $scope.quizId = $stateParams.quizId;
       $scope.quizes = [];
@@ -30,8 +31,9 @@ angular.module('app.controllers', [])
       $scope.currentUser = authService.getCurrentUser();
 
       var skip = 0;
-      $scope.loadMoreData = function () {
-        quizService.findQuizes($scope.currentUser.id, 5, skip, $scope.filterText, true).then(function (quizes) {
+      $scope.loadMoreData = function() {
+        quizService.findQuizes($scope.currentUser.id, 5, skip,
+          $scope.filterText, true).then(function(quizes) {
           console.log(quizes);
           skip = skip + quizes.length;
           $scope.moreDataCanBeLoaded = quizes.length > 0;
@@ -42,17 +44,17 @@ angular.module('app.controllers', [])
         $scope.$broadcast('scroll.infiniteScrollComplete');
       };
 
-      $scope.$on('$stateChangeSuccess', function () {
+      $scope.$on('$stateChangeSuccess', function() {
         $scope.loadMoreData();
       });
 
-      $scope.showFilterBar = function () {
+      $scope.showFilterBar = function() {
         filterBarInstance = $ionicFilterBar.show({
           items: [],
-          cancel: function () {
+          cancel: function() {
             $scope.filterText = null;
           },
-          update: function (filteredItems, filterText) {
+          update: function(filteredItems, filterText) {
             skip = 0;
             $scope.quizes = [];
             $scope.filterText = filterText;
@@ -65,25 +67,27 @@ angular.module('app.controllers', [])
     },])
 
   .controller('quizDetailCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix',
-    '$filter', '$ionicPopover', '$state', '$ionicPopup', '$ionicHistory', 'quizService',
-    function ($scope, $stateParams, $http, apiPrefix, $filter, $ionicPopover, $state, $ionicPopup,
-              $ionicHistory, quizService) {
+    '$filter', '$ionicPopover', '$state', '$ionicPopup', '$ionicHistory',
+     'quizService',
+    function($scope, $stateParams, $http, apiPrefix,
+      $filter, $ionicPopover, $state, $ionicPopup, $ionicHistory,
+      quizService) {
       $scope.editable = $stateParams.editable;
       $scope.quizId = $stateParams.quizId;
 
       //Подгружаем данные опроса
-      quizService.findOne($stateParams.quizId).then(function (quiz) {
+      quizService.findOne($stateParams.quizId).then(function(quiz) {
         $scope.quiz = quiz;
       });
 
       //Действие редактирование
-      $scope.edit = function () {
+      $scope.edit = function() {
         $scope.popover.hide();
         $state.go('.edit');
       };
 
       //Действие удаление
-      $scope.delete = function () {
+      $scope.delete = function() {
         $scope.popover.hide();
         var confirmPopup = $ionicPopup.confirm({
           title: 'Удаление опроса',
@@ -91,12 +95,12 @@ angular.module('app.controllers', [])
           cancelText: 'Нет',
           okText: 'Да',
         });
-        confirmPopup.then(function (res) {
+        confirmPopup.then(function(res) {
           if (res) {
             console.log('Удаление: ' + $stateParams.quizId);
-            quizService.remove($stateParams.quizId).then(function () {
+            quizService.remove($stateParams.quizId).then(function() {
               $ionicHistory.goBack();
-            }, function (error) {
+            }, function(error) {
               $ionicPopup.alert({
                 title: 'Ошибка удаления',
                 template: error
@@ -123,34 +127,34 @@ angular.module('app.controllers', [])
       //Инициализируем поповер
       $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
         scope: $scope,
-      }).then(function (popover) {
+      }).then(function(popover) {
         $scope.popover = popover;
       });
-      $scope.openPopover = function ($event) {
+      $scope.openPopover = function($event) {
         $scope.popover.show($event);
       };
-      $scope.closePopover = function () {
+      $scope.closePopover = function() {
         $scope.popover.hide();
       };
-      $scope.$on('$destroy', function () {
+      $scope.$on('$destroy', function() {
         $scope.popover.remove();
       });
 
     },])
 
-  .controller('quizDetailEditCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix',
-    '$ionicPopover', '$ionicHistory', 'quizService', '$ionicPopup', 'authService', 'questionService', '$state',
-    function ($scope, $stateParams, $http, apiPrefix, $ionicPopover,
+  .controller('quizDetailEditCtrl', ['$scope', '$stateParams', '$http',
+  'apiPrefix', '$ionicPopover', '$ionicHistory', 'quizService', '$ionicPopup', 'authService', 'questionService', '$state',
+    function($scope, $stateParams, $http, apiPrefix, $ionicPopover,
               $ionicHistory, quizService, $ionicPopup, authService, questionService, $state) {
       //Провреяем была ли открыта форма на редактирование существующего
       if ($stateParams.quizId) {
 
         //Подгружаем данные опроса
-        quizService.findOne($stateParams.quizId).then(function (quiz) {
+        quizService.findOne($stateParams.quizId).then(function(quiz) {
           console.log(quiz);
 
           //Подгружаем ответы
-          questionService.findAll(quiz.id).then(function (questions) {
+          questionService.findAll(quiz.id).then(function(questions) {
             console.log(questions);
             $scope.quiz = quiz;
             $scope.quiz.questions = questions;
@@ -166,14 +170,14 @@ angular.module('app.controllers', [])
       }
 
       //Дейтсвтие сохранения
-      $scope.save = function () {
+      $scope.save = function() {
         console.log($scope.quiz);
-        quizService.save($scope.quiz).then(function (quiz) {
+        quizService.save($scope.quiz).then(function(quiz) {
           console.log(quiz);
           $scope.quiz = quiz;
           $scope.popover.hide();
           $ionicHistory.goBack();
-        }, function (error) {
+        }, function(error) {
           $ionicPopup.alert({
             title: 'Ошибка сохранения',
             template: error
@@ -189,34 +193,41 @@ angular.module('app.controllers', [])
 
       $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
         scope: $scope,
-      }).then(function (popover) {
+      }).then(function(popover) {
         $scope.popover = popover;
       });
-      $scope.openPopover = function ($event) {
+      $scope.openPopover = function($event) {
         $scope.popover.show($event);
       };
-      $scope.closePopover = function () {
+      $scope.closePopover = function() {
         $scope.popover.hide();
       };
-      $scope.$on('$destroy', function () {
+      $scope.$on('$destroy', function() {
         $scope.popover.remove();
       });
     },])
 
-  .controller('questionEditCtrl', ['$scope', '$stateParams', 'questionService', '$ionicPopover', '$ionicHistory', '$ionicPopup',
-    function ($scope, $stateParams, questionService, $ionicPopover, $ionicHistory, $ionicPopup) {
-      debugger;
+  .controller('questionEditCtrl', ['$scope', '$stateParams', 'questionService',
+   '$ionicPopover', '$ionicHistory', '$ionicPopup', '$state',
+    function($scope, $stateParams, questionService,
+      $ionicPopover, $ionicHistory, $ionicPopup, $state) {
+
+        if(questionService.getQuestion()){
+          $scope.question = questionService.getQuestion();
+        }
 
       //Дейтсвие сохранения вопроса
-      $scope.saveQuestion = function () {
+      $scope.saveQuestion = function() {
         console.log($scope.question);
-        debugger;
-        questionService.save($scope.question).then(function (question) {
+
+        questionService.save($scope.question).then(function(question) {
           console.log(question);
           $scope.question = question;
           $scope.questionPopover.hide();
           $ionicHistory.goBack();
-        }, function (error) {
+          questionService.addQuestion(null);
+          return question;
+        }, function(error) {
           $ionicPopup.alert({
             title: 'Ошибка сохранения',
             template: error
@@ -224,8 +235,13 @@ angular.module('app.controllers', [])
         });
       };
 
+      $scope.goToVarint = function functionName() {
+        questionService.addQuestion($scope.question);
+        $state.go('app.quizDetail.edit.questionDetail.variant.new');
+      }
+
       //Добавляем действие удаления вопроса
-      $scope.deleteQuestion = function () {
+      $scope.deleteQuestion = function() {
         $scope.questionPopover.hide();
         var confirmPopup = $ionicPopup.confirm({
           title: 'Удаление вопроса',
@@ -233,12 +249,12 @@ angular.module('app.controllers', [])
           cancelText: 'Нет',
           okText: 'Да',
         });
-        confirmPopup.then(function (res) {
+        confirmPopup.then(function(res) {
           if (res) {
             console.log('Удаление: ' + $stateParams.questionId);
-            questionService.remove($stateParams.questionId).then(function () {
+            questionService.remove($stateParams.questionId).then(function() {
               $ionicHistory.goBack();
-            }, function (error) {
+            }, function(error) {
               $ionicPopup.alert({
                 title: 'Ошибка удаления',
                 template: error
@@ -251,19 +267,27 @@ angular.module('app.controllers', [])
       };
 
       //Дейтсвие сохранения варианта
-      $scope.saveVariant = function () {
-        debugger;
-        if ($stateParams.variantIndex) {
-          $scope.question.variants[$stateParams.variantIndex] = $scope.variant;
-        } else {
-          $scope.question.variants.push($scope.variant);
+      $scope.saveVariant = function() {
+        var question = questionService.getQuestion();
+        if (!question.variants) {
+          question.variants = [];
         }
+        if ($stateParams.variantIndex) {
+          question.variants[$stateParams.variantIndex] = $scope.variant;
+        } else {
+          question.variants.push($scope.variant);
+        }
+
+        questionService.addQuestion(question);
+
         $scope.variantPopover.hide();
         $ionicHistory.goBack();
       };
 
+
+
       //Дейтсвие удаления варианта
-      $scope.deleteVariant = function () {
+      $scope.deleteVariant = function() {
         $scope.variantPopover.hide();
         var confirmPopup = $ionicPopup.confirm({
           title: 'Удаление варианта',
@@ -271,7 +295,7 @@ angular.module('app.controllers', [])
           cancelText: 'Нет',
           okText: 'Да',
         });
-        confirmPopup.then(function (res) {
+        confirmPopup.then(function(res) {
           if (res) {
             $scope.question.variants.splice($stateParams.variantIndex, 1);
             $scope.variantPopover.hide();
@@ -484,4 +508,3 @@ angular.module('app.controllers', [])
     function ($scope, $stateParams) {
 
     },]);
-
