@@ -6,14 +6,14 @@
     <ion-list class="manual-list-fullwidth">
       <label class="item item-select">
         <span class="input-label">Тип</span>
-        <select ng-model="variant.type">
+        <select ng-model="variant.variantType">
           <option value=""></option>
           <option value="text">Текст</option>
           <option value="image">Изображение</option>
           <option value="geoData">Местоположение</option>
         </select>
       </label>
-      <div ng-switch on="variant.type">
+      <div ng-switch on="variant.variantType">
         <div ng-switch-when="text">
           <label class="item item-input item-stacked-label">
             <span class="input-label">Значение</span>

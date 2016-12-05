@@ -3,7 +3,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 
 // .constant('apiPrefix', 'http://teemo-gu5b6kr5.cloudapp.net:3000/api/')
 //   .constant('apiPrefix', 'http://localhost:3000/api/')
-  .constant('apiPrefix', 'http://ubuntuazureserver7823.cloudapp.net:3000/api/')
+  // .constant('apiPrefix', 'http://ubuntuazureserver7823.cloudapp.net:3000/api/')
+  .constant('apiPrefix', 'http://10.0.2.2:3000/api/')
   .constant("AUTH0_DOMAIN", "mobile-forms.eu.auth0.com")
   .constant("AUTH0_APP_ID", "JJmxtVcCorumFXQIKRkZxX0HyuAl0EA9")
   .constant("ANON_AUTH", "anonymous")

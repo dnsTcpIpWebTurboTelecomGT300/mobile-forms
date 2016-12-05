@@ -7,7 +7,7 @@ module.exports = {
     isMulti: Boolean,
     variants:[{
         id: String,
-        type: String,
+        variantType: String,
         textValue: String,
         dateValue: Date,
         imageValue: String,
