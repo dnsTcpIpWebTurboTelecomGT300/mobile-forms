@@ -214,6 +214,20 @@ angular.module('app.controllers', [])
     function($scope, $stateParams, questionService,
       $ionicPopover, $ionicHistory, $ionicPopup, $state) {
 
+        $scope.takeFoto = function takeFoto() {
+          var successCallback = function(imageData) {
+            $scope.variant.imageValue = "data:image/jpeg;base64," + imageData;
+          }
+          var errorCallback = function functionName(message) {
+            console.log("Error: " + message);
+          };
+          var options = {
+            quality: 25,
+            destinationType: Camera.DestinationType.DATA_URL
+          };
+          navigator.camera.getPicture(successCallback, errorCallback, options)
+        }
+
         if(questionService.getQuestion()){
           $scope.question = questionService.getQuestion();
         }
@@ -237,8 +251,16 @@ angular.module('app.controllers', [])
         });
       };
 
-      $scope.goToVarint = function functionName() {
+      $scope.goToVariant = function goToVariant(index) {
         questionService.addQuestion($scope.question);
+        if (index !== undefined) {
+          $state.go('app.quizDetail.edit.questionDetail.variant',
+          {
+            variantIndex:index,
+            question:$scope.question
+          });
+          return
+        }
         $state.go('app.quizDetail.edit.questionDetail.variant.new');
       }
 
