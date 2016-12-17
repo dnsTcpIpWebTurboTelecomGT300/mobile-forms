@@ -33,12 +33,18 @@ angular.module('app.controllers', [])
           questionService.setCurrentQuestion(curent)
           questionService.setQuestionsList(questions);
           $scope.question = curent;
+          $scope.ifPrevExist = questionService.getPrev(true);
+          $scope.isNextExist = questionService.getNext(true);
         });
         $scope.goPrev = function functionName() {
           $scope.question = questionService.getPrev();
+          $scope.ifPrevExist = questionService.getPrev(true);
+          $scope.isNextExist = questionService.getNext(true);
         };
         $scope.goNext = function functionName() {
           $scope.question = questionService.getNext();
+          $scope.ifPrevExist = questionService.getPrev(true);
+          $scope.isNextExist = questionService.getNext(true);
         };
       }])
 

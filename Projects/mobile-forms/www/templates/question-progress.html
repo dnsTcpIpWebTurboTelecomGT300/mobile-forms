@@ -3,16 +3,38 @@
     <!-- <button class="button icon ion-android-more-vertical" id="question-popover" ng-click="openPopover($event)"></button> -->
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
-    <span>{{question.text}}</span>
+    <div style="color:#000000;">
+      <p>{{question.text}}</p>
+    </div>
+    <div ng-if="question.questionType=='free'" class="">
+      <div ng-if="question.answerFormat=='text'" class="">
+        <span class="input-label">Текст ответа</span>
+        <input type="text" placeholder="Текст ответа" ng-model="question.answer">
+      </div>
+      <div ng-if="question.answerFormat=='date'" class="">
+        <span class="" ng-click="getDete()">Дата {{question.answer.toLocaleDateString()}} <i class="icon ion-calendar" style="color: black;"></i></span>
+      </div>
+      <div ng-if="question.answerFormat=='number'" class="">
+
+      </div>
+    </div>
+    <div ng-if="question.questionType=='select'" class="">
+      <div ng-if="question.isMulti" class="">
+
+      </div>
+      <div ng-if="!question.isMulti" class="">
+
+      </div>
+    </div>
   </ion-content>
   <div class="tabs tabs-icon-only greenBG">
     <a class="tab-item">
-      <i class="icon ion-arrow-left-a" style="color: black;" ng-click="goPrev()"></i>
+      <i ng-if="ifPrevExist" class="icon ion-arrow-left-a" style="color: black;" ng-click="goPrev()"></i>
     </a>
     <a class="tab-item">
     </a>
     <a class="tab-item">
-      <i class="icon ion-arrow-right-a" style="color: black;" ng-click="goNext()"></i>
+      <i ng-if="isNextExist" class="icon ion-arrow-right-a" style="color: black;" ng-click="goNext()"></i>
     </a>
   </div>
 </ion-view>

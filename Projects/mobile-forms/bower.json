@@ -12,5 +12,7 @@
     "angular-lock": "~1.0.1",
     "angular-auth0": "1.0.4",
     "babel-polyfill": "^0.0.1"
+    "angular-auth0": "1.0.4",
+    "ionic-datepicker": "^1.2.1"
   }
 }
