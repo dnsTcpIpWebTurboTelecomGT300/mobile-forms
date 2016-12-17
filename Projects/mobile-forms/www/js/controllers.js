@@ -498,7 +498,6 @@ angular.module('app.controllers', [])
 
         }, false);
 
-
         map.on(plugin.google.maps.event.MAP_CLICK, function(latLng) {
           map.clear();
           if (!latLng.toUrlValue) {

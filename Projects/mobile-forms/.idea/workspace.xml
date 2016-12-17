@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="">
+    <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="fixed image take">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/question-edit.html" afterPath="$PROJECT_DIR$/www/templates/question-edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/variant-edit.html" afterPath="$PROJECT_DIR$/www/templates/variant-edit.html" />
     </list>
     <ignored path="mobile-forms.iws" />
@@ -30,10 +28,10 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="484" column="10" selection-start-line="484" selection-start-column="10" selection-end-line="484" selection-end-column="10" />
+            <state relative-caret-position="-892">
+              <caret line="499" column="0" selection-start-line="499" selection-start-column="0" selection-end-line="499" selection-end-column="0" />
               <folding>
-                <marker date="1482010698716" expanded="false" signature="65:337" ph="[...]" />
+                <marker date="1482013024673" expanded="false" signature="65:337" ph="[...]" />
               </folding>
             </state>
           </provider>
@@ -65,12 +63,13 @@
         <entry file="file://$PROJECT_DIR$/www/templates/variant-edit.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
               <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#label#0;n#div#1;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#div#1;n#label#0;n#div#1;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#label#0;n#div#2;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#1;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#2;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#label#2;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -201,8 +200,8 @@
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/templates/question-edit.html" />
-        <option value="$PROJECT_DIR$/www/js/controllers.js" />
         <option value="$PROJECT_DIR$/www/templates/variant-edit.html" />
+        <option value="$PROJECT_DIR$/www/js/controllers.js" />
       </list>
     </option>
   </component>
@@ -818,7 +817,7 @@
       <workItem from="1479555029825" duration="28761000" />
       <workItem from="1480879270947" duration="12488000" />
       <workItem from="1481046126743" duration="20590000" />
-      <workItem from="1481983104855" duration="20420000" />
+      <workItem from="1481983104855" duration="20850000" />
     </task>
     <task id="LOCAL-00001" summary="added auth">
       <created>1477510134927</created>
@@ -946,11 +945,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481996797103</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fixed image take">
+      <created>1482012612734</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1482012612734</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149089000" />
+    <option name="totallyTimeSpent" value="149519000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1042,7 +1048,8 @@
     <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/templates/question-edit.html&#10;" />
     <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;" />
     <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/bower.json&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/bower.json&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;" />
+    <MESSAGE value="fixed image take" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed image take" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1350,22 +1357,23 @@
     <entry file="file://$PROJECT_DIR$/www/templates/variant-edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
           <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#label#0;n#div#1;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#1;n#label#0;n#div#1;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#label#0;n#div#2;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#1;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#2;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#label#2;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="484" column="10" selection-start-line="484" selection-start-column="10" selection-end-line="484" selection-end-column="10" />
+        <state relative-caret-position="-892">
+          <caret line="499" column="0" selection-start-line="499" selection-start-column="0" selection-end-line="499" selection-end-column="0" />
           <folding>
-            <marker date="1482010698716" expanded="false" signature="65:337" ph="[...]" />
+            <marker date="1482013024673" expanded="false" signature="65:337" ph="[...]" />
           </folding>
         </state>
       </provider>
