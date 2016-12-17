@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/variant-edit.html" afterPath="$PROJECT_DIR$/www/templates/variant-edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../odata-server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../odata-server/.idea/workspace.xml" />
     </list>
     <ignored path="mobile-forms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,18 +28,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="403" column="0" selection-start-line="403" selection-start-column="0" selection-end-line="403" selection-end-column="0" />
+            <state relative-caret-position="-127">
+              <caret line="331" column="12" selection-start-line="331" selection-start-column="12" selection-end-line="331" selection-end-column="12" />
               <folding>
-                <element signature="e#8221#9006#0" expanded="false" />
-                <element signature="e#9094#10258#0" expanded="false" />
-                <element signature="e#10304#10475#0" expanded="false" />
-                <element signature="e#11774#13812#0" expanded="false" />
-                <marker date="1481989790706" expanded="false" signature="65:337" ph="[...]" />
-                <marker date="1481989790706" expanded="false" signature="366:713" ph="[...]" />
+                <marker date="1481996163471" expanded="false" signature="65:337" ph="[...]" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gulpfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+              <folding>
+                <element signature="e#598#881#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -56,26 +76,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="qd-popover.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/popover/qd-popover.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -86,22 +86,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quizes.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/quizes.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="14" column="68" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="132" column="14" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="60" />
-              <folding />
+              <caret line="163" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="60" />
+              <folding>
+                <marker date="1481992286009" expanded="true" signature="97:344" ph="//..." />
+                <marker date="1481992286009" expanded="true" signature="387:519" ph="{&quot;url&quot;: '/login'...}" />
+                <marker date="1481992286009" expanded="true" signature="542:726" ph="{&quot;url&quot;: '/app'...}" />
+                <marker date="1481992286009" expanded="true" signature="677:718" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="756:1074" ph="{&quot;url&quot;: '/quizes'...}" />
+                <marker date="1481992286009" expanded="true" signature="820:857" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="899:999" ph="{&quot;templateUrl&quot;: 'templates/quizes.html'...}" />
+                <marker date="1481992286009" expanded="true" signature="1108:1443" ph="{&quot;url&quot;: '/quizes/:quizId'...}" />
+                <marker date="1481992286009" expanded="true" signature="1180:1217" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="1234:1378" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="1259:1368" ph="{&quot;templateUrl&quot;: 'templates/quiz-detail.html'...}" />
+                <marker date="1481992286009" expanded="true" signature="1394:1435" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="1482:1763" ph="{&quot;url&quot;: '/edit'...}" />
+                <marker date="1481992286009" expanded="true" signature="1543:1698" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="1572:1688" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
+                <marker date="1481992286009" expanded="true" signature="1714:1755" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="2574:2854" ph="{&quot;url&quot;: '/new'...}" />
+                <marker date="1481992286009" expanded="true" signature="2634:2789" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="2663:2779" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
+                <marker date="1481992286009" expanded="true" signature="2805:2846" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="2908:3181" ph="{&quot;url&quot;: '/questions/:questionId'...}" />
+                <marker date="1481992286009" expanded="true" signature="2964:3116" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="2993:3106" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
+                <marker date="1481992286009" expanded="true" signature="3132:3173" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="3239:3542" ph="{&quot;url&quot;: '/new'...}" />
+                <marker date="1481992286009" expanded="true" signature="3278:3308" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="3325:3477" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="3354:3467" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
+                <marker date="1481992286009" expanded="true" signature="3493:3534" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="3604:3929" ph="{&quot;url&quot;: '/variant/:variantIndex'...}" />
+                <marker date="1481992286009" expanded="true" signature="3714:3864" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="3743:3854" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
+                <marker date="1481992286009" expanded="true" signature="3880:3921" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="3995:4302" ph="{&quot;url&quot;: '/new'...}" />
+                <marker date="1481992286009" expanded="true" signature="4087:4237" ph="{...}" />
+                <marker date="1481992286009" expanded="true" signature="4116:4227" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
+                <marker date="1481992286009" expanded="true" signature="4253:4294" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,17 +137,26 @@
       <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="154" column="6" selection-start-line="154" selection-start-column="6" selection-end-line="154" selection-end-column="6" />
+            <state relative-caret-position="0">
+              <caret line="187" column="27" selection-start-line="187" selection-start-column="27" selection-end-line="187" selection-end-column="27" />
               <folding>
-                <element signature="e#125#1428#0" expanded="false" />
-                <element signature="e#184#480#0" expanded="false" />
-                <element signature="e#512#629#0" expanded="false" />
-                <element signature="e#663#753#0" expanded="false" />
-                <element signature="e#789#1110#0" expanded="false" />
                 <element signature="e#1144#1152#0" expanded="false" />
-                <element signature="e#1190#1286#0" expanded="false" />
-                <element signature="e#3884#5794#0" expanded="false" />
+                <marker date="1481992548086" expanded="true" signature="64:1429" ph="[...]" />
+                <marker date="1481992548086" expanded="false" signature="125:1428" ph="{...}" />
+                <marker date="1481992548086" expanded="false" signature="184:480" ph="{...}" />
+                <marker date="1481992548086" expanded="true" signature="229:472" ph="{...}" />
+                <marker date="1481992548086" expanded="true" signature="245:336" ph="{&quot;method&quot;: 'GET'...}" />
+                <marker date="1481992548086" expanded="true" signature="363:408" ph="{...}" />
+                <marker date="1481992548086" expanded="false" signature="512:629" ph="{...}" />
+                <marker date="1481992548086" expanded="true" signature="533:621" ph="{&quot;method&quot;: 'DELETE'...}" />
+                <marker date="1481992548086" expanded="false" signature="663:753" ph="{...}" />
+                <marker date="1481992548086" expanded="false" signature="789:1110" ph="{...}" />
+                <marker date="1481992548086" expanded="true" signature="987:1038" ph="{...}" />
+                <marker date="1481992548086" expanded="false" signature="1190:1286" ph="{...}" />
+                <marker date="1481992548086" expanded="true" signature="1523:1611" ph="{...}" />
+                <marker date="1481992548086" expanded="true" signature="10269:10277" ph="{&quot;findQuizes&quot;: findQuizes...}" />
+                <marker date="1481992548086" expanded="true" signature="10269:10284" ph="{...}" />
+                <marker date="1481992548086" expanded="true" signature="10269:10285" ph="[...]" />
               </folding>
             </state>
           </provider>
@@ -177,10 +214,8 @@
         <option value="$PROJECT_DIR$/www/templates/quiz.html" />
         <option value="$PROJECT_DIR$/www/templates/quiz-info.html" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/config.xml" />
-        <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/templates/quiz-edit.html" />
         <option value="$PROJECT_DIR$/www/templates/popover/qd-popover-save.html" />
         <option value="$PROJECT_DIR$/www/templates/popover/qd-popover-edit.html" />
@@ -194,6 +229,8 @@
         <option value="$PROJECT_DIR$/www/js/routes.js" />
         <option value="$PROJECT_DIR$/www/templates/quiz-edit-form.html" />
         <option value="$PROJECT_DIR$/www/templates/question-edit.html" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
       </list>
     </option>
@@ -321,74 +358,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane">
@@ -418,7 +387,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RunManager" selected="PhoneGap/Cordova.android - run">
+  <component name="RunManager" selected="PhoneGap/Cordova.browser - save">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -878,7 +847,7 @@
       <workItem from="1479555029825" duration="28761000" />
       <workItem from="1480879270947" duration="12488000" />
       <workItem from="1481046126743" duration="20590000" />
-      <workItem from="1481983104855" duration="9110000" />
+      <workItem from="1481983104855" duration="13196000" />
     </task>
     <task id="LOCAL-00001" summary="added auth">
       <created>1477510134927</created>
@@ -964,11 +933,32 @@
       <option name="project" value="LOCAL" />
       <updated>1481989268510</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/templates/question-edit.html&#10;">
+      <created>1481992253435</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1481992253435</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/templates/question-edit.html&#10;">
+      <created>1481992277761</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1481992277761</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;">
+      <created>1481996334339</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1481996334339</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137779000" />
+    <option name="totallyTimeSpent" value="141865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1057,7 +1047,9 @@
     <MESSAGE value="implemented anon authentication + fixes for quizes list" />
     <MESSAGE value="fixed variants template" />
     <MESSAGE value="fixed variants" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed variants" />
+    <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/templates/question-edit.html&#10;" />
+    <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1094,7 +1086,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1481992286009" expanded="true" signature="97:344" ph="//..." />
+            <marker date="1481992286009" expanded="true" signature="387:519" ph="{&quot;url&quot;: '/login'...}" />
+            <marker date="1481992286009" expanded="true" signature="542:726" ph="{&quot;url&quot;: '/app'...}" />
+            <marker date="1481992286009" expanded="true" signature="677:718" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="756:1074" ph="{&quot;url&quot;: '/quizes'...}" />
+            <marker date="1481992286009" expanded="true" signature="820:857" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="899:999" ph="{&quot;templateUrl&quot;: 'templates/quizes.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="1108:1443" ph="{&quot;url&quot;: '/quizes/:quizId'...}" />
+            <marker date="1481992286009" expanded="true" signature="1180:1217" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="1234:1378" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="1259:1368" ph="{&quot;templateUrl&quot;: 'templates/quiz-detail.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="1394:1435" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="1482:1763" ph="{&quot;url&quot;: '/edit'...}" />
+            <marker date="1481992286009" expanded="true" signature="1543:1698" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="1572:1688" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="1714:1755" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="2574:2854" ph="{&quot;url&quot;: '/new'...}" />
+            <marker date="1481992286009" expanded="true" signature="2634:2789" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="2663:2779" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="2805:2846" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="2908:3181" ph="{&quot;url&quot;: '/questions/:questionId'...}" />
+            <marker date="1481992286009" expanded="true" signature="2964:3116" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="2993:3106" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="3132:3173" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3239:3542" ph="{&quot;url&quot;: '/new'...}" />
+            <marker date="1481992286009" expanded="true" signature="3278:3308" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3325:3477" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3354:3467" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="3493:3534" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3604:3929" ph="{&quot;url&quot;: '/variant/:variantIndex'...}" />
+            <marker date="1481992286009" expanded="true" signature="3714:3864" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3743:3854" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="3880:3921" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3995:4302" ph="{&quot;url&quot;: '/new'...}" />
+            <marker date="1481992286009" expanded="true" signature="4087:4237" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="4116:4227" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="4253:4294" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1158,13 +1188,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="60" column="18" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1283,22 +1306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/popover/qd-popover.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/quizes.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -1317,17 +1324,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="154" column="6" selection-start-line="154" selection-start-column="6" selection-end-line="154" selection-end-column="6" />
+        <state relative-caret-position="0">
+          <caret line="187" column="27" selection-start-line="187" selection-start-column="27" selection-end-line="187" selection-end-column="27" />
           <folding>
-            <element signature="e#125#1428#0" expanded="false" />
-            <element signature="e#184#480#0" expanded="false" />
-            <element signature="e#512#629#0" expanded="false" />
-            <element signature="e#663#753#0" expanded="false" />
-            <element signature="e#789#1110#0" expanded="false" />
             <element signature="e#1144#1152#0" expanded="false" />
-            <element signature="e#1190#1286#0" expanded="false" />
-            <element signature="e#3884#5794#0" expanded="false" />
+            <marker date="1481992548086" expanded="true" signature="64:1429" ph="[...]" />
+            <marker date="1481992548086" expanded="false" signature="125:1428" ph="{...}" />
+            <marker date="1481992548086" expanded="false" signature="184:480" ph="{...}" />
+            <marker date="1481992548086" expanded="true" signature="229:472" ph="{...}" />
+            <marker date="1481992548086" expanded="true" signature="245:336" ph="{&quot;method&quot;: 'GET'...}" />
+            <marker date="1481992548086" expanded="true" signature="363:408" ph="{...}" />
+            <marker date="1481992548086" expanded="false" signature="512:629" ph="{...}" />
+            <marker date="1481992548086" expanded="true" signature="533:621" ph="{&quot;method&quot;: 'DELETE'...}" />
+            <marker date="1481992548086" expanded="false" signature="663:753" ph="{...}" />
+            <marker date="1481992548086" expanded="false" signature="789:1110" ph="{...}" />
+            <marker date="1481992548086" expanded="true" signature="987:1038" ph="{...}" />
+            <marker date="1481992548086" expanded="false" signature="1190:1286" ph="{...}" />
+            <marker date="1481992548086" expanded="true" signature="1523:1611" ph="{...}" />
+            <marker date="1481992548086" expanded="true" signature="10269:10277" ph="{&quot;findQuizes&quot;: findQuizes...}" />
+            <marker date="1481992548086" expanded="true" signature="10269:10284" ph="{...}" />
+            <marker date="1481992548086" expanded="true" signature="10269:10285" ph="[...]" />
           </folding>
         </state>
       </provider>
@@ -1335,8 +1351,46 @@
     <entry file="file://$PROJECT_DIR$/www/js/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="132" column="14" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="60" />
-          <folding />
+          <caret line="163" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="60" />
+          <folding>
+            <marker date="1481992286009" expanded="true" signature="97:344" ph="//..." />
+            <marker date="1481992286009" expanded="true" signature="387:519" ph="{&quot;url&quot;: '/login'...}" />
+            <marker date="1481992286009" expanded="true" signature="542:726" ph="{&quot;url&quot;: '/app'...}" />
+            <marker date="1481992286009" expanded="true" signature="677:718" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="756:1074" ph="{&quot;url&quot;: '/quizes'...}" />
+            <marker date="1481992286009" expanded="true" signature="820:857" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="899:999" ph="{&quot;templateUrl&quot;: 'templates/quizes.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="1108:1443" ph="{&quot;url&quot;: '/quizes/:quizId'...}" />
+            <marker date="1481992286009" expanded="true" signature="1180:1217" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="1234:1378" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="1259:1368" ph="{&quot;templateUrl&quot;: 'templates/quiz-detail.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="1394:1435" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="1482:1763" ph="{&quot;url&quot;: '/edit'...}" />
+            <marker date="1481992286009" expanded="true" signature="1543:1698" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="1572:1688" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="1714:1755" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="2574:2854" ph="{&quot;url&quot;: '/new'...}" />
+            <marker date="1481992286009" expanded="true" signature="2634:2789" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="2663:2779" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="2805:2846" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="2908:3181" ph="{&quot;url&quot;: '/questions/:questionId'...}" />
+            <marker date="1481992286009" expanded="true" signature="2964:3116" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="2993:3106" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="3132:3173" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3239:3542" ph="{&quot;url&quot;: '/new'...}" />
+            <marker date="1481992286009" expanded="true" signature="3278:3308" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3325:3477" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3354:3467" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="3493:3534" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3604:3929" ph="{&quot;url&quot;: '/variant/:variantIndex'...}" />
+            <marker date="1481992286009" expanded="true" signature="3714:3864" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3743:3854" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="3880:3921" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="3995:4302" ph="{&quot;url&quot;: '/new'...}" />
+            <marker date="1481992286009" expanded="true" signature="4087:4237" ph="{...}" />
+            <marker date="1481992286009" expanded="true" signature="4116:4227" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
+            <marker date="1481992286009" expanded="true" signature="4253:4294" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1368,18 +1422,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding>
+            <element signature="e#598#881#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/popover/qd-popover.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="403" column="0" selection-start-line="403" selection-start-column="0" selection-end-line="403" selection-end-column="0" />
+        <state relative-caret-position="-127">
+          <caret line="331" column="12" selection-start-line="331" selection-start-column="12" selection-end-line="331" selection-end-column="12" />
           <folding>
-            <element signature="e#8221#9006#0" expanded="false" />
-            <element signature="e#9094#10258#0" expanded="false" />
-            <element signature="e#10304#10475#0" expanded="false" />
-            <element signature="e#11774#13812#0" expanded="false" />
-            <marker date="1481989790706" expanded="false" signature="65:337" ph="[...]" />
-            <marker date="1481989790706" expanded="false" signature="366:713" ph="[...]" />
+            <marker date="1481996163471" expanded="false" signature="65:337" ph="[...]" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -27,17 +27,19 @@ angular.module('app.controllers', [])
         //Подгружаем ответы
         questionService.findAll($stateParams.quizId).then(function(questions) {
           console.log(questions);
-          var curent = questions.find(x=>x.id === $stateParams.questionId);
-          questionService.addQuestion(curent)
+          var curent = questions.filter(function (question) {
+            question.id === $stateParams.questionId;
+          })[0];
+          questionService.setCurrentQuestion(curent)
           questionService.setQuestionsList(questions);
           $scope.question = curent;
         });
         $scope.goPrev = function functionName() {
           $scope.question = questionService.getPrev();
-        }
+        };
         $scope.goNext = function functionName() {
           $scope.question = questionService.getNext();
-        }
+        };
       }])
 
   .controller('menuCtrl', ['$scope', '$stateParams', 'authService',
@@ -255,22 +257,11 @@ angular.module('app.controllers', [])
             $scope.question = question;
             questionService.setCurrentQuestion($scope.question);
           });
-          var actions = [{
-            text: 'Сохранить',
-            actionFunction: $scope.saveQuestion
-          }, {
-            text: 'Удалить',
-            actionFunction: $scope.deleteQuestion
-          }];
         } else {
           $scope.question = {
             quizId: $scope.quiz.id,
             variants : []
           };
-          var actions = [{
-            text: 'Сохранить',
-            actionFunction: $scope.saveQuestion
-          }];
           questionService.setCurrentQuestion($scope.question);
         }
       }
@@ -288,7 +279,7 @@ angular.module('app.controllers', [])
             var index = $scope.quiz.questions.indexOf(result[0]);
             $scope.quiz.questions[index] = question;
           }
-          $scope.questionPopover.hide();
+          $scope.popover.hide();
           questionService.setCurrentQuestion(null);
           $ionicHistory.goBack();
           return question;
@@ -302,7 +293,7 @@ angular.module('app.controllers', [])
 
       //Добавляем действие удаления вопроса
       $scope.deleteQuestion = function() {
-        $scope.questionPopover.hide();
+        $scope.popover.hide();
         var confirmPopup = $ionicPopup.confirm({
           title: 'Удаление вопроса',
           template: 'Вы уверены что хотите удалить вопрос?',
@@ -333,6 +324,21 @@ angular.module('app.controllers', [])
           }
         });
       };
+
+      if ($stateParams.questionId) {
+        $scope.actions = [{
+          text: 'Сохранить',
+          actionFunction: $scope.saveQuestion
+        }, {
+          text: 'Удалить',
+          actionFunction: $scope.deleteQuestion
+        }];
+      } else {
+        $scope.actions = [{
+          text: 'Сохранить',
+          actionFunction: $scope.saveQuestion
+        }];
+      }
 
       $scope.goToVariant = function(event) {
         questionService.setCurrentQuestion($scope.question);
@@ -388,29 +394,29 @@ angular.module('app.controllers', [])
         }, false);
 
 
-          map.on(plugin.google.maps.event.MAP_CLICK, function(latLng) {
-            map.clear();
-            if (!latLng.toUrlValue) {
-              latLng=new plugin.google.maps.LatLng(latLng.lat,latLng.lng);
-            }
-            marker = map.addMarker({
-              'position': latLng,
-              'draggable': true,
-              'title': latLng.toUrlValue()
-            }, function(marker) {
+        map.on(plugin.google.maps.event.MAP_CLICK, function(latLng) {
+          map.clear();
+          if (!latLng.toUrlValue) {
+            latLng=new plugin.google.maps.LatLng(latLng.lat,latLng.lng);
+          }
+          marker = map.addMarker({
+            'position': latLng,
+            'draggable': true,
+            'title': latLng.toUrlValue()
+          }, function(marker) {
+            marker.getPosition(function(latLng) {
+              $scope.variant.geoValue = latLng.toUrlValue();
+            });
+            marker.showInfoWindow();
+            marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
               marker.getPosition(function(latLng) {
                 $scope.variant.geoValue = latLng.toUrlValue();
-              });
-              marker.showInfoWindow();
-              marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
-                marker.getPosition(function(latLng) {
-                  $scope.variant.geoValue = latLng.toUrlValue();
-                  marker.setTitle(latLng.toUrlValue());
-                  marker.showInfoWindow();
-                });
+                marker.setTitle(latLng.toUrlValue());
+                marker.showInfoWindow();
               });
             });
           });
+        });
 
         function onMapReady() {
           map.clear();

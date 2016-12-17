@@ -8,12 +8,16 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 var replace = require('replace');
 var replaceFiles = ['./www/js/app.js'];
+var babel = require("gulp-babel");
+var plumber = require("gulp-plumber");
 
 var paths = {
+  sass: ['./scss/**/*.scss'],
+  es6: ['./src/es6/*.js'],
   sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass, babel']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -29,6 +33,7 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('watch', function() {
+  gulp.watch(paths.es6, ['babel']);
   gulp.watch(paths.sass, ['sass']);
 });
 
@@ -60,7 +65,7 @@ gulp.task('add-proxy', function() {
     recursive: false,
     silent: false,
   });
-})
+});
 
 gulp.task('remove-proxy', function() {
   return replace({
@@ -70,4 +75,11 @@ gulp.task('remove-proxy', function() {
     recursive: false,
     silent: false,
   });
-})
+});
+
+gulp.task("babel", function () {
+  return gulp.src(paths.es6)
+    .pipe(plumber())
+    .pipe(babel({presets: ['es2015']}))
+    .pipe(gulp.dest("www/js"));
+});
