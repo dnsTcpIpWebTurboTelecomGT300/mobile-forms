@@ -4,35 +4,29 @@
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
     <ion-list class="manual-list-fullwidth">
-      <label class="item item-select">
-        <span class="input-label">Тип</span>
-        <select ng-model="variant.variantType">
-          <option value=""></option>
-          <option value="text">Текст</option>
-          <option value="image">Изображение</option>
-          <option value="geoData">Местоположение</option>
-        </select>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Введите текст</span>
+        <input type="text" placeholder="Текст вопроса" ng-model="variant.textValue">
       </label>
-      <div ng-switch on="variant.variantType">
-        <div ng-switch-when="text">
-          <label class="item item-input item-stacked-label">
-            <span class="input-label">Значение</span>
-            <input type="text" placeholder="Текст вопроса" ng-model="variant.textValue">
-          </label>
+      <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeFoto()">
+        <div ng-if="variant.imageValue">
+          <div>Прикрепленное изображение</div>
+          <img ng-src="{{variant.imageValue}}" style="width : 90% ; ">
         </div>
-        <div ng-switch-when="image">
-          <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeFoto()">
-            <img ng-if="variant.imageValue" data-ng-src="{{variant.imageValue}}" style="width : 90% ; ">
-            <i ng-if="!variant.imageValue" class="icon ion-image" style="font-size: 200px;" > </i>
-          </label>
+        <div ng-if="!variant.imageValue">
+          <div>Прикрепите изображение</div>
+          <i class="icon ion-image" style="font-size: 100px;"> </i>
         </div>
-        <div ng-switch-when="geoData">
-          <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeGeo()">
-            <i class="icon ion-map center" style="font-size: 200px;"></i>
-          </label>
+      </label>
+      <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeGeo()">
+        <div ng-if="variant.geoValue">
+          <div>Выбранные координаты {{variant.geoValue}}</div>
         </div>
-        <div ng-switch-default></div>
-      </div>
+        <div ng-if="!variant.geoValue">
+          <div>Прикрепите местоположение</div>
+        </div>
+        <i class="icon ion-map center" style="font-size: 100px;"> </i>
+      </label>
     </ion-list>
   </ion-content>
 </ion-view>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="">
+    <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="fixed image take">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/variant-edit.html" afterPath="$PROJECT_DIR$/www/templates/variant-edit.html" />
     </list>
     <ignored path="mobile-forms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,10 +28,10 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="94" column="27" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
+            <state relative-caret-position="-892">
+              <caret line="499" column="0" selection-start-line="499" selection-start-column="0" selection-end-line="499" selection-end-column="0" />
               <folding>
-                <marker date="1481996588338" expanded="false" signature="65:337" ph="[...]" />
+                <marker date="1482013024673" expanded="false" signature="65:337" ph="[...]" />
               </folding>
             </state>
           </provider>
@@ -49,7 +50,7 @@
       <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gulpfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
+            <state relative-caret-position="465">
               <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding>
                 <element signature="e#598#881#0" expanded="false" />
@@ -61,23 +62,15 @@
       <file leaf-file-name="variant-edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/variant-edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="23" column="96" selection-start-line="23" selection-start-column="91" selection-end-line="23" selection-end-column="96" />
+            <state relative-caret-position="187">
+              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
               <folding>
-                <element signature="n#style#0;n#img#0;n#label#0;n#div#1;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#label#0;n#div#1;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#1;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#2;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#label#2;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="50" column="100" selection-start-line="50" selection-start-column="100" selection-end-line="50" selection-end-column="100" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -85,47 +78,9 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="210">
               <caret line="163" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="60" />
-              <folding>
-                <marker date="1481992286009" expanded="true" signature="97:344" ph="//..." />
-                <marker date="1481992286009" expanded="true" signature="387:519" ph="{&quot;url&quot;: '/login'...}" />
-                <marker date="1481992286009" expanded="true" signature="542:726" ph="{&quot;url&quot;: '/app'...}" />
-                <marker date="1481992286009" expanded="true" signature="677:718" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="756:1074" ph="{&quot;url&quot;: '/quizes'...}" />
-                <marker date="1481992286009" expanded="true" signature="820:857" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="899:999" ph="{&quot;templateUrl&quot;: 'templates/quizes.html'...}" />
-                <marker date="1481992286009" expanded="true" signature="1108:1443" ph="{&quot;url&quot;: '/quizes/:quizId'...}" />
-                <marker date="1481992286009" expanded="true" signature="1180:1217" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="1234:1378" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="1259:1368" ph="{&quot;templateUrl&quot;: 'templates/quiz-detail.html'...}" />
-                <marker date="1481992286009" expanded="true" signature="1394:1435" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="1482:1763" ph="{&quot;url&quot;: '/edit'...}" />
-                <marker date="1481992286009" expanded="true" signature="1543:1698" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="1572:1688" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
-                <marker date="1481992286009" expanded="true" signature="1714:1755" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="2574:2854" ph="{&quot;url&quot;: '/new'...}" />
-                <marker date="1481992286009" expanded="true" signature="2634:2789" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="2663:2779" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
-                <marker date="1481992286009" expanded="true" signature="2805:2846" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="2908:3181" ph="{&quot;url&quot;: '/questions/:questionId'...}" />
-                <marker date="1481992286009" expanded="true" signature="2964:3116" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="2993:3106" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
-                <marker date="1481992286009" expanded="true" signature="3132:3173" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="3239:3542" ph="{&quot;url&quot;: '/new'...}" />
-                <marker date="1481992286009" expanded="true" signature="3278:3308" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="3325:3477" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="3354:3467" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
-                <marker date="1481992286009" expanded="true" signature="3493:3534" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="3604:3929" ph="{&quot;url&quot;: '/variant/:variantIndex'...}" />
-                <marker date="1481992286009" expanded="true" signature="3714:3864" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="3743:3854" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
-                <marker date="1481992286009" expanded="true" signature="3880:3921" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="3995:4302" ph="{&quot;url&quot;: '/new'...}" />
-                <marker date="1481992286009" expanded="true" signature="4087:4237" ph="{...}" />
-                <marker date="1481992286009" expanded="true" signature="4116:4227" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
-                <marker date="1481992286009" expanded="true" signature="4253:4294" ph="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -133,27 +88,19 @@
       <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="226" column="52" selection-start-line="226" selection-start-column="52" selection-end-line="226" selection-end-column="52" />
+            <state relative-caret-position="-3411">
+              <caret line="218" column="10" selection-start-line="218" selection-start-column="10" selection-end-line="218" selection-end-column="10" />
               <folding>
+                <element signature="e#125#1428#0" expanded="false" />
                 <element signature="e#1144#1152#0" expanded="false" />
-                <marker date="1481996533394" expanded="false" signature="125:1428" ph="{...}" />
-                <marker date="1481996533394" expanded="false" signature="184:480" ph="{...}" />
-                <marker date="1481996533394" expanded="false" signature="512:629" ph="{...}" />
-                <marker date="1481996533394" expanded="false" signature="663:753" ph="{...}" />
-                <marker date="1481996533394" expanded="false" signature="789:1110" ph="{...}" />
-                <marker date="1481996533394" expanded="false" signature="1190:1286" ph="{...}" />
+                <element signature="e#1523#5224#0" expanded="false" />
+                <element signature="e#7255#10502#0" expanded="false" />
+                <marker date="1482007268584" expanded="false" signature="184:480" ph="{...}" />
+                <marker date="1482007268584" expanded="false" signature="512:629" ph="{...}" />
+                <marker date="1482007268584" expanded="false" signature="663:753" ph="{...}" />
+                <marker date="1482007268584" expanded="false" signature="789:1110" ph="{...}" />
+                <marker date="1482007268584" expanded="false" signature="1190:1286" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="quiz-edit-form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/quiz-edit-form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="23" column="85" selection-start-line="23" selection-start-column="85" selection-end-line="23" selection-end-column="85" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -161,8 +108,45 @@
       <file leaf-file-name="question-edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/question-edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="43" column="79" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
+            <state relative-caret-position="102">
+              <caret line="9" column="71" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="71" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#label#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#1;n#label#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="qd-popover.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/popover/qd-popover.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/menu.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="quiz-detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/templates/quiz-detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="48" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -192,7 +176,6 @@
         <option value="$PROJECT_DIR$/www/js/directives.js" />
         <option value="$PROJECT_DIR$/www/templates/page7.html" />
         <option value="$PROJECT_DIR$/ionic.config.json" />
-        <option value="$PROJECT_DIR$/www/templates/variant-edit.html" />
         <option value="$PROJECT_DIR$/www/css/mobile-forms.css" />
         <option value="$PROJECT_DIR$/www/templates/quiz-progress.html" />
         <option value="$PROJECT_DIR$/www/templates/question-answer.html" />
@@ -210,13 +193,14 @@
         <option value="$PROJECT_DIR$/www/templates/menu.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/www/templates/quizes.html" />
-        <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/js/routes.js" />
         <option value="$PROJECT_DIR$/www/templates/quiz-edit-form.html" />
-        <option value="$PROJECT_DIR$/www/templates/question-edit.html" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/js/services.js" />
+        <option value="$PROJECT_DIR$/www/templates/question-edit.html" />
+        <option value="$PROJECT_DIR$/www/templates/variant-edit.html" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
       </list>
     </option>
@@ -373,7 +357,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RunManager" selected="PhoneGap/Cordova.browser - save">
+  <component name="RunManager" selected="PhoneGap/Cordova.android - run">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -778,7 +762,7 @@
       <option name="myCommand" value="run" />
       <option name="myPassParent" value="true" />
       <option name="myPlatform" value="android" />
-      <option name="myExtraArgs" value="" />
+      <option name="myExtraArgs" value="--livereload" />
       <option name="hasTarget" value="false" />
       <option name="target" value="" />
       <method />
@@ -833,7 +817,7 @@
       <workItem from="1479555029825" duration="28761000" />
       <workItem from="1480879270947" duration="12488000" />
       <workItem from="1481046126743" duration="20590000" />
-      <workItem from="1481983104855" duration="13650000" />
+      <workItem from="1481983104855" duration="20850000" />
     </task>
     <task id="LOCAL-00001" summary="added auth">
       <created>1477510134927</created>
@@ -954,11 +938,25 @@
       <option name="project" value="LOCAL" />
       <updated>1481996789979</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/bower.json&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;">
+      <created>1481996797103</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1481996797103</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fixed image take">
+      <created>1482012612734</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1482012612734</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142319000" />
+    <option name="totallyTimeSpent" value="149519000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -975,11 +973,12 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32605043" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7647059" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7647059" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7647059" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -991,7 +990,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1050,7 +1048,8 @@
     <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/templates/question-edit.html&#10;" />
     <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;" />
     <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/bower.json&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/bower.json&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;" />
+    <MESSAGE value="fixed image take" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed image take" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1087,45 +1086,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <marker date="1481992286009" expanded="true" signature="97:344" ph="//..." />
-            <marker date="1481992286009" expanded="true" signature="387:519" ph="{&quot;url&quot;: '/login'...}" />
-            <marker date="1481992286009" expanded="true" signature="542:726" ph="{&quot;url&quot;: '/app'...}" />
-            <marker date="1481992286009" expanded="true" signature="677:718" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="756:1074" ph="{&quot;url&quot;: '/quizes'...}" />
-            <marker date="1481992286009" expanded="true" signature="820:857" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="899:999" ph="{&quot;templateUrl&quot;: 'templates/quizes.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="1108:1443" ph="{&quot;url&quot;: '/quizes/:quizId'...}" />
-            <marker date="1481992286009" expanded="true" signature="1180:1217" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="1234:1378" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="1259:1368" ph="{&quot;templateUrl&quot;: 'templates/quiz-detail.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="1394:1435" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="1482:1763" ph="{&quot;url&quot;: '/edit'...}" />
-            <marker date="1481992286009" expanded="true" signature="1543:1698" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="1572:1688" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="1714:1755" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="2574:2854" ph="{&quot;url&quot;: '/new'...}" />
-            <marker date="1481992286009" expanded="true" signature="2634:2789" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="2663:2779" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="2805:2846" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="2908:3181" ph="{&quot;url&quot;: '/questions/:questionId'...}" />
-            <marker date="1481992286009" expanded="true" signature="2964:3116" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="2993:3106" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="3132:3173" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3239:3542" ph="{&quot;url&quot;: '/new'...}" />
-            <marker date="1481992286009" expanded="true" signature="3278:3308" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3325:3477" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3354:3467" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="3493:3534" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3604:3929" ph="{&quot;url&quot;: '/variant/:variantIndex'...}" />
-            <marker date="1481992286009" expanded="true" signature="3714:3864" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3743:3854" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="3880:3921" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3995:4302" ph="{&quot;url&quot;: '/new'...}" />
-            <marker date="1481992286009" expanded="true" signature="4087:4237" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="4116:4227" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="4253:4294" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1278,27 +1239,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/quiz-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#ion-tab#0;n#ion-tabs#0;n#ion-view#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#ion-side-menu#0;n#ion-side-menus#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ion-content#0;n#ion-side-menu#0;n#ion-side-menus#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1323,94 +1263,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="163" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="60" />
-          <folding>
-            <marker date="1481992286009" expanded="true" signature="97:344" ph="//..." />
-            <marker date="1481992286009" expanded="true" signature="387:519" ph="{&quot;url&quot;: '/login'...}" />
-            <marker date="1481992286009" expanded="true" signature="542:726" ph="{&quot;url&quot;: '/app'...}" />
-            <marker date="1481992286009" expanded="true" signature="677:718" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="756:1074" ph="{&quot;url&quot;: '/quizes'...}" />
-            <marker date="1481992286009" expanded="true" signature="820:857" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="899:999" ph="{&quot;templateUrl&quot;: 'templates/quizes.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="1108:1443" ph="{&quot;url&quot;: '/quizes/:quizId'...}" />
-            <marker date="1481992286009" expanded="true" signature="1180:1217" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="1234:1378" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="1259:1368" ph="{&quot;templateUrl&quot;: 'templates/quiz-detail.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="1394:1435" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="1482:1763" ph="{&quot;url&quot;: '/edit'...}" />
-            <marker date="1481992286009" expanded="true" signature="1543:1698" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="1572:1688" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="1714:1755" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="2574:2854" ph="{&quot;url&quot;: '/new'...}" />
-            <marker date="1481992286009" expanded="true" signature="2634:2789" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="2663:2779" ph="{&quot;templateUrl&quot;: 'templates/quiz-edit-form.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="2805:2846" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="2908:3181" ph="{&quot;url&quot;: '/questions/:questionId'...}" />
-            <marker date="1481992286009" expanded="true" signature="2964:3116" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="2993:3106" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="3132:3173" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3239:3542" ph="{&quot;url&quot;: '/new'...}" />
-            <marker date="1481992286009" expanded="true" signature="3278:3308" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3325:3477" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3354:3467" ph="{&quot;templateUrl&quot;: 'templates/question-edit.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="3493:3534" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3604:3929" ph="{&quot;url&quot;: '/variant/:variantIndex'...}" />
-            <marker date="1481992286009" expanded="true" signature="3714:3864" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3743:3854" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="3880:3921" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="3995:4302" ph="{&quot;url&quot;: '/new'...}" />
-            <marker date="1481992286009" expanded="true" signature="4087:4237" ph="{...}" />
-            <marker date="1481992286009" expanded="true" signature="4116:4227" ph="{&quot;templateUrl&quot;: 'templates/variant-edit.html'...}" />
-            <marker date="1481992286009" expanded="true" signature="4253:4294" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/quiz-edit-form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="23" column="85" selection-start-line="23" selection-start-column="85" selection-end-line="23" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/question-edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="43" column="79" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/variant-edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="23" column="96" selection-start-line="23" selection-start-column="91" selection-end-line="23" selection-end-column="96" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#label#0;n#div#1;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#label#0;n#div#1;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#2;n#div#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding>
-            <element signature="e#598#881#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/popover/qd-popover.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1423,28 +1279,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="163" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/popover/qd-popover.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/quiz-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="226" column="52" selection-start-line="226" selection-start-column="52" selection-end-line="226" selection-end-column="52" />
+        <state relative-caret-position="-3411">
+          <caret line="218" column="10" selection-start-line="218" selection-start-column="10" selection-end-line="218" selection-end-column="10" />
           <folding>
+            <element signature="e#125#1428#0" expanded="false" />
             <element signature="e#1144#1152#0" expanded="false" />
-            <marker date="1481996533394" expanded="false" signature="125:1428" ph="{...}" />
-            <marker date="1481996533394" expanded="false" signature="184:480" ph="{...}" />
-            <marker date="1481996533394" expanded="false" signature="512:629" ph="{...}" />
-            <marker date="1481996533394" expanded="false" signature="663:753" ph="{...}" />
-            <marker date="1481996533394" expanded="false" signature="789:1110" ph="{...}" />
-            <marker date="1481996533394" expanded="false" signature="1190:1286" ph="{...}" />
+            <element signature="e#1523#5224#0" expanded="false" />
+            <element signature="e#7255#10502#0" expanded="false" />
+            <marker date="1482007268584" expanded="false" signature="184:480" ph="{...}" />
+            <marker date="1482007268584" expanded="false" signature="512:629" ph="{...}" />
+            <marker date="1482007268584" expanded="false" signature="663:753" ph="{...}" />
+            <marker date="1482007268584" expanded="false" signature="789:1110" ph="{...}" />
+            <marker date="1482007268584" expanded="false" signature="1190:1286" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding>
+            <element signature="e#598#881#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/question-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="71" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="71" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#label#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#1;n#label#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/variant-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#1;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#2;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#label#2;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="94" column="27" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
+        <state relative-caret-position="-892">
+          <caret line="499" column="0" selection-start-line="499" selection-start-column="0" selection-end-line="499" selection-end-column="0" />
           <folding>
-            <marker date="1481996588338" expanded="false" signature="65:337" ph="[...]" />
+            <marker date="1482013024673" expanded="false" signature="65:337" ph="[...]" />
           </folding>
         </state>
       </provider>
