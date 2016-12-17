@@ -21,14 +21,14 @@
           </label>
         </div>
         <div ng-switch-when="image">
-          <label class="item item-input item-stacked-label" style="text-align: center;">
-            <img ng-if="variant.imageValue" data-ng-src="{{variant.imageValue}}">
-            <i ng-if="!variant.imageValue" class="icon ion-image" style="font-size: 200px;"> </i>
+          <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeFoto()">
+            <img ng-if="variant.imageValue" data-ng-src="{{variant.imageValue}}" style="width : 90% ; ">
+            <i ng-if="!variant.imageValue" class="icon ion-image" style="font-size: 200px;" > </i>
           </label>
         </div>
         <div ng-switch-when="geoData">
-          <label class="item item-input item-stacked-label" style="text-align: center;">
-            <i ng-if="!variant.geoValue" class="icon ion-map center" style="font-size: 200px;"></i>
+          <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeGeo()">
+            <i class="icon ion-map center" style="font-size: 200px;"></i>
           </label>
         </div>
         <div ng-switch-default></div>

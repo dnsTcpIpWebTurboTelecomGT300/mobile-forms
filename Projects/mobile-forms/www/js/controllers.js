@@ -243,6 +243,81 @@ angular.module('app.controllers', [])
         }
         questionService.setCurrentQuestion($scope.question);
       }
+        $scope.takeFoto = function takeFoto() {
+          var successCallback = function(imageData) {
+            $scope.variant.imageValue = "data:image/jpeg;base64," + imageData;
+          }
+          var errorCallback = function functionName(message) {
+            console.log("Error: " + message);
+          };
+          var options = {
+            quality: 25,
+            destinationType: Camera.DestinationType.DATA_URL
+          };
+          navigator.camera.getPicture(successCallback, errorCallback, options)
+        }
+
+        $scope.takeGeo = function takeGeo() {
+          var map;
+          var _marker;
+          document.addEventListener("deviceready", function() {
+            // Initialize the map view
+            map = plugin.google.maps.Map.getMap();
+
+            // Wait until the map is ready status.
+            map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+
+          }, false);
+
+
+          map.on(plugin.google.maps.event.MAP_CLICK, function(latLng) {
+            map.clear();
+            marker = map.addMarker({
+              'position': latLng,
+              'draggable': true,
+              'title': latLng.toUrlValue()
+            }, function(marker) {
+              marker.getPosition(function(latLng) {
+                $scope.variant.geoValue = latLng.toUrlValue();
+              });
+              marker.showInfoWindow();
+              marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
+                marker.getPosition(function(latLng) {
+                  $scope.variant.geoValue = latLng.toUrlValue();
+                  marker.setTitle(latLng.toUrlValue());
+                  marker.showInfoWindow();
+                });
+              });
+            });
+          });
+
+          function onMapReady() {
+            map.clear();
+            map.showDialog();
+            if ($scope.variant.geoValue) {
+              var lat = $scope.variant.geoValue.split(',')[0];
+              var lng = $scope.variant.geoValue.split(',')[1];
+              marker = map.addMarker({
+                'position': new plugin.google.maps.LatLng(lat,lng),
+                'draggable': true,
+                'title': $scope.variant.geoValue
+              }, function(marker) {
+                marker.showInfoWindow();
+                marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
+                  marker.getPosition(function(latLng) {
+                    $scope.variant.geoValue = latLng.toUrlValue();
+                    marker.setTitle(latLng.toUrlValue());
+                    marker.showInfoWindow();
+                  });
+                });
+              });
+            }
+          }
+        }
+
+        if(questionService.getQuestion()){
+          $scope.question = questionService.getQuestion();
+        }
 
       //Дейтсвие сохранения вопроса
       $scope.saveQuestion = function() {
