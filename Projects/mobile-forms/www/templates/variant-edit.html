@@ -22,13 +22,25 @@
         </div>
         <div ng-switch-when="image">
           <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeFoto()">
-            <img ng-if="variant.imageValue" data-ng-src="{{variant.imageValue}}" style="width : 90% ; ">
-            <i ng-if="!variant.imageValue" class="icon ion-image" style="font-size: 200px;" > </i>
+            <div ng-if="variant.imageValue">
+              <div>Прикрепленное изображение</div>
+              <img ng-src="{{variant.imageValue}}" style="width : 90% ; ">
+            </div>
+            <div ng-if="!variant.imageValue">
+              <div>Прикрепите изображение</div>
+              <i class="icon ion-image" style="font-size: 100px;"> </i>
+            </div>
           </label>
         </div>
         <div ng-switch-when="geoData">
           <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeGeo()">
-            <i class="icon ion-map center" style="font-size: 200px;"></i>
+            <div ng-if="variant.geoValue">
+              <div>Выбранные координаты {{variant.geoValue}}</div>
+            </div>
+            <div ng-if="!variant.geoValue">
+              <div>Прикрепите местоположение</div>
+            </div>
+            <i class="icon ion-map center" style="font-size: 100px;"> </i>
           </label>
         </div>
         <div ng-switch-default></div>
