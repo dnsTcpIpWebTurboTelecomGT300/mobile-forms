@@ -224,7 +224,7 @@ angular.module('app.controllers', [])
             $scope.question = question;
             questionService.setCurrentQuestion($scope.question);
           });
-          var questionActions = [{
+          var actions = [{
             text: 'Сохранить',
             actionFunction: $scope.saveQuestion
           }, {
@@ -235,89 +235,14 @@ angular.module('app.controllers', [])
           $scope.question = {
             quizId: $scope.quiz.id,
             variants : []
-          }
-          var questionActions = [{
+          };
+          var actions = [{
             text: 'Сохранить',
             actionFunction: $scope.saveQuestion
           }];
+          questionService.setCurrentQuestion($scope.question);
         }
-        questionService.setCurrentQuestion($scope.question);
       }
-        $scope.takeFoto = function takeFoto() {
-          var successCallback = function(imageData) {
-            $scope.variant.imageValue = "data:image/jpeg;base64," + imageData;
-          }
-          var errorCallback = function functionName(message) {
-            console.log("Error: " + message);
-          };
-          var options = {
-            quality: 25,
-            destinationType: Camera.DestinationType.DATA_URL
-          };
-          navigator.camera.getPicture(successCallback, errorCallback, options)
-        }
-
-        $scope.takeGeo = function takeGeo() {
-          var map;
-          var _marker;
-          document.addEventListener("deviceready", function() {
-            // Initialize the map view
-            map = plugin.google.maps.Map.getMap();
-
-            // Wait until the map is ready status.
-            map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
-
-          }, false);
-
-
-          map.on(plugin.google.maps.event.MAP_CLICK, function(latLng) {
-            map.clear();
-            marker = map.addMarker({
-              'position': latLng,
-              'draggable': true,
-              'title': latLng.toUrlValue()
-            }, function(marker) {
-              marker.getPosition(function(latLng) {
-                $scope.variant.geoValue = latLng.toUrlValue();
-              });
-              marker.showInfoWindow();
-              marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
-                marker.getPosition(function(latLng) {
-                  $scope.variant.geoValue = latLng.toUrlValue();
-                  marker.setTitle(latLng.toUrlValue());
-                  marker.showInfoWindow();
-                });
-              });
-            });
-          });
-
-          function onMapReady() {
-            map.clear();
-            map.showDialog();
-            if ($scope.variant.geoValue) {
-              var lat = $scope.variant.geoValue.split(',')[0];
-              var lng = $scope.variant.geoValue.split(',')[1];
-              marker = map.addMarker({
-                'position': new plugin.google.maps.LatLng(lat,lng),
-                'draggable': true,
-                'title': $scope.variant.geoValue
-              }, function(marker) {
-                marker.showInfoWindow();
-                marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
-                  marker.getPosition(function(latLng) {
-                    $scope.variant.geoValue = latLng.toUrlValue();
-                    marker.setTitle(latLng.toUrlValue());
-                    marker.showInfoWindow();
-                  });
-                });
-              });
-            }
-          }
-        }
-
-        if(questionService.getQuestion()){
-          $scope.question = questionService.getQuestion();
-        }
 
       //Дейтсвие сохранения вопроса
       $scope.saveQuestion = function() {
@@ -383,91 +308,19 @@ angular.module('app.controllers', [])
         $state.go('app.quizDetail.edit.questionDetail.variant', {variantIndex: event.variantIndex});
       };
 
-      //Дейтсвие сохранения варианта
-      $scope.saveVariant = function() {
-        if ($stateParams.variantIndex) {
-          $scope.question.variants[$stateParams.variantIndex] = $scope.variant;
-        } else {
-          $scope.question.variants.push($scope.variant);
-        }
-        $scope.variantPopover.hide();
-        $ionicHistory.goBack();
-      };
-
-      //Дейтсвие удаления варианта
-      $scope.deleteVariant = function() {
-        $scope.variantPopover.hide();
-        var confirmPopup = $ionicPopup.confirm({
-          title: 'Удаление варианта',
-          template: 'Вы уверены что хотите удалить вариант?',
-          cancelText: 'Нет',
-          okText: 'Да',
-        });
-        confirmPopup.then(function(res) {
-          if (res) {
-            $scope.question.variants.splice($stateParams.variantIndex, 1);
-            $scope.variantPopover.hide();
-            $ionicHistory.goBack();
-          } else {
-            console.log('Отмена удаления');
-          }
-        });
-      };
-
-      //Если было открыто редактирование варианта
-      if ($stateParams.variantIndex) {
-        $scope.variant = $scope.question.variants[$stateParams.variantIndex];
-        var variantActions = [{
-          text: 'Сохранить',
-          actionFunction: $scope.saveVariant
-        }, {
-          text: 'Удалить',
-          actionFunction: $scope.deleteVariant
-        }];
-      } else {
-        $scope.variant = {};
-        var variantActions = [{
-          text: 'Сохранить',
-          actionFunction: $scope.saveVariant
-        }];
-      }
-
       $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
         scope: $scope,
       }).then(function (popover) {
-        $scope.questionPopover = popover;
+        $scope.popover = popover;
       });
-      $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
-        scope: $scope,
-      }).then(function (popover) {
-        $scope.variantPopover = popover;
-      });
-
       $scope.openPopover = function ($event) {
-        switch ($event.target.id) {
-          case "question-popover":
-            $scope.actions = questionActions;
-            $scope.questionPopover.show($event);
-            break;
-          case "variant-popover":
-            $scope.actions = variantActions;
-            $scope.variantPopover.show($event);
-            break;
-        }
+        $scope.popover.show($event);
       };
       $scope.closePopover = function ($event) {
-        switch ($event.target.id) {
-          case "question-popover":
-            $scope.questionPopover.hide();
-            break;
-          case "variant-popover":
-            $scope.variantPopover.hide();
-            break;
-        }
+        $scope.popover.hide();
       };
       $scope.$on('$destroy', function () {
-        $scope.questionPopover.remove();
-        $scope.variantPopover.remove();
+        $scope.popover.remove();
       });
     },])
 
@@ -476,6 +329,78 @@ angular.module('app.controllers', [])
     function ($scope, $stateParams, $ionicPopover, $ionicHistory, $ionicPopup, questionService) {
 
       $scope.question = questionService.getCurrentQuestion();
+
+      $scope.takeFoto = function takeFoto() {
+        var successCallback = function(imageData) {
+          $scope.variant.imageValue = "data:image/jpeg;base64," + imageData;
+        };
+        var errorCallback = function functionName(message) {
+          console.log("Error: " + message);
+        };
+        var options = {
+          quality: 25,
+          destinationType: Camera.DestinationType.DATA_URL
+        };
+        navigator.camera.getPicture(successCallback, errorCallback, options)
+      };
+
+      $scope.takeGeo = function takeGeo() {
+        var map;
+        var _marker;
+        document.addEventListener("deviceready", function() {
+          // Initialize the map view
+          map = plugin.google.maps.Map.getMap();
+
+          // Wait until the map is ready status.
+          map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+
+        }, false);
+
+
+        map.on(plugin.google.maps.event.MAP_CLICK, function(latLng) {
+          map.clear();
+          marker = map.addMarker({
+            'position': latLng,
+            'draggable': true,
+            'title': latLng.toUrlValue()
+          }, function(marker) {
+            marker.getPosition(function(latLng) {
+              $scope.variant.geoValue = latLng.toUrlValue();
+            });
+            marker.showInfoWindow();
+            marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
+              marker.getPosition(function(latLng) {
+                $scope.variant.geoValue = latLng.toUrlValue();
+                marker.setTitle(latLng.toUrlValue());
+                marker.showInfoWindow();
+              });
+            });
+          });
+        });
+
+        function onMapReady() {
+          map.clear();
+          map.showDialog();
+          if ($scope.variant.geoValue) {
+            var lat = $scope.variant.geoValue.split(',')[0];
+            var lng = $scope.variant.geoValue.split(',')[1];
+            marker = map.addMarker({
+              'position': new plugin.google.maps.LatLng(lat,lng),
+              'draggable': true,
+              'title': $scope.variant.geoValue
+            }, function(marker) {
+              marker.showInfoWindow();
+              marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
+                marker.getPosition(function(latLng) {
+                  $scope.variant.geoValue = latLng.toUrlValue();
+                  marker.setTitle(latLng.toUrlValue());
+                  marker.showInfoWindow();
+                });
+              });
+            });
+          }
+        }
+      };
 
       //Если был передан индекс варианта
       if ($stateParams.variantIndex) {
