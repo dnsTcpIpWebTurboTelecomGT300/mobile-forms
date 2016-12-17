@@ -68,24 +68,34 @@ angular.module('app.services', [])
 
     var currentQuestion;
 
-    var getPrev = function functionName() {
+    var getPrev = function functionName(safe) {
       if (currentQuestion) {
         var index = currentQuestionsList.indexOf(currentQuestion);
         if(index >= 1 && index < currentQuestionsList.length)
-        currentQuestion = currentQuestionsList[index - 1];
-        return currentQuestion
+        {
+          if (safe) {
+            return currentQuestionsList[index - 1];
+          }
+          currentQuestion = currentQuestionsList[index - 1];
+          return currentQuestion
+        }
       }else if (currentQuestionsList) {
         currentQuestion = currentQuestionsList[0];
         return currentQuestion;
       }
     };
 
-    var getNext = function functionName() {
+    var getNext = function functionName(safe) {
       if (currentQuestion) {
         var index = currentQuestionsList.indexOf(currentQuestion);
         if(index >= 0 && index < currentQuestionsList.length - 1)
+        {
+          if (safe) {
+            return currentQuestionsList[index + 1];
+          }
           currentQuestion = currentQuestionsList[index + 1];
           return currentQuestion
+        }
       }else if (currentQuestionsList) {
         currentQuestion = currentQuestionsList[0];
         return currentQuestion;

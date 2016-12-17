@@ -31,12 +31,37 @@ angular.module('app.controllers', [])
           questionService.addQuestion(curent)
           questionService.setQuestionsList(questions);
           $scope.question = curent;
+          $scope.ifPrevExist = questionService.getPrev(true);
+          $scope.isNextExist = questionService.getNext(true);
         });
         $scope.goPrev = function functionName() {
           $scope.question = questionService.getPrev();
+          $scope.ifPrevExist = questionService.getPrev(true);
+          $scope.isNextExist = questionService.getNext(true);
         }
         $scope.goNext = function functionName() {
           $scope.question = questionService.getNext();
+          $scope.ifPrevExist = questionService.getPrev(true);
+          $scope.isNextExist = questionService.getNext(true);
+        }
+
+        $scope.getDete = function functionName() {
+          var options = {
+              date: new Date(),
+              mode: 'date'
+          };
+
+          function onSuccess(date) {
+              console.log(date);
+              $scope.question.answer = date;
+              $scope.$apply();
+          }
+
+          function onError(error) { // Android only
+              console.log(error);
+          }
+
+          datePicker.show(options, onSuccess, onError);
         }
       }])
 
