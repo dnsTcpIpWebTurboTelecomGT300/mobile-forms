@@ -28,7 +28,7 @@ angular.module('app.controllers', [])
         questionService.findAll($stateParams.quizId).then(function(questions) {
           console.log(questions);
           var curent = questions.filter(function (question) {
-            question.id === $stateParams.questionId;
+            return question.id === $stateParams.questionId;
           })[0];
           questionService.setCurrentQuestion(curent)
           questionService.setQuestionsList(questions);
@@ -46,6 +46,25 @@ angular.module('app.controllers', [])
           $scope.ifPrevExist = questionService.getPrev(true);
           $scope.isNextExist = questionService.getNext(true);
         };
+
+        $scope.getDete = function functionName() {
+          var options = {
+              date: new Date(),
+              mode: 'date'
+          };
+
+          function onSuccess(date) {
+              console.log(date);
+              $scope.question.answer = date;
+              $scope.$apply();
+          }
+
+          function onError(error) { // Android only
+              console.log(error);
+          }
+
+          datePicker.show(options, onSuccess, onError);
+        }
       }])
 
   .controller('menuCtrl', ['$scope', '$stateParams', 'authService',

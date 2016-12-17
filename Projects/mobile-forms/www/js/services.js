@@ -76,7 +76,7 @@ angular.module('app.services', [])
       return currentQuestion;
     };
 
-    var getPrev = function functionName() {
+    var getPrev = function functionName(safe) {
       if (currentQuestion) {
         var index = currentQuestionsList.indexOf(currentQuestion);
         if(index >= 1 && index < currentQuestionsList.length) {
