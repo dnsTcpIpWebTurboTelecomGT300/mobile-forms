@@ -64,7 +64,41 @@ angular.module('app.services', [])
   .service('questionService', ['$http', 'apiPrefix', '$q', function ($http, apiPrefix, $q) {
     var url = "questions";
 
+    var currentQuestionsList =[];
+
     var currentQuestion;
+
+    var getPrev = function functionName() {
+      if (currentQuestion) {
+        var index = currentQuestionsList.indexOf(currentQuestion);
+        if(index >= 1 && index < currentQuestionsList.length)
+        currentQuestion = currentQuestionsList[index - 1];
+        return currentQuestion
+      }else if (currentQuestionsList) {
+        currentQuestion = currentQuestionsList[0];
+        return currentQuestion;
+      }
+    };
+
+    var getNext = function functionName() {
+      if (currentQuestion) {
+        var index = currentQuestionsList.indexOf(currentQuestion);
+        if(index >= 0 && index < currentQuestionsList.length - 1)
+          currentQuestion = currentQuestionsList[index + 1];
+          return currentQuestion
+      }else if (currentQuestionsList) {
+        currentQuestion = currentQuestionsList[0];
+        return currentQuestion;
+      }
+    };
+
+    var setQuestionsList = function(question) {
+        currentQuestionsList = question;
+    };
+
+    var getQuestionsList = function(){
+        return currentQuestionsList;
+    };
 
     var addQuestion = function(question) {
         currentQuestion = question;
@@ -153,7 +187,11 @@ angular.module('app.services', [])
       removeByQuizId: removeByQuizId,
       removeAll: removeAll,
       addQuestion: addQuestion,
-      getQuestion: getQuestion
+      getQuestion: getQuestion,
+      setQuestionsList: setQuestionsList,
+      getQuestionsList: getQuestionsList,
+      getPrev: getPrev,
+      getNext: getNext,
     }
   }])
 

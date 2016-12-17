@@ -73,6 +73,36 @@ angular.module('app.routes', [])
         }
       })
 
+      // Прохождение оспроса: списковая форма вопросов
+      .state('app.quizProgress', {
+        url: '/quizProgress/:quizId',
+        cache: false,
+        views: {
+          'side-menu@app': {
+            templateUrl: 'templates/questions.html',
+            controller: 'quizProgressListForm'
+          }
+        },
+        data: {
+          requiresLogin: true
+        }
+      })
+
+      // Прохождение оспроса: сам вопрос
+      .state('app.quizProgress.question', {
+        url: '/question/:questionId',
+        cache: false,
+        views: {
+          'side-menu@app': {
+            templateUrl: 'templates/question-progress.html',
+            controller: 'quizProgressEditForm'
+          }
+        },
+        data: {
+          requiresLogin: true
+        }
+      })
+
       .state('app.quizDetail.new', {
         url: '/new',
         cache: false,

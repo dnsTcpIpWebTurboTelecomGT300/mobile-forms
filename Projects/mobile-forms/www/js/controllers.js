@@ -9,6 +9,37 @@ angular.module('app.controllers', [])
       };
     }])
 
+    .controller('quizProgressListForm', ['$scope', '$stateParams', 'authService',
+    'questionService',
+      function($scope, $stateParams, authService,
+      questionService) {
+        //Подгружаем ответы
+        questionService.findAll($stateParams.quizId).then(function(questions) {
+          console.log(questions);
+          $scope.questions = questions;
+        });
+      }])
+
+    .controller('quizProgressEditForm', ['$scope', '$stateParams', 'authService',
+    'questionService',
+      function($scope, $stateParams, authService,
+      questionService) {
+        //Подгружаем ответы
+        questionService.findAll($stateParams.quizId).then(function(questions) {
+          console.log(questions);
+          var curent = questions.find(x=>x.id === $stateParams.questionId);
+          questionService.addQuestion(curent)
+          questionService.setQuestionsList(questions);
+          $scope.question = curent;
+        });
+        $scope.goPrev = function functionName() {
+          $scope.question = questionService.getPrev();
+        }
+        $scope.goNext = function functionName() {
+          $scope.question = questionService.getNext();
+        }
+      }])
+
   .controller('menuCtrl', ['$scope', '$stateParams', 'authService',
     function($scope, $stateParams, authService) {
       $scope.profile = authService.getCurrentUser();
@@ -243,6 +274,10 @@ angular.module('app.controllers', [])
 
           map.on(plugin.google.maps.event.MAP_CLICK, function(latLng) {
             map.clear();
+            if (!latLng.toUrlValue) {
+              latLng=new plugin.google.maps.LatLng(latLng.lat,latLng.lng);
+            }
+
             marker = map.addMarker({
               'position': latLng,
               'draggable': true,
