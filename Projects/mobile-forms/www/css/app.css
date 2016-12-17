@@ -24,3 +24,7 @@ ion-popover-view.fit ion-content {
   margin-right: auto;
   display: block;
 }
+
+.greenBG{
+  background: #51B53F
+}

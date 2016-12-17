@@ -9,6 +9,37 @@ angular.module('app.controllers', [])
       };
     }])
 
+    .controller('quizProgressListForm', ['$scope', '$stateParams', 'authService',
+    'questionService',
+      function($scope, $stateParams, authService,
+      questionService) {
+        //Подгружаем ответы
+        questionService.findAll($stateParams.quizId).then(function(questions) {
+          console.log(questions);
+          $scope.questions = questions;
+        });
+      }])
+
+    .controller('quizProgressEditForm', ['$scope', '$stateParams', 'authService',
+    'questionService',
+      function($scope, $stateParams, authService,
+      questionService) {
+        //Подгружаем ответы
+        questionService.findAll($stateParams.quizId).then(function(questions) {
+          console.log(questions);
+          var curent = questions.find(x=>x.id === $stateParams.questionId);
+          questionService.addQuestion(curent)
+          questionService.setQuestionsList(questions);
+          $scope.question = curent;
+        });
+        $scope.goPrev = function functionName() {
+          $scope.question = questionService.getPrev();
+        }
+        $scope.goNext = function functionName() {
+          $scope.question = questionService.getNext();
+        }
+      }])
+
   .controller('menuCtrl', ['$scope', '$stateParams', 'authService',
     function($scope, $stateParams, authService) {
       $scope.profile = authService.getCurrentUser();
@@ -20,7 +51,7 @@ angular.module('app.controllers', [])
       });
     }])
 
-  .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
+    .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
         'apiPrefix', 'quizService', '$ionicFilterBar', 'authService',
         function ($scope, $stateParams, $http, apiPrefix, quizService, $ionicFilterBar, authService) {
           $scope.editable = $stateParams.editable;
@@ -357,26 +388,29 @@ angular.module('app.controllers', [])
         }, false);
 
 
-        map.on(plugin.google.maps.event.MAP_CLICK, function(latLng) {
-          map.clear();
-          marker = map.addMarker({
-            'position': latLng,
-            'draggable': true,
-            'title': latLng.toUrlValue()
-          }, function(marker) {
-            marker.getPosition(function(latLng) {
-              $scope.variant.geoValue = latLng.toUrlValue();
-            });
-            marker.showInfoWindow();
-            marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
+          map.on(plugin.google.maps.event.MAP_CLICK, function(latLng) {
+            map.clear();
+            if (!latLng.toUrlValue) {
+              latLng=new plugin.google.maps.LatLng(latLng.lat,latLng.lng);
+            }
+            marker = map.addMarker({
+              'position': latLng,
+              'draggable': true,
+              'title': latLng.toUrlValue()
+            }, function(marker) {
               marker.getPosition(function(latLng) {
                 $scope.variant.geoValue = latLng.toUrlValue();
-                marker.setTitle(latLng.toUrlValue());
-                marker.showInfoWindow();
+              });
+              marker.showInfoWindow();
+              marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
+                marker.getPosition(function(latLng) {
+                  $scope.variant.geoValue = latLng.toUrlValue();
+                  marker.setTitle(latLng.toUrlValue());
+                  marker.showInfoWindow();
+                });
               });
             });
           });
-        });
 
         function onMapReady() {
           map.clear();

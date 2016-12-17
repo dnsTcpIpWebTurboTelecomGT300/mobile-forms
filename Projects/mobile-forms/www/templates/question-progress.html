@@ -1,0 +1,18 @@
+<ion-view title="Вопрос" id="question-edit">
+  <ion-nav-buttons side="right" class="has-header">
+    <!-- <button class="button icon ion-android-more-vertical" id="question-popover" ng-click="openPopover($event)"></button> -->
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <span>{{question.text}}</span>
+  </ion-content>
+  <div class="tabs tabs-icon-only greenBG">
+    <a class="tab-item">
+      <i class="icon ion-arrow-left-a" style="color: black;" ng-click="goPrev()"></i>
+    </a>
+    <a class="tab-item">
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-arrow-right-a" style="color: black;" ng-click="goNext()"></i>
+    </a>
+  </div>
+</ion-view>

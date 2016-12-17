@@ -1,0 +1,13 @@
+<ion-view title="Вопросы">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button icon ion-android-search" ng-click="showFilterBar()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <ion-list ng-repeat="question in questions" class="manual-list-fullwidth">
+      <ion-item class="item-icon-right" ui-sref="app.quizProgress.question({questionId:question.id})">
+        {{question.text}}
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
