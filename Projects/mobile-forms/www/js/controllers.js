@@ -10,13 +10,69 @@ angular.module('app.controllers', [])
     }])
 
     .controller('quizProgressListForm', ['$scope', '$stateParams', 'authService',
-    'questionService',
+    'questionService', '$ionicPopover', 'answerService',
       function($scope, $stateParams, authService,
-      questionService) {
+      questionService, $ionicPopover, answerService) {
         //Подгружаем ответы
         questionService.findAll($stateParams.quizId).then(function(questions) {
           console.log(questions);
+          if (questionService.getQuestionsList().length) {
+            questions = questionService.getQuestionsList();
+          }
           $scope.questions = questions;
+        });
+
+        $scope.save = function functionName() {
+          var answer={
+            quizId: $stateParams.quizId,
+            userId: authService.getCurrentUser().id,
+            date: new Date(),
+            answers: []
+          }
+          $scope.questions.forEach(function(item, i, arr) {
+            if (item.aText || item.aDate || item.aNumber || item.answer || item.aId) {
+              var qAnswer = {};
+              qAnswer.questionId = item.id;
+              qAnswer.textValue = item.aText;
+              qAnswer.dateValue = item.aDate;
+              qAnswer.numericValue = item.aNumeric;
+              // qAnswer.geoValue = item.aGeoValue;
+              // qAnswer.imageValue = item.aImageValue;
+              if (item.isMulti) {
+                qAnswer.variants = item.answer.filter(function functionName(a) {
+                  return a.cheked;
+                }).map(function functionName(a) {
+                  return {variantId : a.aId};
+                });
+              }else if(item.aId){
+                qAnswer.variants = [{variantId : item.aId}];
+              }
+
+              answer.answers.push(qAnswer);
+            }
+          });
+          answerService.save(answer);
+        }
+
+        $scope.actions = [
+          {
+            text: 'Сохранить',
+            actionFunction: $scope.save
+          }]
+
+        $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
+          scope: $scope,
+        }).then(function(popover) {
+          $scope.popover = popover;
+        });
+        $scope.openPopover = function($event) {
+          $scope.popover.show($event);
+        };
+        $scope.closePopover = function() {
+          $scope.popover.hide();
+        };
+        $scope.$on('$destroy', function() {
+          $scope.popover.remove();
         });
       }])
 
@@ -27,6 +83,11 @@ angular.module('app.controllers', [])
         //Подгружаем ответы
         questionService.findAll($stateParams.quizId).then(function(questions) {
           console.log(questions);
+
+          if (questionService.getQuestionsList().length) {
+            questions = questionService.getQuestionsList();
+          }
+
           var curent = questions.filter(function (question) {
             return question.id === $stateParams.questionId;
           })[0];
@@ -35,36 +96,30 @@ angular.module('app.controllers', [])
           $scope.question = curent;
           $scope.ifPrevExist = questionService.getPrev(true);
           $scope.isNextExist = questionService.getNext(true);
+          ifMulti();
         });
         $scope.goPrev = function functionName() {
+          questionService.update($scope.question);
           $scope.question = questionService.getPrev();
           $scope.ifPrevExist = questionService.getPrev(true);
           $scope.isNextExist = questionService.getNext(true);
+          ifMulti();
         };
         $scope.goNext = function functionName() {
+          questionService.update($scope.question);
           $scope.question = questionService.getNext();
           $scope.ifPrevExist = questionService.getPrev(true);
           $scope.isNextExist = questionService.getNext(true);
+          ifMulti();
         };
-
-        $scope.getDete = function functionName() {
-          var options = {
-              date: new Date(),
-              mode: 'date'
-          };
-
-          function onSuccess(date) {
-              console.log(date);
-              $scope.question.answer = date;
-              $scope.$apply();
+        var ifMulti = function functionName() {
+          if ($scope.question.isMulti) {
+            $scope.question.answer = $scope.question.variants
           }
-
-          function onError(error) { // Android only
-              console.log(error);
-          }
-
-          datePicker.show(options, onSuccess, onError);
         }
+        $scope.$on('$destroy', function() {
+            questionService.update($scope.question);
+        });
       }])
 
   .controller('menuCtrl', ['$scope', '$stateParams', 'authService',

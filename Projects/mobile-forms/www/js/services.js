@@ -3,6 +3,20 @@ angular.module('app.services', [])
   .service('answerService', ['$http', 'apiPrefix', '$q', function ($http, apiPrefix, $q) {
     var url = "answers";
 
+    function save(answer) {
+      return $q(function (resolve, reject) {
+        $http({
+          method: 'POST',
+          url: apiPrefix + url,
+          data: answer,
+        }).then(function (response) {
+          resolve(response.data)
+        }, function (error) {
+          reject(error);
+        })
+      });
+    }
+
     function findOne(answerId) {
       return $q(function (resolve, reject) {
         $http({
@@ -56,7 +70,8 @@ angular.module('app.services', [])
       findOne: findOne,
       remove: remove,
       removeByQuizId: removeByQuizId,
-      findByQuizId: findByQuizId
+      findByQuizId: findByQuizId,
+      save: save
     }
 
   }])
@@ -67,6 +82,14 @@ angular.module('app.services', [])
     var currentQuestionsList =[];
 
     var currentQuestion;
+
+    var update = function(data) {
+      currentQuestionsList.forEach(function(item, i, arr) {
+        if (data.id ===  item.id) {
+          item = data;
+        }
+      });
+    }
 
     var setCurrentQuestion = function (question) {
       currentQuestion = question;
@@ -200,7 +223,8 @@ angular.module('app.services', [])
       getPrev: getPrev,
       getNext: getNext,
       setCurrentQuestion: setCurrentQuestion,
-      getCurrentQuestion: getCurrentQuestion
+      getCurrentQuestion: getCurrentQuestion,
+      update: update
     }
   }])
 

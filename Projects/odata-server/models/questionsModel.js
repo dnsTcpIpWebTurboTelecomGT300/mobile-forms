@@ -6,7 +6,6 @@ module.exports = {
     answerFormat: String,
     isMulti: Boolean,
     variants:[{
-        id: String,
         variantType: String,
         textValue: String,
         dateValue: Date,

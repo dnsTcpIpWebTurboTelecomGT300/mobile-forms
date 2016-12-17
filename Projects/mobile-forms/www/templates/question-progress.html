@@ -8,22 +8,35 @@
     </div>
     <div ng-if="question.questionType=='free'" class="">
       <div ng-if="question.answerFormat=='text'" class="">
-        <span class="input-label">Текст ответа</span>
-        <input type="text" placeholder="Текст ответа" ng-model="question.answer">
+        <span class="">Текст ответа</span>
+        <input type="text" placeholder="Текст ответа" ng-model="question.aText">
       </div>
       <div ng-if="question.answerFormat=='date'" class="">
-        <span class="" ng-click="getDete()">Дата {{question.answer.toLocaleDateString()}} <i class="icon ion-calendar" style="color: black;"></i></span>
+        <span class="">Дата <input type="date" ng-model="question.aDate"></i></span>
       </div>
       <div ng-if="question.answerFormat=='number'" class="">
-
+        <span class="">Введите число</span>
+        <input type="number" placeholder="Введите число" ng-model="question.aNumber">
       </div>
     </div>
     <div ng-if="question.questionType=='select'" class="">
       <div ng-if="question.isMulti" class="">
-
+        <ion-list ng-repeat="variant in question.answer" class="manual-list-fullwidth">
+          <ion-checkbox  ng-if="variant.variantType==='text'" ng-model="variant.cheked">{{variant.textValue}}</ion-checkbox>
+          <ion-checkbox  ng-if="variant.variantType==='image'" ng-model="variant.cheked">
+            <img src={{variant.imageValue}} alt="" width="90%">
+          </ion-checkbox >
+          <ion-checkbox  ng-if="variant.variantType==='geoData'" ng-model="variant.cheked">{{variant.geoValue}}</ion-checkbox >
+        </ion-list>
       </div>
       <div ng-if="!question.isMulti" class="">
-
+        <ion-list ng-repeat="variant in question.variants" class="manual-list-fullwidth">
+          <ion-radio ng-if="variant.variantType==='text'" ng-model="question.aId" ng-value="variant.id">{{variant.textValue}}</ion-radio>
+          <ion-radio ng-if="variant.variantType==='image'" ng-model="question.aId" ng-value="variant.id">
+            <img src={{variant.imageValue}} alt="" width="90%">
+          </ion-radio>
+          <ion-radio ng-if="variant.variantType==='geoData'" ng-model="question.aId" ng-value="variant.id">{{variant.geoValue}}</ion-radio>
+        </ion-list>
       </div>
     </div>
   </ion-content>
