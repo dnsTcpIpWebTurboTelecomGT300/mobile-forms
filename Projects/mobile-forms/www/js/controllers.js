@@ -20,7 +20,7 @@ angular.module('app.controllers', [])
       });
     }])
 
-    .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
+  .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
         'apiPrefix', 'quizService', '$ionicFilterBar', 'authService',
         function ($scope, $stateParams, $http, apiPrefix, quizService, $ionicFilterBar, authService) {
           $scope.editable = $stateParams.editable;
@@ -145,39 +145,40 @@ angular.module('app.controllers', [])
     },])
 
   .controller('quizDetailEditCtrl', ['$scope', '$stateParams', '$http',
-  'apiPrefix', '$ionicPopover', '$ionicHistory', 'quizService', '$ionicPopup', 'authService', 'questionService', '$state',
+  'apiPrefix', '$ionicPopover', '$ionicHistory', 'quizService', '$ionicPopup',
+    'authService', 'questionService', '$state',
     function($scope, $stateParams, $http, apiPrefix, $ionicPopover,
               $ionicHistory, quizService, $ionicPopup, authService, questionService, $state) {
-      //Провреяем была ли открыта форма на редактирование существующего
-      if ($stateParams.quizId) {
-
-        //Подгружаем данные опроса
-        quizService.findOne($stateParams.quizId).then(function(quiz) {
-          console.log(quiz);
-
-          //Подгружаем ответы
-          questionService.findAll(quiz.id).then(function(questions) {
-            console.log(questions);
-            $scope.quiz = quiz;
-            $scope.quiz.questions = questions;
-          });
-
-        });
+      if (quizService.getCurrentQuiz()) {
+        $scope.quiz = quizService.getCurrentQuiz()
       } else {
-        $scope.quiz = {
-          userId: authService.getCurrentUser().id,
-          isPublished: false,
-          creationDate: new Date().toISOString()
-        };
+        if ($stateParams.quizId) {
+          quizService.findOne($stateParams.quizId).then(function(quiz) {
+            console.log(quiz);
+            questionService.findAll(quiz.id).then(function(questions) {
+              console.log(questions);
+              $scope.quiz = quiz;
+              $scope.quiz.questions = questions;
+              quizService.setCurrentQuiz($scope.quiz);
+            });
+          });
+        } else {
+          $scope.quiz = {
+            userId: authService.getCurrentUser().id,
+            isPublished: false,
+            creationDate: new Date().toISOString(),
+            questions: []
+          };
+          quizService.setCurrentQuiz($scope.quiz);
+        }
       }
 
       //Дейтсвтие сохранения
       $scope.save = function() {
-        console.log($scope.quiz);
         quizService.save($scope.quiz).then(function(quiz) {
           console.log(quiz);
-          $scope.quiz = quiz;
           $scope.popover.hide();
+          quizService.setCurrentQuiz(null);
           $ionicHistory.goBack();
         }, function(error) {
           $ionicPopup.alert({
@@ -210,24 +211,55 @@ angular.module('app.controllers', [])
     },])
 
   .controller('questionEditCtrl', ['$scope', '$stateParams', 'questionService',
-   '$ionicPopover', '$ionicHistory', '$ionicPopup', '$state',
+   '$ionicPopover', '$ionicHistory', '$ionicPopup', '$state', 'quizService',
     function($scope, $stateParams, questionService,
-      $ionicPopover, $ionicHistory, $ionicPopup, $state) {
+      $ionicPopover, $ionicHistory, $ionicPopup, $state, quizService) {
 
-        if(questionService.getQuestion()){
-          $scope.question = questionService.getQuestion();
+      $scope.quiz = quizService.getCurrentQuiz();
+      if(questionService.getCurrentQuestion()){
+        $scope.question = questionService.getCurrentQuestion();
+      } else {
+        if ($stateParams.questionId) {
+          questionService.findOne($stateParams.questionId).then(function (question) {
+            $scope.question = question;
+            questionService.setCurrentQuestion($scope.question);
+          });
+          var questionActions = [{
+            text: 'Сохранить',
+            actionFunction: $scope.saveQuestion
+          }, {
+            text: 'Удалить',
+            actionFunction: $scope.deleteQuestion
+          }];
+        } else {
+          $scope.question = {
+            quizId: $scope.quiz.id,
+            variants : []
+          }
+          var questionActions = [{
+            text: 'Сохранить',
+            actionFunction: $scope.saveQuestion
+          }];
         }
+        questionService.setCurrentQuestion($scope.question);
+      }
 
       //Дейтсвие сохранения вопроса
       $scope.saveQuestion = function() {
-        console.log($scope.question);
-
         questionService.save($scope.question).then(function(question) {
           console.log(question);
-          $scope.question = question;
+          if (!$scope.question.id) {
+            $scope.quiz.questions.push(question);
+          } else {
+            var result = $scope.quiz.questions.filter(function (q) {
+              return q.id == question.id;
+            });
+            var index = $scope.quiz.questions.indexOf(result[0]);
+            $scope.quiz.questions[index] = question;
+          }
           $scope.questionPopover.hide();
+          questionService.setCurrentQuestion(null);
           $ionicHistory.goBack();
-          questionService.addQuestion(null);
           return question;
         }, function(error) {
           $ionicPopup.alert({
@@ -236,11 +268,6 @@ angular.module('app.controllers', [])
           });
         });
       };
-
-      $scope.goToVarint = function functionName() {
-        questionService.addQuestion($scope.question);
-        $state.go('app.quizDetail.edit.questionDetail.variant.new');
-      }
 
       //Добавляем действие удаления вопроса
       $scope.deleteQuestion = function() {
@@ -255,6 +282,14 @@ angular.module('app.controllers', [])
           if (res) {
             console.log('Удаление: ' + $stateParams.questionId);
             questionService.remove($stateParams.questionId).then(function() {
+              if ($scope.question.id) {
+                var result = $scope.quiz.questions.filter(function (question) {
+                  return question.id == $scope.question.id;
+                });
+                var index = $scope.quiz.questions.indexOf(result[0]);
+                $scope.quiz.questions.splice(index, 1);
+              }
+              questionService.setCurrentQuestion(null);
               $ionicHistory.goBack();
             }, function(error) {
               $ionicPopup.alert({
@@ -268,25 +303,21 @@ angular.module('app.controllers', [])
         });
       };
 
+      $scope.goToVariant = function(event) {
+        questionService.setCurrentQuestion($scope.question);
+        $state.go('app.quizDetail.edit.questionDetail.variant', {variantIndex: event.variantIndex});
+      };
+
       //Дейтсвие сохранения варианта
       $scope.saveVariant = function() {
-        var question = questionService.getQuestion();
-        if (!question.variants) {
-          question.variants = [];
-        }
         if ($stateParams.variantIndex) {
-          question.variants[$stateParams.variantIndex] = $scope.variant;
+          $scope.question.variants[$stateParams.variantIndex] = $scope.variant;
         } else {
-          question.variants.push($scope.variant);
+          $scope.question.variants.push($scope.variant);
         }
-
-        questionService.addQuestion(question);
-
         $scope.variantPopover.hide();
         $ionicHistory.goBack();
       };
-
-
 
       //Дейтсвие удаления варианта
       $scope.deleteVariant = function() {
@@ -308,52 +339,9 @@ angular.module('app.controllers', [])
         });
       };
 
-
-
-
-      //Проверяем если была открыта форма на редактирование, подгружаем вопрос
-      if ($stateParams.questionId) {
-
-        //Подгружаем вопрос
-        questionService.findOne($stateParams.questionId).then(function (question) {
-          console.log(question);
-          $scope.question = question;
-        });
-
-        //Действия для вопросов
-        var questionActions = [{
-          text: 'Сохранить',
-          actionFunction: $scope.saveQuestion
-        }, {
-          text: 'Удалить',
-          actionFunction: $scope.deleteQuestion
-        }];
-
-
-      } else {
-        $scope.question = {
-          quizId: $stateParams.quizId
-        };
-
-        //Действия для вопросов
-        var questionActions = [{
-          text: 'Сохранить',
-          actionFunction: $scope.saveQuestion
-        }];
-
-        //Действия для опросов
-        var variantActions = [{
-          text: 'Сохранить',
-          actionFunction: $scope.saveVariant
-        }];
-
-      }
-
       //Если было открыто редактирование варианта
       if ($stateParams.variantIndex) {
         $scope.variant = $scope.question.variants[$stateParams.variantIndex];
-
-        //Действия для вариантов
         var variantActions = [{
           text: 'Сохранить',
           actionFunction: $scope.saveVariant
@@ -361,18 +349,14 @@ angular.module('app.controllers', [])
           text: 'Удалить',
           actionFunction: $scope.deleteVariant
         }];
-
       } else {
         $scope.variant = {};
-
-        //Действия для вариантов
         var variantActions = [{
           text: 'Сохранить',
           actionFunction: $scope.saveVariant
         }];
       }
 
-      //Инициализируем поповер
       $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
         scope: $scope,
       }).then(function (popover) {
@@ -412,21 +396,22 @@ angular.module('app.controllers', [])
       });
     },])
 
-  .controller('variantEditCtrl', ['$scope', '$stateParams', '$ionicPopover', '$ionicHistory', '$ionicPopup',
-    function ($scope, $stateParams, $ionicPopover, $ionicHistory, $ionicPopup) {
+  .controller('variantEditCtrl', ['$scope', '$stateParams', '$ionicPopover', '$ionicHistory',
+    '$ionicPopup', 'questionService',
+    function ($scope, $stateParams, $ionicPopover, $ionicHistory, $ionicPopup, questionService) {
+
+      $scope.question = questionService.getCurrentQuestion();
+
       //Если был передан индекс варианта
       if ($stateParams.variantIndex) {
-        $scope.variant = $stateParams.question.variants[$stateParams.variantIndex];
+        $scope.variant = $scope.question.variants[$stateParams.variantIndex];
 
-        //Дейтсвие сохранения
         $scope.save = function () {
-          $stateParams.question.variants[$stateParams.variantIndex] = $scope.variant;
-          $scope.$apply();
+          $scope.question.variants[$stateParams.variantIndex] = $scope.variant;
           $scope.popover.hide();
           $ionicHistory.goBack();
         };
 
-        //Дейтсвие удаления
         $scope.delete = function () {
           $scope.popover.hide();
           var confirmPopup = $ionicPopup.confirm({
@@ -437,8 +422,7 @@ angular.module('app.controllers', [])
           });
           confirmPopup.then(function (res) {
             if (res) {
-              $stateParams.variant.splice($stateParams.variantIndex, 1);
-              $scope.$apply();
+              $scope.question.variants.splice($stateParams.variantIndex, 1);
               $scope.popover.hide();
               $ionicHistory.goBack();
             } else {
@@ -447,13 +431,10 @@ angular.module('app.controllers', [])
           });
         };
 
-        //Доступные действия - сохранить, удалить
-        $scope.actions = [
-          {
+        $scope.actions = [{
             text: 'Сохранить',
             actionFunction: $scope.save
-          },
-          {
+          }, {
             text: 'Удалить',
             actionFunction: $scope.delete
           }
@@ -462,10 +443,8 @@ angular.module('app.controllers', [])
       } else {
         $scope.variant = {};
 
-        //Дейтсвие сохранения
         $scope.save = function () {
-          $stateParams.question.variants.push($scope.variant);
-          $scope.$apply();
+          $scope.question.variants.push($scope.variant);
           $scope.popover.hide();
           $ionicHistory.goBack();
         };
@@ -478,19 +457,12 @@ angular.module('app.controllers', [])
         ];
       }
 
-      //Инициализируем поповер
       $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
         scope: $scope,
       }).then(function (popover) {
-        $scope.questionPopover = popover;
+        $scope.popover = popover;
       });
       $scope.openPopover = function ($event) {
-        switch ($event.target.id) {
-          case "question-popover":
-            break;
-          case "variant-popover":
-            break;
-        }
         $scope.popover.show($event);
       };
       $scope.closePopover = function ($event) {

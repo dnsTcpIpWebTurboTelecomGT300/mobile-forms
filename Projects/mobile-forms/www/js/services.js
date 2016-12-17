@@ -66,12 +66,12 @@ angular.module('app.services', [])
 
     var currentQuestion;
 
-    var addQuestion = function(question) {
-        currentQuestion = question;
+    var setCurrentQuestion = function (question) {
+      currentQuestion = question;
     };
 
-    var getQuestion = function(){
-        return currentQuestion;
+    var getCurrentQuestion = function () {
+      return currentQuestion;
     };
 
     function removeAll(questions) {
@@ -152,8 +152,8 @@ angular.module('app.services', [])
       remove: remove,
       removeByQuizId: removeByQuizId,
       removeAll: removeAll,
-      addQuestion: addQuestion,
-      getQuestion: getQuestion
+      setCurrentQuestion: setCurrentQuestion,
+      getCurrentQuestion: getCurrentQuestion
     }
   }])
 
@@ -237,6 +237,16 @@ angular.module('app.services', [])
     function ($http, apiPrefix, $q, questionService, answerService, userService) {
       var url = "quizes";
       var questionsUrl = "questions";
+
+      var currentQuiz;
+
+      function getCurrentQuiz() {
+        return currentQuiz;
+      }
+
+      function setCurrentQuiz(quiz) {
+        currentQuiz = quiz;
+      }
 
       function findOne(quizId) {
         return $q(function (resolve, reject) {
@@ -332,7 +342,9 @@ angular.module('app.services', [])
         findQuizes: findQuizes,
         save: save,
         remove: remove,
-        findOne: findOne
+        findOne: findOne,
+        getCurrentQuiz: getCurrentQuiz,
+        setCurrentQuiz: setCurrentQuiz
       }
 
     }])

@@ -3,8 +3,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 
 // .constant('apiPrefix', 'http://teemo-gu5b6kr5.cloudapp.net:3000/api/')
 //   .constant('apiPrefix', 'http://localhost:3000/api/')
-  // .constant('apiPrefix', 'http://ubuntuazureserver7823.cloudapp.net:3000/api/')
-  .constant('apiPrefix', 'http://10.0.2.2:3000/api/')
+// .constant('apiPrefix', 'http://10.0.2.2:3000/api/')
+  .constant('apiPrefix', 'http://ubuntuazureserver7823.cloudapp.net:3000/api/')
   .constant("AUTH0_DOMAIN", "mobile-forms.eu.auth0.com")
   .constant("AUTH0_APP_ID", "JJmxtVcCorumFXQIKRkZxX0HyuAl0EA9")
   .constant("ANON_AUTH", "anonymous")
@@ -34,9 +34,29 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     $httpProvider.interceptors.push('jwtInterceptor');
   })
 
-  .run(function ($rootScope, $ionicPlatform, authService, ANON_AUTH, VK_AUTH) {
+  .run(function ($rootScope, $ionicPlatform, $state, authService, ANON_AUTH, VK_AUTH,
+                 quizService, questionService, $ionicHistory) {
     $rootScope.ANON_AUTH = ANON_AUTH;
     $rootScope.VK_AUTH = VK_AUTH;
+
+    $ionicPlatform.registerBackButtonAction(function (event) {
+      handleBackAction($state, event);
+    }, 100);
+
+    $rootScope.$ionicGoBack = function (event) {
+      handleBackAction($state, event);
+    };
+
+    function handleBackAction($state, event) {
+      if ($state.current.name == "app.quizDetail.new" || $state.current.name == "app.quizDetail.edit") {
+        quizService.setCurrentQuiz(null);
+        questionService.setCurrentQuestion(null);
+      } else if ($state.current.name == "app.quizDetail.edit.questionDetail"
+        || $state.current.name == "app.quizDetail.edit.questionDetail.new") {
+        questionService.setCurrentQuestion(null);
+      }
+      $ionicHistory.goBack();
+    }
 
     // Process the auth token if it exists and fetch the profile
     authService.authenticateAndGetProfile();
@@ -62,3 +82,5 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       authService.checkAuthOnRefresh();
     });
   });
+
+
