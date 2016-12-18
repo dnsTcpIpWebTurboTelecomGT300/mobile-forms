@@ -83,6 +83,11 @@ angular.module('app.services', [])
 
     var currentQuestion;
 
+    var clear = function functionName() {
+      currentQuestionsList = null;
+      currentQuestion = null;
+    }
+
     var update = function(data) {
       currentQuestionsList.forEach(function(item, i, arr) {
         if (data.id ===  item.id) {
@@ -224,7 +229,8 @@ angular.module('app.services', [])
       getNext: getNext,
       setCurrentQuestion: setCurrentQuestion,
       getCurrentQuestion: getCurrentQuestion,
-      update: update
+      update: update,
+      clear: clear
     }
   }])
 

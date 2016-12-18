@@ -10,13 +10,13 @@ angular.module('app.controllers', [])
     }])
 
     .controller('quizProgressListForm', ['$scope', '$stateParams', 'authService',
-    'questionService', '$ionicPopover', 'answerService',
+    'questionService', '$ionicPopover', 'answerService', '$ionicHistory',
       function($scope, $stateParams, authService,
-      questionService, $ionicPopover, answerService) {
+      questionService, $ionicPopover, answerService, $ionicHistory) {
         //Подгружаем ответы
         questionService.findAll($stateParams.quizId).then(function(questions) {
           console.log(questions);
-          if (questionService.getQuestionsList().length) {
+          if (questionService.getQuestionsList() && questionService.getQuestionsList().length) {
             questions = questionService.getQuestionsList();
           }
           $scope.questions = questions;
@@ -52,6 +52,8 @@ angular.module('app.controllers', [])
             }
           });
           answerService.save(answer);
+          questionService.clear();
+          $ionicHistory.goBack();
         }
 
         $scope.actions = [
@@ -73,6 +75,10 @@ angular.module('app.controllers', [])
         };
         $scope.$on('$destroy', function() {
           $scope.popover.remove();
+        });
+
+        $scope.$on('$destroy', function() {
+            questionService.clear();
         });
       }])
 
