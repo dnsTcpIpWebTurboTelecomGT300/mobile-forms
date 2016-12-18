@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="fixed image take">
+    <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="fixed large image saving">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile-forms.iml" afterPath="$PROJECT_DIR$/mobile-forms.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/variant-edit.html" afterPath="$PROJECT_DIR$/www/templates/variant-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../odata-server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../odata-server/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../odata-server/server.js" afterPath="$PROJECT_DIR$/../odata-server/server.js" />
     </list>
     <ignored path="mobile-forms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,20 +31,23 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-892">
-              <caret line="499" column="0" selection-start-line="499" selection-start-column="0" selection-end-line="499" selection-end-column="0" />
+            <state relative-caret-position="162">
+              <caret line="470" column="0" selection-start-line="470" selection-start-column="0" selection-end-line="470" selection-end-column="0" />
               <folding>
-                <marker date="1482013024673" expanded="false" signature="65:337" ph="[...]" />
+                <element signature="e#65#337#0" expanded="false" />
+                <element signature="e#16701#18890#0" expanded="false" />
+                <element signature="e#17108#17984#0" expanded="false" />
+                <element signature="e#18018#18882#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/index.html">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+            <state relative-caret-position="68">
+              <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -50,7 +56,7 @@
       <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gulpfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
+            <state relative-caret-position="1258">
               <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding>
                 <element signature="e#598#881#0" expanded="false" />
@@ -62,8 +68,8 @@
       <file leaf-file-name="variant-edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/variant-edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+            <state relative-caret-position="51">
+              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
               <folding>
                 <element signature="n#style#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -78,7 +84,7 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="2771">
               <caret line="163" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="60" />
               <folding />
             </state>
@@ -88,18 +94,18 @@
       <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3411">
+            <state relative-caret-position="306">
               <caret line="218" column="10" selection-start-line="218" selection-start-column="10" selection-end-line="218" selection-end-column="10" />
               <folding>
                 <element signature="e#125#1428#0" expanded="false" />
+                <element signature="e#184#480#0" expanded="false" />
+                <element signature="e#512#629#0" expanded="false" />
+                <element signature="e#663#753#0" expanded="false" />
+                <element signature="e#789#1110#0" expanded="false" />
                 <element signature="e#1144#1152#0" expanded="false" />
+                <element signature="e#1190#1286#0" expanded="false" />
                 <element signature="e#1523#5224#0" expanded="false" />
                 <element signature="e#7255#10502#0" expanded="false" />
-                <marker date="1482007268584" expanded="false" signature="184:480" ph="{...}" />
-                <marker date="1482007268584" expanded="false" signature="512:629" ph="{...}" />
-                <marker date="1482007268584" expanded="false" signature="663:753" ph="{...}" />
-                <marker date="1482007268584" expanded="false" signature="789:1110" ph="{...}" />
-                <marker date="1482007268584" expanded="false" signature="1190:1286" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -108,7 +114,7 @@
       <file leaf-file-name="question-edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/question-edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
+            <state relative-caret-position="153">
               <caret line="9" column="71" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="71" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#label#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -193,7 +199,6 @@
         <option value="$PROJECT_DIR$/www/templates/menu.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/www/templates/quizes.html" />
-        <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/js/routes.js" />
         <option value="$PROJECT_DIR$/www/templates/quiz-edit-form.html" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
@@ -201,6 +206,7 @@
         <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/templates/question-edit.html" />
         <option value="$PROJECT_DIR$/www/templates/variant-edit.html" />
+        <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
       </list>
     </option>
@@ -328,15 +334,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile-forms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile-forms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile-forms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobile-forms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane />
       </pane>
       <pane id="Scope">
         <subPane subId="Problems" />
         <subPane subId="Project Files" />
         <subPane subId="Tests" />
+      </pane>
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
       <pane id="Scratches" />
     </panes>
@@ -767,6 +805,17 @@
       <option name="target" value="" />
       <method />
     </configuration>
+    <configuration default="false" name="android - run (1)" type="PhoneGap" factoryName="PhoneGap/Cordova" singleton="false">
+      <option name="myExecutable" value="C:\Users\minel\AppData\Roaming\npm\ionic.cmd" />
+      <option name="myWorkDir" value="$PROJECT_DIR$" />
+      <option name="myCommand" value="run" />
+      <option name="myPassParent" value="true" />
+      <option name="myPlatform" value="android" />
+      <option name="myExtraArgs" value="" />
+      <option name="hasTarget" value="false" />
+      <option name="target" value="" />
+      <method />
+    </configuration>
     <configuration default="false" name="browser - save" type="PhoneGap" factoryName="PhoneGap/Cordova">
       <option name="myExecutable" value="C:\Users\minel\AppData\Roaming\npm\ionic.cmd" />
       <option name="myWorkDir" value="$PROJECT_DIR$" />
@@ -789,10 +838,11 @@
       <option name="target" value="" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="PhoneGap/Cordova.android - run" />
-      <item index="1" class="java.lang.String" itemvalue="PhoneGap/Cordova.browser - save" />
-      <item index="2" class="java.lang.String" itemvalue="PhoneGap/Cordova.Phonegap/Cordova run" />
+      <item index="1" class="java.lang.String" itemvalue="PhoneGap/Cordova.android - run (1)" />
+      <item index="2" class="java.lang.String" itemvalue="PhoneGap/Cordova.browser - save" />
+      <item index="3" class="java.lang.String" itemvalue="PhoneGap/Cordova.Phonegap/Cordova run" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -817,7 +867,8 @@
       <workItem from="1479555029825" duration="28761000" />
       <workItem from="1480879270947" duration="12488000" />
       <workItem from="1481046126743" duration="20590000" />
-      <workItem from="1481983104855" duration="20850000" />
+      <workItem from="1481983104855" duration="21582000" />
+      <workItem from="1482048797545" duration="6035000" />
     </task>
     <task id="LOCAL-00001" summary="added auth">
       <created>1477510134927</created>
@@ -952,11 +1003,18 @@
       <option name="project" value="LOCAL" />
       <updated>1482012612734</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fixed variants">
+      <created>1482013050561</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1482013050561</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149519000" />
+    <option name="totallyTimeSpent" value="156286000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -973,7 +1031,6 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7647059" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -990,6 +1047,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1044,12 +1102,12 @@
     <MESSAGE value="templates cleanup" />
     <MESSAGE value="implemented anon authentication + fixes for quizes list" />
     <MESSAGE value="fixed variants template" />
-    <MESSAGE value="fixed variants" />
     <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/templates/question-edit.html&#10;" />
     <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;" />
     <MESSAGE value="Merge branch 'feature/mobile-app' of https://github.com/dnsTcpIpWebTurboTelecomGT300/mobile-forms into feature/mobile-app&#10;&#10;# Conflicts:&#10;#&#9;Projects/mobile-forms/bower.json&#10;#&#9;Projects/mobile-forms/www/js/controllers.js&#10;#&#9;Projects/mobile-forms/www/js/services.js&#10;" />
     <MESSAGE value="fixed image take" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed image take" />
+    <MESSAGE value="fixed variants" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed variants" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1067,10 +1125,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="67" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="67" />
-          <folding>
-            <element signature="n#style#0;n#ion-side-menu#0;n#ion-side-menus#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ion-content#0;n#ion-side-menu#0;n#ion-side-menus#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,7 +1133,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,7 +1156,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1182,13 +1235,7 @@
     <entry file="file://$PROJECT_DIR$/www/templates/quiz-info.html" />
     <entry file="file://$PROJECT_DIR$/www/img/wchwXciRQyczYImZsQKa_snap.jpg" />
     <entry file="file://$PROJECT_DIR$/www/img/xUhkbvxfRUMOFIXxouyn_snap.jpg" />
-    <entry file="file://$PROJECT_DIR$/www/templates/quiz-progress.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/quiz-progress.html" />
     <entry file="file://$PROJECT_DIR$/www/js/directives.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1221,7 +1268,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-660">
           <caret line="3922" column="3" selection-start-line="3922" selection-start-column="3" selection-end-line="3922" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1243,7 +1289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1251,15 +1296,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="14" column="68" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="50" column="100" selection-start-line="50" selection-start-column="100" selection-end-line="50" selection-end-column="100" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,13 +1303,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="23" column="85" selection-start-line="23" selection-start-column="85" selection-end-line="23" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="272">
           <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding />
         </state>
@@ -1281,7 +1316,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="2771">
           <caret line="163" column="14" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="60" />
           <folding />
         </state>
@@ -1313,25 +1348,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3411">
+        <state relative-caret-position="306">
           <caret line="218" column="10" selection-start-line="218" selection-start-column="10" selection-end-line="218" selection-end-column="10" />
           <folding>
             <element signature="e#125#1428#0" expanded="false" />
+            <element signature="e#184#480#0" expanded="false" />
+            <element signature="e#512#629#0" expanded="false" />
+            <element signature="e#663#753#0" expanded="false" />
+            <element signature="e#789#1110#0" expanded="false" />
             <element signature="e#1144#1152#0" expanded="false" />
+            <element signature="e#1190#1286#0" expanded="false" />
             <element signature="e#1523#5224#0" expanded="false" />
             <element signature="e#7255#10502#0" expanded="false" />
-            <marker date="1482007268584" expanded="false" signature="184:480" ph="{...}" />
-            <marker date="1482007268584" expanded="false" signature="512:629" ph="{...}" />
-            <marker date="1482007268584" expanded="false" signature="663:753" ph="{...}" />
-            <marker date="1482007268584" expanded="false" signature="789:1110" ph="{...}" />
-            <marker date="1482007268584" expanded="false" signature="1190:1286" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
+        <state relative-caret-position="1258">
           <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding>
             <element signature="e#598#881#0" expanded="false" />
@@ -1341,7 +1376,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/question-edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="153">
           <caret line="9" column="71" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="71" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#label#0;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -1356,8 +1391,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/variant-edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        <state relative-caret-position="51">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
           <folding>
             <element signature="n#style#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#label#1;n#ion-list#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -1368,12 +1403,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-892">
-          <caret line="499" column="0" selection-start-line="499" selection-start-column="0" selection-end-line="499" selection-end-column="0" />
+        <state relative-caret-position="162">
+          <caret line="470" column="0" selection-start-line="470" selection-start-column="0" selection-end-line="470" selection-end-column="0" />
           <folding>
-            <marker date="1482013024673" expanded="false" signature="65:337" ph="[...]" />
+            <element signature="e#65#337#0" expanded="false" />
+            <element signature="e#16701#18890#0" expanded="false" />
+            <element signature="e#17108#17984#0" expanded="false" />
+            <element signature="e#18018#18882#0" expanded="false" />
           </folding>
         </state>
       </provider>

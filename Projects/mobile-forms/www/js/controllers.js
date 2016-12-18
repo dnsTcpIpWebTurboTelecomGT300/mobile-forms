@@ -532,7 +532,7 @@ angular.module('app.controllers', [])
 
       $scope.question = questionService.getCurrentQuestion();
 
-      $scope.takeFoto = function takeFoto() {
+     $scope.takeFoto = function takeFoto() {
         var successCallback = function(imageData) {
           $scope.variant.imageValue = "data:image/jpeg;base64," + imageData;
           $scope.$apply();
