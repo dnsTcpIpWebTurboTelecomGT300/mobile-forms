@@ -3,51 +3,64 @@
     <!-- <button class="button icon ion-android-more-vertical" id="question-popover" ng-click="openPopover($event)"></button> -->
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
-    <div style="color:#000000;">
-      <p>{{question.text}}</p>
+    <div>
+      <h4>{{question.text}}</h4>
     </div>
-    <div ng-if="question.questionType=='free'" class="">
-      <div ng-if="question.answerFormat=='text'" class="">
-        <span class="">Текст ответа</span>
-        <input type="text" placeholder="Текст ответа" ng-model="question.aText">
-      </div>
-      <div ng-if="question.answerFormat=='date'" class="">
-        <span class="">Дата <input type="date" ng-model="question.aDate"></i></span>
-      </div>
-      <div ng-if="question.answerFormat=='number'" class="">
-        <span class="">Введите число</span>
-        <input type="number" placeholder="Введите число" ng-model="question.aNumber">
-      </div>
-    </div>
-    <div ng-if="question.questionType=='select'" class="">
-      <div ng-if="question.isMulti" class="">
-        <ion-list ng-repeat="variant in question.answer" class="manual-list-fullwidth">
-          <ion-checkbox  ng-if="variant.variantType==='text'" ng-model="variant.cheked">{{variant.textValue}}</ion-checkbox>
-          <ion-checkbox  ng-if="variant.variantType==='image'" ng-model="variant.cheked">
+    <ion-list class="manual-list-fullwidth">
+      <label ng-if="question.imageValue" class="item item-input item-stacked-label" style="text-align: center;">
+        <div>Прикрепленное изображение</div>
+        <img ng-src="{{question.imageValue}}" style="width : 90% ; ">
+      </label>
+      <label ng-if="question.geoValue" class="item item-input item-stacked-label" style="text-align: center;"
+             ng-click="viewGeo(question.geoValue)">
+        <div>Прикрепленное местоположение</div>
+        <i class="icon ion-map center" style="font-size: 100px;"> </i>
+      </label>
+      <label ng-if="question.questionType ==='free'" class="item item-input item-stacked-label">
+        <div ng-if="question.answerFormat ==='text'" class="">
+          <span class="">Текст ответа</span>
+          <input type="text" placeholder="Текст ответа" ng-model="question.aText">
+        </div>
+        <div ng-if="question.answerFormat ==='date'" class="">
+          <span class="">Дата <input type="date" ng-model="question.aDate"></i></span>
+        </div>
+        <div ng-if="question.answerFormat ==='number'" class="">
+          <span class="">Введите число</span>
+          <input type="number" placeholder="Введите число" ng-model="question.aNumber">
+        </div>
+      </label>
+      <div ng-if="question.questionType ==='select'">
+        <div ng-if="question.isMulti" ng-repeat="variant in question.answer">
+          <ion-checkbox ng-if="variant.textValue" ng-model="variant.cheked">{{variant.textValue}}
+          </ion-checkbox>
+          <ion-checkbox ng-if="variant.imageValue" ng-model="variant.cheked">
             <img src={{variant.imageValue}} alt="" width="90%">
-          </ion-checkbox >
-          <ion-checkbox  ng-if="variant.variantType==='geoData'" ng-model="variant.cheked">{{variant.geoValue}}</ion-checkbox >
-        </ion-list>
-      </div>
-      <div ng-if="!question.isMulti" class="">
-        <ion-list ng-repeat="variant in question.variants" class="manual-list-fullwidth">
-          <ion-radio ng-if="variant.variantType==='text'" ng-model="question.aId" ng-value="variant.id">{{variant.textValue}}</ion-radio>
-          <ion-radio ng-if="variant.variantType==='image'" ng-model="question.aId" ng-value="variant.id">
-            <img src={{variant.imageValue}} alt="" width="90%">
+          </ion-checkbox>
+          <ion-checkbox ng-if="variant.geoValue" ng-model="variant.cheked">{{variant.geoValue}}
+          </ion-checkbox>
+        </div>
+        <div ng-if="!question.isMulti" ng-repeat="variant in question.variants" on-hold="viewGeo(variant.geoValue)">
+          <ion-radio ng-if="variant.textValue" ng-model="question.aId" ng-value="variant.id">
+            <div ng-if="variant.textValue">
+              {{variant.textValue}}
+            </div>
+            <div ng-if="variant.imageValue" style="text-align: center;">
+              <div>Прикрепленное изображение</div>
+              <img src={{variant.imageValue}} alt="" width="90%">
+            </div>
+            <div id="variantGeo" ng-if="variant.geoValue" style="z-index: 1000; text-align: center;">
+              <div>Прикрепленное местоположение</div>
+              <i class="icon ion-map center" style="font-size: 100px;"> </i>
+            </div>
           </ion-radio>
-          <ion-radio ng-if="variant.variantType==='geoData'" ng-model="question.aId" ng-value="variant.id">{{variant.geoValue}}</ion-radio>
-        </ion-list>
+        </div>
+        <div class="spacer" style="width: 300px; height: 20px;"></div>
       </div>
-    </div>
+      <div class="button-bar greenBG">
+        <a ng-if="isPrevExists" class="button icon ion-arrow-left-a greenBG" ng-click="goPrev()"></a>
+        <a ng-if="isNextExists" class="button icon ion-arrow-right-a greenBG" ng-click="goNext()"></a>
+      </div>
+    </ion-list>
+
   </ion-content>
-  <div class="tabs tabs-icon-only greenBG">
-    <a class="tab-item">
-      <i ng-if="ifPrevExist" class="icon ion-arrow-left-a" style="color: black;" ng-click="goPrev()"></i>
-    </a>
-    <a class="tab-item">
-    </a>
-    <a class="tab-item">
-      <i ng-if="isNextExist" class="icon ion-arrow-right-a" style="color: black;" ng-click="goNext()"></i>
-    </a>
-  </div>
 </ion-view>

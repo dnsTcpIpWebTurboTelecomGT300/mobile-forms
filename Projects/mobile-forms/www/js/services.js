@@ -86,7 +86,7 @@ angular.module('app.services', [])
     var clear = function functionName() {
       currentQuestionsList = null;
       currentQuestion = null;
-    }
+    };
 
     var update = function(data) {
       currentQuestionsList.forEach(function(item, i, arr) {
@@ -94,7 +94,7 @@ angular.module('app.services', [])
           item = data;
         }
       });
-    }
+    };
 
     var setCurrentQuestion = function (question) {
       currentQuestion = question;

@@ -9,18 +9,20 @@ angular.module('app.controllers', [])
       };
     }])
 
-    .controller('quizProgressListForm', ['$scope', '$stateParams', 'authService',
+  .controller('quizProgressListForm', ['$scope', '$stateParams', 'authService',
     'questionService', '$ionicPopover', 'answerService', '$ionicHistory',
       function($scope, $stateParams, authService,
       questionService, $ionicPopover, answerService, $ionicHistory) {
-        //Подгружаем ответы
-        questionService.findAll($stateParams.quizId).then(function(questions) {
-          console.log(questions);
-          if (questionService.getQuestionsList() && questionService.getQuestionsList().length) {
-            questions = questionService.getQuestionsList();
-          }
-          $scope.questions = questions;
-        });
+
+        if (questionService.getQuestionsList() && questionService.getQuestionsList().length) {
+          $scope.questions = questionService.getQuestionsList();
+        } else {
+          questionService.findAll($stateParams.quizId).then(function(questions) {
+            console.log(questions);
+            questionService.setQuestionsList(questions);
+            $scope.questions = questions;
+          });
+        }
 
         $scope.save = function functionName() {
           var answer={
@@ -28,7 +30,7 @@ angular.module('app.controllers', [])
             userId: authService.getCurrentUser().id,
             date: new Date(),
             answers: []
-          }
+          };
           $scope.questions.forEach(function(item, i, arr) {
             if (item.aText || item.aDate || item.aNumber || item.answer || item.aId) {
               var qAnswer = {};
@@ -54,13 +56,13 @@ angular.module('app.controllers', [])
           answerService.save(answer);
           questionService.clear();
           $ionicHistory.goBack();
-        }
+        };
 
         $scope.actions = [
           {
             text: 'Сохранить',
             actionFunction: $scope.save
-          }]
+          }];
 
         $ionicPopover.fromTemplateUrl('templates/popover/qd-popover.html', {
           scope: $scope,
@@ -76,53 +78,99 @@ angular.module('app.controllers', [])
         $scope.$on('$destroy', function() {
           $scope.popover.remove();
         });
-
-        $scope.$on('$destroy', function() {
-            questionService.clear();
-        });
       }])
 
-    .controller('quizProgressEditForm', ['$scope', '$stateParams', 'authService',
+  .controller('quizProgressEditForm', ['$scope', '$stateParams', 'authService',
     'questionService',
-      function($scope, $stateParams, authService,
-      questionService) {
-        //Подгружаем ответы
-        questionService.findAll($stateParams.quizId).then(function(questions) {
-          console.log(questions);
+      function($scope, $stateParams, authService, questionService) {
 
-          if (questionService.getQuestionsList().length) {
-            questions = questionService.getQuestionsList();
+        var ifMulti = function functionName() {
+          if ($scope.question.isMulti) {
+            $scope.question.answer = $scope.question.variants
           }
+        };
 
-          var curent = questions.filter(function (question) {
+        $scope.viewGeo = function (coord) {
+          if (coord) {
+            var map;
+            var _marker;
+            document.addEventListener("deviceready", function() {
+              // Initialize the map view
+              map = plugin.google.maps.Map.getMap();
+
+              // Wait until the map is ready status.
+              map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+
+            }, false);
+
+            map.on(plugin.google.maps.event.MAP_CLICK, function() {
+              var lat = coord.split(',')[0];
+              var lng = coord.split(',')[1];
+              marker = map.addMarker({
+                'position': new plugin.google.maps.LatLng(lat,lng),
+                'draggable': false,
+                'title': coord
+              }, function(marker) {
+                marker.showInfoWindow();
+              });
+            });
+
+            function onMapReady() {
+              map.clear();
+              map.showDialog();
+              var lat = coord.split(',')[0];
+              var lng = coord.split(',')[1];
+              marker = map.addMarker({
+                'position': new plugin.google.maps.LatLng(lat,lng),
+                'draggable': true,
+                'title': coord
+              }, function(marker) {
+                marker.showInfoWindow();
+              });
+            }
+          }
+        };
+
+        if (questionService.getQuestionsList() && questionService.getQuestionsList().length) {
+          $scope.questions = questionService.getQuestionsList();
+          var current = $scope.questions.filter(function (question) {
             return question.id === $stateParams.questionId;
           })[0];
-          questionService.setCurrentQuestion(curent)
-          questionService.setQuestionsList(questions);
-          $scope.question = curent;
-          $scope.ifPrevExist = questionService.getPrev(true);
-          $scope.isNextExist = questionService.getNext(true);
+          questionService.setCurrentQuestion(current);
+          $scope.question = current;
+          $scope.isPrevExists = questionService.getPrev(true);
+          $scope.isNextExists = questionService.getNext(true);
           ifMulti();
-        });
+        } else {
+          questionService.findAll($stateParams.quizId).then(function(questions) {
+            console.log(questions);
+            questionService.setQuestionsList(questions);
+            $scope.questions = questions;
+            var current = questions.filter(function (question) {
+              return question.id === $stateParams.questionId;
+            })[0];
+            questionService.setCurrentQuestion(current);
+            $scope.question = current;
+            $scope.isPrevExists = questionService.getPrev(true);
+            $scope.isNextExists = questionService.getNext(true);
+            ifMulti();
+          });
+        }
+
         $scope.goPrev = function functionName() {
           questionService.update($scope.question);
           $scope.question = questionService.getPrev();
-          $scope.ifPrevExist = questionService.getPrev(true);
-          $scope.isNextExist = questionService.getNext(true);
+          $scope.isPrevExists = questionService.getPrev(true);
+          $scope.isNextExists = questionService.getNext(true);
           ifMulti();
         };
         $scope.goNext = function functionName() {
           questionService.update($scope.question);
           $scope.question = questionService.getNext();
-          $scope.ifPrevExist = questionService.getPrev(true);
-          $scope.isNextExist = questionService.getNext(true);
+          $scope.isPrevExists = questionService.getPrev(true);
+          $scope.isNextExists = questionService.getNext(true);
           ifMulti();
         };
-        var ifMulti = function functionName() {
-          if ($scope.question.isMulti) {
-            $scope.question.answer = $scope.question.variants
-          }
-        }
         $scope.$on('$destroy', function() {
             questionService.update($scope.question);
         });
@@ -139,7 +187,7 @@ angular.module('app.controllers', [])
       });
     }])
 
-    .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
+  .controller('quizesCtrl', ['$scope', '$stateParams', '$http',
         'apiPrefix', 'quizService', '$ionicFilterBar', 'authService',
         function ($scope, $stateParams, $http, apiPrefix, quizService, $ionicFilterBar, authService) {
           $scope.editable = $stateParams.editable;
