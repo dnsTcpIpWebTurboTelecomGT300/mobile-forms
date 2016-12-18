@@ -1,6 +1,5 @@
 <ion-view title="Вопрос" id="question-edit">
   <ion-nav-buttons side="right" class="has-header">
-    <!-- <button class="button icon ion-android-more-vertical" id="question-popover" ng-click="openPopover($event)"></button> -->
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
     <div>
@@ -30,13 +29,19 @@
         </div>
       </label>
       <div ng-if="question.questionType ==='select'">
-        <div ng-if="question.isMulti" ng-repeat="variant in question.answer">
-          <ion-checkbox ng-if="variant.textValue" ng-model="variant.cheked">{{variant.textValue}}
-          </ion-checkbox>
-          <ion-checkbox ng-if="variant.imageValue" ng-model="variant.cheked">
-            <img src={{variant.imageValue}} alt="" width="90%">
-          </ion-checkbox>
-          <ion-checkbox ng-if="variant.geoValue" ng-model="variant.cheked">{{variant.geoValue}}
+        <div ng-if="question.isMulti" ng-repeat="variant in question.answer" on-hold="viewGeo(variant.geoValue)">
+          <ion-checkbox ng-if="variant.textValue" ng-model="variant.cheked">
+            <div ng-if="variant.textValue">
+              {{variant.textValue}}
+            </div>
+            <div ng-if="variant.imageValue" style="text-align: center;">
+              <div>Прикрепленное изображение</div>
+              <img src={{variant.imageValue}} alt="" width="90%">
+            </div>
+            <div  ng-if="variant.geoValue" style="text-align: center;">
+              <div>Прикрепленное местоположение</div>
+              <i class="icon ion-map center" style="font-size: 100px;"> </i>
+            </div>
           </ion-checkbox>
         </div>
         <div ng-if="!question.isMulti" ng-repeat="variant in question.variants" on-hold="viewGeo(variant.geoValue)">
@@ -48,7 +53,7 @@
               <div>Прикрепленное изображение</div>
               <img src={{variant.imageValue}} alt="" width="90%">
             </div>
-            <div id="variantGeo" ng-if="variant.geoValue" style="z-index: 1000; text-align: center;">
+            <div ng-if="variant.geoValue" style="text-align: center;">
               <div>Прикрепленное местоположение</div>
               <i class="icon ion-map center" style="font-size: 100px;"> </i>
             </div>
