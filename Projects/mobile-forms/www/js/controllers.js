@@ -49,7 +49,6 @@ angular.module('app.controllers', [])
               }else if(item.aId){
                 qAnswer.variants = [{variantId : item.aId}];
               }
-
               answer.answers.push(qAnswer);
             }
           });
@@ -122,7 +121,7 @@ angular.module('app.controllers', [])
               var lng = coord.split(',')[1];
               marker = map.addMarker({
                 'position': new plugin.google.maps.LatLng(lat,lng),
-                'draggable': true,
+                'draggable': false,
                 'title': coord
               }, function(marker) {
                 marker.showInfoWindow();
