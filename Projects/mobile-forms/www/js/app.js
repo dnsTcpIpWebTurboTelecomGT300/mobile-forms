@@ -1,5 +1,5 @@
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives', 'app.services',
-  'ion-floating-menu', 'auth0.auth0', 'angular-jwt', 'jett.ionic.filter.bar'])
+  'ion-floating-menu', 'auth0.auth0', 'angular-jwt', 'jett.ionic.filter.bar', 'ngMessages'])
 
 // .constant('apiPrefix', 'http://teemo-gu5b6kr5.cloudapp.net:3000/api/')
 //   .constant('apiPrefix', 'http://192.168.1.2:3000/api/')

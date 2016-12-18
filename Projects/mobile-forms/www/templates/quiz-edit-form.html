@@ -6,20 +6,46 @@
     <button class="button icon ion-android-more-vertical" ng-click="openPopover($event)"></button>
   </ion-nav-buttons>
   <ion-content padding="true">
-    <form class="list">
+    <form class="list" novalidate="" name="quizForm">
+
       <ion-list class="manual-list-fullwidth">
-        <label class="item item-input item-stacked-label">
+        <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : quizForm.name.$invalid }">
           <span class="input-label">Название</span>
-          <input type="text" placeholder="Название опроса" ng-model="quiz.name">
+          <input type="text" name="name" placeholder="Название опроса" ng-model="quiz.name" ng-minlength="5"
+                 ng-maxlength="50" required>
         </label>
-        <label class="item item-input item-stacked-label">
+        <div class="error-container" ng-show="quizForm.name.$error" ng-messages="quizForm.name.$error">
+          <div class="error" ng-message="required">
+            <i class="ion-information-circled"></i>
+            Необходимо указать название опроса
+          </div>
+          <div class="error" ng-message="minlength">
+            <i class="ion-information-circled"></i>
+            Минимальная длинна названия 5 символов
+          </div>
+          <div class="error" ng-message="maxlength">
+            <i class="ion-information-circled"></i>
+            Максимальная длинна названия 50 символов
+          </div>
+        </div>
+
+        <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : quizForm.description.$invalid}">
           <span class="input-label">Описание</span>
-          <input type="text" placeholder="Описание опроса" ng-model="quiz.description">
+          <input type="text" name="description" placeholder="Описание опроса" ng-model="quiz.description"
+                 ng-maxlength="500"
+                 ng-class="{ 'has-errors' : quizForm.description.$invalid, 'no-errors' : quizForm.description.$valid}">
         </label>
+        <div class="error-container" ng-show="quizForm.description.$error" ng-messages="quizForm.description.$error">
+          <div class="error" ng-message="maxlength">
+            <i class="ion-information-circled"></i>
+            Максимальная длинна описания 500 символов
+          </div>
+        </div>
+
         <ion-toggle toggle-class="toggle-balanced" ng-model="quiz.isPublished">Опубликован</ion-toggle>
       </ion-list>
     </form>
-    <div style="color:#000000;"></div>
+
     <ion-list class="manual-list-fullwidth">
       <ion-item class="item-divider">Список вопросов</ion-item>
       <div ng-repeat="question in quiz.questions">
@@ -30,9 +56,12 @@
         </ion-item>
       </div>
     </ion-list>
-    <div style="color:#000000;"></div>
+
   </ion-content>
-  <ion-floating-button ui-sref="app.quizDetail.edit.questionDetail.new({})" has-footer="false" button-color="#ff5252" icon="ion-plus"
+  <ion-floating-button ng-click="createQuestion()" has-footer="false" button-color="#ff5252"
+                       icon="ion-plus"
                        icon-color="#fff">
   </ion-floating-button>
 </ion-view>
+
+
