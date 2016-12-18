@@ -2,10 +2,85 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="fixed large image saving">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/babel-polyfill/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/babel-polyfill/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/babel-polyfill/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/babel-polyfill/browser-polyfill.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/Gruntfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/dist/ng-cordova-oauth.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/dist/ng-cordova-oauth.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/karma.conf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.500px.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.adfs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.azuread.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.box.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.digitalOcean.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.dribble.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.dropbox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.envato.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.facebook.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.familySearch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.foursquare.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.github.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.google.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.imgur.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.instagram.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.jawbone.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.linkedin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.magento.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.meetup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.mercadolibre.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.netatmo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.odnoklassniki.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.pocket.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.rally.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.reddit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.salesforce.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.slack.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.spotify.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.strava.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.stripe.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.trakttv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.twitter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.uber.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.untappd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.venmo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.vkontakte.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.weibo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.windowslive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.withings.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.xing.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.yahoo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.yammer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/plugin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/utility.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/.bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/CHANGELOG.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova-mocks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova-mocks.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/package.json" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/minel.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../odata-server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../odata-server/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../odata-server/models/questionsModel.js" afterPath="$PROJECT_DIR$/../odata-server/models/questionsModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../odata-server/server.js" afterPath="$PROJECT_DIR$/../odata-server/server.js" />
     </list>
     <ignored path="mobile-forms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,13 +104,13 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="481" column="17" selection-start-line="481" selection-start-column="17" selection-end-line="481" selection-end-column="17" />
+            <state relative-caret-position="230">
+              <caret line="529" column="35" selection-start-line="529" selection-start-column="35" selection-end-line="529" selection-end-column="35" />
               <folding>
                 <element signature="e#65#337#0" expanded="false" />
-                <element signature="e#16701#18890#0" expanded="false" />
-                <element signature="e#17108#17984#0" expanded="false" />
-                <element signature="e#18018#18882#0" expanded="false" />
+                <element signature="e#18793#20982#0" expanded="false" />
+                <element signature="e#19200#20076#0" expanded="false" />
+                <element signature="e#20110#20974#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -83,17 +158,11 @@
         <entry file="file://$PROJECT_DIR$/www/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="218" column="10" selection-start-line="218" selection-start-column="10" selection-end-line="218" selection-end-column="10" />
+              <caret line="242" column="10" selection-start-line="242" selection-start-column="10" selection-end-line="242" selection-end-column="10" />
               <folding>
-                <element signature="e#125#1428#0" expanded="false" />
-                <element signature="e#184#480#0" expanded="false" />
-                <element signature="e#512#629#0" expanded="false" />
-                <element signature="e#663#753#0" expanded="false" />
-                <element signature="e#789#1110#0" expanded="false" />
-                <element signature="e#1144#1152#0" expanded="false" />
-                <element signature="e#1190#1286#0" expanded="false" />
-                <element signature="e#1523#5224#0" expanded="false" />
-                <element signature="e#7255#10502#0" expanded="false" />
+                <element signature="e#125#1771#0" expanded="false" />
+                <element signature="e#1866#5769#0" expanded="false" />
+                <element signature="e#7800#11047#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -856,7 +925,7 @@
       <workItem from="1480879270947" duration="12488000" />
       <workItem from="1481046126743" duration="20590000" />
       <workItem from="1481983104855" duration="21582000" />
-      <workItem from="1482048797545" duration="6335000" />
+      <workItem from="1482048797545" duration="6952000" />
     </task>
     <task id="LOCAL-00001" summary="added auth">
       <created>1477510134927</created>
@@ -1009,7 +1078,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156586000" />
+    <option name="totallyTimeSpent" value="157203000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1032,7 +1101,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7647059" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25718608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1338,17 +1407,11 @@
     <entry file="file://$PROJECT_DIR$/www/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="218" column="10" selection-start-line="218" selection-start-column="10" selection-end-line="218" selection-end-column="10" />
+          <caret line="242" column="10" selection-start-line="242" selection-start-column="10" selection-end-line="242" selection-end-column="10" />
           <folding>
-            <element signature="e#125#1428#0" expanded="false" />
-            <element signature="e#184#480#0" expanded="false" />
-            <element signature="e#512#629#0" expanded="false" />
-            <element signature="e#663#753#0" expanded="false" />
-            <element signature="e#789#1110#0" expanded="false" />
-            <element signature="e#1144#1152#0" expanded="false" />
-            <element signature="e#1190#1286#0" expanded="false" />
-            <element signature="e#1523#5224#0" expanded="false" />
-            <element signature="e#7255#10502#0" expanded="false" />
+            <element signature="e#125#1771#0" expanded="false" />
+            <element signature="e#1866#5769#0" expanded="false" />
+            <element signature="e#7800#11047#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1410,13 +1473,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="481" column="17" selection-start-line="481" selection-start-column="17" selection-end-line="481" selection-end-column="17" />
+        <state relative-caret-position="230">
+          <caret line="529" column="35" selection-start-line="529" selection-start-column="35" selection-end-line="529" selection-end-column="35" />
           <folding>
             <element signature="e#65#337#0" expanded="false" />
-            <element signature="e#16701#18890#0" expanded="false" />
-            <element signature="e#17108#17984#0" expanded="false" />
-            <element signature="e#18018#18882#0" expanded="false" />
+            <element signature="e#18793#20982#0" expanded="false" />
+            <element signature="e#19200#20076#0" expanded="false" />
+            <element signature="e#20110#20974#0" expanded="false" />
           </folding>
         </state>
       </provider>
