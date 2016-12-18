@@ -30,6 +30,7 @@ Projects/odata-server/build/Release
 # Dependency directories
 Projects/odata-server/node_modules
 Projects/odata-server/jspm_packages
+!Projects/odata-server/node_modules/node-odata
 
 # Optional npm cache directory
 Projects/odata-server/.npm
