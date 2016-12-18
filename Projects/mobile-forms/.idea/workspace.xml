@@ -3,19 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/app.css" afterPath="$PROJECT_DIR$/www/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/directives.js" afterPath="$PROJECT_DIR$/www/js/directives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/login.html" afterPath="$PROJECT_DIR$/www/templates/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/question-answer.html" afterPath="$PROJECT_DIR$/www/templates/question-answer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/question-edit.html" afterPath="$PROJECT_DIR$/www/templates/question-edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/question-progress.html" afterPath="$PROJECT_DIR$/www/templates/question-progress.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/questions.html" afterPath="$PROJECT_DIR$/www/templates/questions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/quiz-detail.html" afterPath="$PROJECT_DIR$/www/templates/quiz-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/quiz-edit-form.html" afterPath="$PROJECT_DIR$/www/templates/quiz-edit-form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/quizes.html" afterPath="$PROJECT_DIR$/www/templates/quizes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services.js" afterPath="$PROJECT_DIR$/www/js/services.js" />
     </list>
     <ignored path="mobile-forms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,10 +28,14 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="164" column="9" selection-start-line="164" selection-start-column="9" selection-end-line="164" selection-end-column="9" />
+            <state relative-caret-position="355">
+              <caret line="211" column="41" selection-start-line="211" selection-start-column="41" selection-end-line="211" selection-end-column="41" />
               <folding>
+                <element signature="e#65#337#0" expanded="false" />
+                <element signature="e#378#2904#0" expanded="false" />
+                <element signature="e#2945#6714#0" expanded="false" />
                 <element signature="e#3343#4670#0" expanded="false" />
+                <element signature="e#6743#7090#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -76,12 +69,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quiz-edit-form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/quiz-edit-form.html">
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-              <folding />
+            <state relative-caret-position="289">
+              <caret line="357" column="58" selection-start-line="357" selection-start-column="58" selection-end-line="357" selection-end-column="58" />
+              <folding>
+                <element signature="e#125#1771#0" expanded="false" />
+                <element signature="e#1866#5905#0" expanded="false" />
+                <element signature="e#5996#7906#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -198,7 +195,6 @@
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/www/templates/variant-edit.html" />
         <option value="$PROJECT_DIR$/www/js/app.js" />
-        <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/js/directives.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/bower.json" />
@@ -212,6 +208,7 @@
         <option value="$PROJECT_DIR$/www/templates/question-edit.html" />
         <option value="$PROJECT_DIR$/www/templates/question-answer.html" />
         <option value="$PROJECT_DIR$/www/templates/login.html" />
+        <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
       </list>
     </option>
@@ -364,7 +361,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RunManager" selected="PhoneGap/Cordova.browser - save">
+  <component name="RunManager" selected="PhoneGap/Cordova.android - run">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -838,7 +835,7 @@
       <workItem from="1481046126743" duration="20590000" />
       <workItem from="1481983104855" duration="21582000" />
       <workItem from="1482048797545" duration="8169000" />
-      <workItem from="1482080808260" duration="18143000" />
+      <workItem from="1482080808260" duration="18944000" />
     </task>
     <task id="LOCAL-00001" summary="added auth">
       <created>1477510134927</created>
@@ -1022,11 +1019,25 @@
       <option name="project" value="LOCAL" />
       <updated>1482096225610</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="added loading indicator">
+      <created>1482099135641</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1482099135641</updated>
+    </task>
+    <task id="LOCAL-00028" summary="added scroll on top when arrow was pressed">
+      <created>1482099160068</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1482099160068</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176563000" />
+    <option name="totallyTimeSpent" value="177364000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1049,7 +1060,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7647059" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22012103" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1143,7 +1154,9 @@
     <MESSAGE value="dich" />
     <MESSAGE value="attached arrow buttons to bottom" />
     <MESSAGE value="fixed checkbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed checkbox" />
+    <MESSAGE value="added loading indicator" />
+    <MESSAGE value="added scroll on top when arrow was pressed" />
+    <option name="LAST_COMMIT_MESSAGE" value="added scroll on top when arrow was pressed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1298,17 +1311,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding>
-            <element signature="e#125#1771#0" expanded="false" />
-            <element signature="e#7936#11183#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1459,12 +1461,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="357" column="58" selection-start-line="357" selection-start-column="58" selection-end-line="357" selection-end-column="58" />
+          <folding>
+            <element signature="e#125#1771#0" expanded="false" />
+            <element signature="e#1866#5905#0" expanded="false" />
+            <element signature="e#5996#7906#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="164" column="9" selection-start-line="164" selection-start-column="9" selection-end-line="164" selection-end-column="9" />
+        <state relative-caret-position="355">
+          <caret line="211" column="41" selection-start-line="211" selection-start-column="41" selection-end-line="211" selection-end-column="41" />
           <folding>
+            <element signature="e#65#337#0" expanded="false" />
+            <element signature="e#378#2904#0" expanded="false" />
+            <element signature="e#2945#6714#0" expanded="false" />
             <element signature="e#3343#4670#0" expanded="false" />
+            <element signature="e#6743#7090#0" expanded="false" />
           </folding>
         </state>
       </provider>
