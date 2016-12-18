@@ -5,6 +5,8 @@ module.exports = {
     questionType: String,
     answerFormat: String,
     isMulti: Boolean,
+    geoValue: String,
+    imageValue: String,
     variants:[{
         variantType: String,
         textValue: String,

@@ -492,7 +492,7 @@ angular.module('app.controllers', [])
             marker.showInfoWindow();
             marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
               marker.getPosition(function(latLng) {
-                $scope.variant.geoValue = latLng.toUrlValue();
+                $scope.question.geoValue = latLng.toUrlValue();
                 marker.setTitle(latLng.toUrlValue());
                 marker.showInfoWindow();
               });
@@ -503,18 +503,18 @@ angular.module('app.controllers', [])
         function onMapReady() {
           map.clear();
           map.showDialog();
-          if ($scope.variant.geoValue) {
-            var lat = $scope.variant.geoValue.split(',')[0];
-            var lng = $scope.variant.geoValue.split(',')[1];
+          if ($scope.question.geoValue) {
+            var lat = $scope.question.geoValue.split(',')[0];
+            var lng = $scope.question.geoValue.split(',')[1];
             marker = map.addMarker({
               'position': new plugin.google.maps.LatLng(lat,lng),
               'draggable': true,
-              'title': $scope.variant.geoValue
+              'title': $scope.question.geoValue
             }, function(marker) {
               marker.showInfoWindow();
               marker.addEventListener(plugin.google.maps.event.MARKER_DRAG_END, function(marker) {
                 marker.getPosition(function(latLng) {
-                  $scope.variant.geoValue = latLng.toUrlValue();
+                  $scope.question.geoValue = latLng.toUrlValue();
                   marker.setTitle(latLng.toUrlValue());
                   marker.showInfoWindow();
                 });
