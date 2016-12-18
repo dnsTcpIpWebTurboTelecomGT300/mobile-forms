@@ -12,13 +12,7 @@ server.use(logger('dev'));
 
 server.resource('users', require("./models/usersModel"));
 server.resource('quizes', require("./models/quizesModel"));
-server.resource('questions', require("./models/questionsModel")).put()
-  .before(function (entity) {
-    var i = 1;
-  })
-  .after(function (entity) {
-    var i = 1;
-  });
+server.resource('questions', require("./models/questionsModel"));
 server.resource('answers', require("./models/usersAnswersModel"))
 
 module.exports = server;

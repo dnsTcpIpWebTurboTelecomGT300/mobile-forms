@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="fixed untracked files">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="fixed untracked files" />
     <ignored path="mobile-forms.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
