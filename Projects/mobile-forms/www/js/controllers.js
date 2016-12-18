@@ -80,8 +80,8 @@ angular.module('app.controllers', [])
       }])
 
   .controller('quizProgressEditForm', ['$scope', '$stateParams', 'authService',
-    'questionService',
-      function($scope, $stateParams, authService, questionService) {
+    'questionService', '$ionicScrollDelegate',
+      function($scope, $stateParams, authService, questionService, $ionicScrollDelegate) {
 
         var ifMulti = function functionName() {
           if ($scope.question.isMulti) {
@@ -162,6 +162,7 @@ angular.module('app.controllers', [])
           $scope.isPrevExists = questionService.getPrev(true);
           $scope.isNextExists = questionService.getNext(true);
           ifMulti();
+          $ionicScrollDelegate.scrollTop(true);
         };
         $scope.goNext = function functionName() {
           questionService.update($scope.question);
@@ -169,6 +170,7 @@ angular.module('app.controllers', [])
           $scope.isPrevExists = questionService.getPrev(true);
           $scope.isNextExists = questionService.getNext(true);
           ifMulti();
+          $ionicScrollDelegate.scrollTop(true);
         };
         $scope.$on('$destroy', function() {
             questionService.update($scope.question);
