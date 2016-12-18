@@ -1,86 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="fixed large image saving">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/babel-polyfill/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/babel-polyfill/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/babel-polyfill/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/babel-polyfill/browser-polyfill.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/dist/ng-cordova-oauth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/dist/ng-cordova-oauth.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/karma.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.500px.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.adfs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.azuread.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.box.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.digitalOcean.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.dribble.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.dropbox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.envato.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.facebook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.familySearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.foursquare.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.github.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.google.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.imgur.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.instagram.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.jawbone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.linkedin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.magento.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.meetup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.mercadolibre.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.netatmo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.odnoklassniki.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.pocket.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.rally.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.reddit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.salesforce.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.slack.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.spotify.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.strava.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.stripe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.trakttv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.twitter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.uber.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.untappd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.venmo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.vkontakte.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.weibo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.windowslive.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.withings.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.xing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.yahoo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/oauth.yammer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/plugin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ng-cordova-oauth/src/utility.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova-mocks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova-mocks.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/lib/ngCordova/package.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/minel.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../odata-server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../odata-server/.idea/workspace.xml" />
+    <list default="true" id="826f7b6a-a406-466b-af3c-c0bf40970358" name="Default" comment="fixed untracked files">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mobile-forms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,8 +26,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="529" column="35" selection-start-line="529" selection-start-column="35" selection-end-line="529" selection-end-column="35" />
+            <state relative-caret-position="196">
+              <caret line="527" column="0" selection-start-line="527" selection-start-column="0" selection-end-line="527" selection-end-column="0" />
               <folding>
                 <element signature="e#65#337#0" expanded="false" />
                 <element signature="e#18793#20982#0" expanded="false" />
@@ -337,92 +259,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="popover" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mobile-forms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope">
@@ -452,7 +288,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RunManager" selected="PhoneGap/Cordova.android - run">
+  <component name="RunManager" selected="PhoneGap/Cordova.browser - save">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -925,7 +761,7 @@
       <workItem from="1480879270947" duration="12488000" />
       <workItem from="1481046126743" duration="20590000" />
       <workItem from="1481983104855" duration="21582000" />
-      <workItem from="1482048797545" duration="6952000" />
+      <workItem from="1482048797545" duration="8169000" />
     </task>
     <task id="LOCAL-00001" summary="added auth">
       <created>1477510134927</created>
@@ -1074,11 +910,18 @@
       <option name="project" value="LOCAL" />
       <updated>1482058385075</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed untracked files">
+      <created>1482059398735</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1482059398735</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157203000" />
+    <option name="totallyTimeSpent" value="158420000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1101,10 +944,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7647059" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25718608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1116,7 +960,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1172,7 +1015,8 @@
     <MESSAGE value="fixed image take" />
     <MESSAGE value="fixed variants" />
     <MESSAGE value="fixed large image saving" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed large image saving" />
+    <MESSAGE value="fixed untracked files" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed untracked files" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1326,6 +1170,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-660">
           <caret line="3922" column="3" selection-start-line="3922" selection-start-column="3" selection-end-line="3922" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1473,8 +1318,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="529" column="35" selection-start-line="529" selection-start-column="35" selection-end-line="529" selection-end-column="35" />
+        <state relative-caret-position="196">
+          <caret line="527" column="0" selection-start-line="527" selection-start-column="0" selection-end-line="527" selection-end-column="0" />
           <folding>
             <element signature="e#65#337#0" expanded="false" />
             <element signature="e#18793#20982#0" expanded="false" />

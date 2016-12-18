@@ -1,6 +1,6 @@
 var configUtils = require('./lib/configUtils');
 var config = require('./lib/config')
-var odata = require('node-odata');
+var odata = require('./node-odata');
 var logger = require('morgan');
 
 console.log("Starting OData server");
