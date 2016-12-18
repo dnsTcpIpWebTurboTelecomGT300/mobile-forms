@@ -319,6 +319,20 @@ angular.module('app.controllers', [])
     'authService', 'questionService', '$state',
     function($scope, $stateParams, $http, apiPrefix, $ionicPopover,
               $ionicHistory, quizService, $ionicPopup, authService, questionService, $state) {
+
+      $scope.createQuestion = function () {
+        if (!$scope.quiz.id) {
+          quizService.save($scope.quiz).then(function (quiz) {
+            quiz.questions = [];
+            $scope.quiz = quiz;
+            quizService.setCurrentQuiz($scope.quiz);
+            $state.go('app.quizDetail.edit.questionDetail.new');
+          })
+        } else {
+          $state.go('app.quizDetail.edit.questionDetail.new');
+        }
+      };
+
       if (quizService.getCurrentQuiz()) {
         $scope.quiz = quizService.getCurrentQuiz()
       } else {
