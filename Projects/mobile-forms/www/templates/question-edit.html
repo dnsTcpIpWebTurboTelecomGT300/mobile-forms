@@ -50,39 +50,22 @@
         </div>
 
         <ion-toggle toggle-class="toggle-balanced" ng-model="question.isRequired">Обязательный вопрос</ion-toggle>
-        <label class="item item-select" ng-class="{ 'has-errors' : questionForm.questionType.$invalid }">
+        <label class="item item-select">
           <span class="input-label">Тип вопроса</span>
           <select name="questionType" ng-model="question.questionType" required>
-            <option value disabled selected ></option>
-            <option value="free">Свободный</option>
+            <option value="free" ng-selected="true">Свободный</option>
             <option value="select">С вариантами ответа</option>
           </select>
         </label>
-        <div class="error-container" ng-show="questionForm.questionType.$error"
-             ng-messages="questionForm.questionType.$error">
-          <div class="error" ng-message="required">
-            <i class="ion-information-circled"></i>
-            Необходимо указать тип вопроса
-          </div>
-        </div>
 
-        <label ng-if="question.questionType == 'free'" class="item item-select"
-               ng-class="{ 'has-errors' : questionForm.answerFormat.$invalid }">
+        <label ng-if="question.questionType == 'free'" class="item item-select">
           <span class="input-label">Формат ответа</span>
           <select ng-model="question.answerFormat" required>
-            <option value disabled selected ></option>
-            <option value="text">Текст</option>
+            <option value="text" ng-selected="true">Текст</option>
             <option value="date">Дата</option>
             <option value="number">Число</option>
           </select>
         </label>
-        <div class="error-container" ng-show="questionForm.answerFormat.$error"
-             ng-messages="questionForm.answerFormat.$error">
-          <div class="error" ng-message="required">
-            <i class="ion-information-circled"></i>
-            Необходимо указать формат ответа
-          </div>
-        </div>
 
         <ion-toggle ng-if="question.questionType == 'select'" toggle-class="toggle-balanced" ng-checked="false"
                     ng-model="question.isMulti">Множественный выбор
@@ -95,7 +78,8 @@
     <ion-list ng-if="question.questionType == 'select'" class="manual-list-fullwidth">
       <ion-item class="item-divider">Варианты ответов</ion-item>
       <div ng-repeat="variant in question.variants">
-        <ion-item class="item-icon-right" ng-click="goToVariant({variantIndex: $index})">Вариант {{$index}}
+        <ion-item class="item-icon-right" ng-click="goToVariant({variantIndex: $index})">
+          {{variant.textValue ? variant.textValue : 'Вариант' + $index}}
           <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
       </div>

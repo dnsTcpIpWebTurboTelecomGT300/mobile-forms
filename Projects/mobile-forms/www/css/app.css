@@ -43,10 +43,6 @@ div.spinner {
   height: 85px !important;
 }
 
-.error-container {
-  margin: 5px 0;
-}
-
 .error-container:last-child {
   margin: 5px 0 0;
 }
