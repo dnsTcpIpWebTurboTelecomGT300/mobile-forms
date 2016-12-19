@@ -27,8 +27,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="370" column="21" selection-start-line="370" selection-start-column="21" selection-end-line="370" selection-end-column="21" />
+            <state relative-caret-position="198">
+              <caret line="361" column="46" selection-start-line="361" selection-start-column="46" selection-end-line="361" selection-end-column="46" />
               <folding>
                 <element signature="e#65#337#0" expanded="false" />
                 <element signature="e#378#2904#0" expanded="false" />
@@ -366,7 +366,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RunManager" selected="PhoneGap/Cordova.browser - save">
+  <component name="RunManager" selected="PhoneGap/Cordova.android - run">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -840,7 +840,7 @@
       <workItem from="1481046126743" duration="20590000" />
       <workItem from="1481983104855" duration="21582000" />
       <workItem from="1482048797545" duration="8169000" />
-      <workItem from="1482080808260" duration="27723000" />
+      <workItem from="1482080808260" duration="28254000" />
     </task>
     <task id="LOCAL-00001" summary="added auth">
       <created>1477510134927</created>
@@ -1059,11 +1059,18 @@
       <option name="project" value="LOCAL" />
       <updated>1482106861875</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="added some server validation">
+      <created>1482108741930</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1482108741930</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186143000" />
+    <option name="totallyTimeSpent" value="186674000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1160,7 +1167,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixes for auth" />
     <MESSAGE value="implemented vk real auth" />
     <MESSAGE value="added quizes service" />
     <MESSAGE value="some more refactor" />
@@ -1185,7 +1191,8 @@
     <MESSAGE value="fixed bug when creatin quiz and question at once" />
     <MESSAGE value="added validation on interface" />
     <MESSAGE value="improved variants view" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved variants view" />
+    <MESSAGE value="added some server validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some server validation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1502,8 +1509,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="370" column="21" selection-start-line="370" selection-start-column="21" selection-end-line="370" selection-end-column="21" />
+        <state relative-caret-position="198">
+          <caret line="361" column="46" selection-start-line="361" selection-start-column="46" selection-end-line="361" selection-end-column="46" />
           <folding>
             <element signature="e#65#337#0" expanded="false" />
             <element signature="e#378#2904#0" expanded="false" />

@@ -359,7 +359,7 @@ angular.module('app.controllers', [])
 
       //Дейтсвтие сохранения
       $scope.save = function() {
-        var quizIsValid = $scope.quiz.name.length > 5 &&  $scope.quiz.name.length <= 50;
+        var quizIsValid = $scope.quiz.name && $scope.quiz.name.length > 5 &&  $scope.quiz.name.length <= 50;
         if (quizIsValid) {
           quizService.save($scope.quiz).then(function(quiz) {
             console.log(quiz);
