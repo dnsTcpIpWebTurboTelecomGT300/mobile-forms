@@ -1,59 +1,85 @@
 <ion-view title="Вопрос" id="question-edit">
+  <div class="spinner" loading>
+    <ion-spinner icon="android"></ion-spinner>
+  </div>
   <ion-nav-buttons side="right" class="has-header">
     <button class="button icon ion-android-more-vertical" id="question-popover" ng-click="openPopover($event)"></button>
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
-    <ion-list class="manual-list-fullwidth">
-      <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeFoto()">
-        <div ng-if="question.imageValue">
-          <div>Прикрепленное изображение</div>
-          <img ng-src="{{question.imageValue}}" style="width : 90% ; ">
+    <form class="list" novalidate="" name="questionForm">
+
+      <ion-list class="manual-list-fullwidth">
+        <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeFoto()">
+          <div ng-if="question.imageValue">
+            <div>Прикрепленное изображение</div>
+            <img ng-src="{{question.imageValue}}" style="width : 90% ; ">
+          </div>
+          <div ng-if="!question.imageValue">
+            <div>Прикрепите изображение</div>
+            <i class="icon ion-image" style="font-size: 100px;"> </i>
+          </div>
+        </label>
+        <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeGeo()">
+          <div ng-if="question.geoValue">
+            <div>Выбранные координаты {{question.geoValue}}</div>
+          </div>
+          <div ng-if="!question.geoValue">
+            <div>Прикрепите местоположение</div>
+          </div>
+          <i class="icon ion-map center" style="font-size: 100px;"> </i>
+        </label>
+
+        <label class="item item-input item-stacked-label" ng-class="{ 'has-errors' : questionForm.text.$invalid }">
+          <span class="input-label">Текст вопроса</span>
+          <input type="text" name="text" placeholder="Текст вопроса" ng-model="question.text" ng-minlength="5"
+                 ng-maxlength="1000" required>
+        </label>
+        <div class="error-container" ng-show="questionForm.text.$error" ng-messages="questionForm.text.$error">
+          <div class="error" ng-message="required">
+            <i class="ion-information-circled"></i>
+            Необходимо указать текст вопроса
+          </div>
+          <div class="error" ng-message="minlength">
+            <i class="ion-information-circled"></i>
+            Минимальная длинна текста 5 символов
+          </div>
+          <div class="error" ng-message="maxlength">
+            <i class="ion-information-circled"></i>
+            Максимальная длинна текста 1000 символов
+          </div>
         </div>
-        <div ng-if="!question.imageValue">
-          <div>Прикрепите изображение</div>
-          <i class="icon ion-image" style="font-size: 100px;"> </i>
-        </div>
-      </label>
-      <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeGeo()">
-        <div ng-if="question.geoValue">
-          <div>Выбранные координаты {{question.geoValue}}</div>
-        </div>
-        <div ng-if="!question.geoValue">
-          <div>Прикрепите местоположение</div>
-        </div>
-        <i class="icon ion-map center" style="font-size: 100px;"> </i>
-      </label>
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Текст вопроса</span>
-        <input type="text" placeholder="Текст вопроса" ng-model="question.text">
-      </label>
-      <ion-toggle toggle-class="toggle-balanced" ng-model="question.isRequired">Обязательный вопрос</ion-toggle>
-      <label class="item item-select">
-        <span class="input-label">Тип вопроса</span>
-        <select ng-model="question.questionType">
-          <option value=""></option>
-          <option value="free">Свободный</option>
-          <option value="select">С вариантами ответа</option>
-        </select>
-      </label>
-      <label ng-if="question.questionType == 'free'" class="item item-select">
-        <span class="input-label">Формат ответа</span>
-        <select ng-model="question.answerFormat">
-          <option value=""></option>
-          <option value="text">Текст</option>
-          <option value="date">Дата</option>
-          <option value="number">Число</option>
-        </select>
-      </label>
-      <ion-toggle ng-if="question.questionType == 'select'" toggle-class="toggle-balanced" ng-checked="false"
-                  ng-model="question.isMulti">Множественный выбор
-      </ion-toggle>
-    </ion-list>
+
+        <ion-toggle toggle-class="toggle-balanced" ng-model="question.isRequired">Обязательный вопрос</ion-toggle>
+        <label class="item item-select">
+          <span class="input-label">Тип вопроса</span>
+          <select name="questionType" ng-model="question.questionType" required>
+            <option value="free" ng-selected="true">Свободный</option>
+            <option value="select">С вариантами ответа</option>
+          </select>
+        </label>
+
+        <label ng-if="question.questionType == 'free'" class="item item-select">
+          <span class="input-label">Формат ответа</span>
+          <select ng-model="question.answerFormat" required>
+            <option value="text" ng-selected="true">Текст</option>
+            <option value="date">Дата</option>
+            <option value="number">Число</option>
+          </select>
+        </label>
+
+        <ion-toggle ng-if="question.questionType == 'select'" toggle-class="toggle-balanced" ng-checked="false"
+                    ng-model="question.isMulti">Множественный выбор
+        </ion-toggle>
+
+      </ion-list>
+
+    </form>
     <div class="spacer" style="width: 300px; height: 30.9861px;"></div>
     <ion-list ng-if="question.questionType == 'select'" class="manual-list-fullwidth">
       <ion-item class="item-divider">Варианты ответов</ion-item>
       <div ng-repeat="variant in question.variants">
-        <ion-item class="item-icon-right" ng-click="goToVariant({variantIndex: $index})">Вариант {{$index}}
+        <ion-item class="item-icon-right" ng-click="goToVariant({variantIndex: $index})">
+          {{variant.textValue ? variant.textValue : 'Вариант' + $index}}
           <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
       </div>
@@ -61,7 +87,6 @@
     <div class="spacer" style="width: 300px; height: 30.9861px;"></div>
   </ion-content>
   <span ng-if="question.questionType == 'select'" class="animate-if">
-    <!-- <ion-floating-button ui-sref="app.quizDetail.edit.questionDetail.variant.new({question:question})" has-footer="false" button-color="#ff5252" icon="ion-plus" icon-color="#fff"></ion-floating-button> -->
     <ion-floating-button ui-sref="app.quizDetail.edit.questionDetail.variant.new" has-footer="false"
                          button-color="#ff5252" icon="ion-plus" icon-color="#fff"></ion-floating-button>
   </span>

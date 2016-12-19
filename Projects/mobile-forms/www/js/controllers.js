@@ -49,7 +49,6 @@ angular.module('app.controllers', [])
               }else if(item.aId){
                 qAnswer.variants = [{variantId : item.aId}];
               }
-
               answer.answers.push(qAnswer);
             }
           });
@@ -81,8 +80,8 @@ angular.module('app.controllers', [])
       }])
 
   .controller('quizProgressEditForm', ['$scope', '$stateParams', 'authService',
-    'questionService',
-      function($scope, $stateParams, authService, questionService) {
+    'questionService', '$ionicScrollDelegate',
+      function($scope, $stateParams, authService, questionService, $ionicScrollDelegate) {
 
         var ifMulti = function functionName() {
           if ($scope.question.isMulti) {
@@ -122,7 +121,7 @@ angular.module('app.controllers', [])
               var lng = coord.split(',')[1];
               marker = map.addMarker({
                 'position': new plugin.google.maps.LatLng(lat,lng),
-                'draggable': true,
+                'draggable': false,
                 'title': coord
               }, function(marker) {
                 marker.showInfoWindow();
@@ -163,6 +162,7 @@ angular.module('app.controllers', [])
           $scope.isPrevExists = questionService.getPrev(true);
           $scope.isNextExists = questionService.getNext(true);
           ifMulti();
+          $ionicScrollDelegate.scrollTop(true);
         };
         $scope.goNext = function functionName() {
           questionService.update($scope.question);
@@ -170,6 +170,7 @@ angular.module('app.controllers', [])
           $scope.isPrevExists = questionService.getPrev(true);
           $scope.isNextExists = questionService.getNext(true);
           ifMulti();
+          $ionicScrollDelegate.scrollTop(true);
         };
         $scope.$on('$destroy', function() {
             questionService.update($scope.question);
@@ -199,10 +200,12 @@ angular.module('app.controllers', [])
           var skip = 0;
           $scope.loadMoreData = function () {
             var userId;
+            var published = true;
             if ($scope.editable) {
               userId = $scope.currentUser.id;
+              published = false;
             }
-            quizService.findQuizes(userId, 5, skip, $scope.filterText, true).then(function (quizes) {
+            quizService.findQuizes(userId, 5, skip, $scope.filterText, true, published).then(function (quizes) {
               console.log(quizes);
               skip = skip + quizes.length;
               $scope.moreDataCanBeLoaded = quizes.length > 0;
@@ -389,6 +392,20 @@ angular.module('app.controllers', [])
     'authService', 'questionService', '$state',
     function($scope, $stateParams, $http, apiPrefix, $ionicPopover,
               $ionicHistory, quizService, $ionicPopup, authService, questionService, $state) {
+
+      $scope.createQuestion = function () {
+        if (!$scope.quiz.id) {
+          quizService.save($scope.quiz).then(function (quiz) {
+            quiz.questions = [];
+            $scope.quiz = quiz;
+            quizService.setCurrentQuiz($scope.quiz);
+            $state.go('app.quizDetail.edit.questionDetail.new');
+          })
+        } else {
+          $state.go('app.quizDetail.edit.questionDetail.new');
+        }
+      };
+
       if (quizService.getCurrentQuiz()) {
         $scope.quiz = quizService.getCurrentQuiz()
       } else {
@@ -415,17 +432,26 @@ angular.module('app.controllers', [])
 
       //Дейтсвтие сохранения
       $scope.save = function() {
-        quizService.save($scope.quiz).then(function(quiz) {
-          console.log(quiz);
-          $scope.popover.hide();
-          quizService.setCurrentQuiz(null);
-          $ionicHistory.goBack();
-        }, function(error) {
-          $ionicPopup.alert({
-            title: 'Ошибка сохранения',
-            template: error
+        var quizIsValid = $scope.quiz.name && $scope.quiz.name.length > 5 &&  $scope.quiz.name.length <= 50;
+        if (quizIsValid) {
+          quizService.save($scope.quiz).then(function(quiz) {
+            console.log(quiz);
+            $scope.popover.hide();
+            quizService.setCurrentQuiz(null);
+            $ionicHistory.goBack();
+          }, function(error) {
+            $ionicPopup.alert({
+              title: 'Ошибка сохранения',
+              template: error
+            });
           });
-        });
+        } else {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Ошибка валидации',
+            template: 'Проверьте введенные данные'
+          });
+        }
+
       };
       $scope.actions = [
         {
@@ -475,27 +501,36 @@ angular.module('app.controllers', [])
 
       //Дейтсвие сохранения вопроса
       $scope.saveQuestion = function() {
-        questionService.save($scope.question).then(function(question) {
-          console.log(question);
-          if (!$scope.question.id) {
-            $scope.quiz.questions.push(question);
-          } else {
-            var result = $scope.quiz.questions.filter(function (q) {
-              return q.id == question.id;
+        var questionIsValid = estion.text && $scope.question.text.length >= 5;
+        if (questionIsValid) {
+          questionService.save($scope.question).then(function(question) {
+            console.log(question);
+            if (!$scope.question.id) {
+              $scope.quiz.questions.push(question);
+            } else {
+              var result = $scope.quiz.questions.filter(function (q) {
+                return q.id == question.id;
+              });
+              var index = $scope.quiz.questions.indexOf(result[0]);
+              $scope.quiz.questions[index] = question;
+            }
+            $scope.popover.hide();
+            questionService.setCurrentQuestion(null);
+            $ionicHistory.goBack();
+            return question;
+          }, function(error) {
+            $ionicPopup.alert({
+              title: 'Ошибка сохранения',
+              template: error
             });
-            var index = $scope.quiz.questions.indexOf(result[0]);
-            $scope.quiz.questions[index] = question;
-          }
-          $scope.popover.hide();
-          questionService.setCurrentQuestion(null);
-          $ionicHistory.goBack();
-          return question;
-        }, function(error) {
-          $ionicPopup.alert({
-            title: 'Ошибка сохранения',
-            template: error
           });
-        });
+        } else {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Ошибка валидации',
+            template: 'Проверьте введенные данные'
+          });
+        }
+
       };
 
       //Добавляем действие удаления вопроса

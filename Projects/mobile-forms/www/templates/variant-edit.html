@@ -3,30 +3,34 @@
     <button class="button icon ion-android-more-vertical" id="variant-popover" ng-click="openPopover($event)"></button>
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
-    <ion-list class="manual-list-fullwidth">
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Введите текст</span>
-        <input type="text" placeholder="Текст вопроса" ng-model="variant.textValue">
-      </label>
-      <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeFoto()">
-        <div ng-if="variant.imageValue">
-          <div>Прикрепленное изображение</div>
-          <img ng-src="{{variant.imageValue}}" style="width : 90% ; ">
-        </div>
-        <div ng-if="!variant.imageValue">
-          <div>Прикрепите изображение</div>
-          <i class="icon ion-image" style="font-size: 100px;"> </i>
-        </div>
-      </label>
-      <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeGeo()">
-        <div ng-if="variant.geoValue">
-          <div>Выбранные координаты {{variant.geoValue}}</div>
-        </div>
-        <div ng-if="!variant.geoValue">
-          <div>Прикрепите местоположение</div>
-        </div>
-        <i class="icon ion-map center" style="font-size: 100px;"> </i>
-      </label>
-    </ion-list>
+    <form class="list" novalidate="" name="variantForm">
+      <ion-list class="manual-list-fullwidth">
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Введите текст</span>
+          <input type="text" name="variantForm" placeholder="Текст варианта" ng-model="variant.textValue">
+        </label>
+
+        <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeFoto()">
+          <div ng-if="variant.imageValue">
+            <div>Прикрепленное изображение</div>
+            <img ng-src="{{variant.imageValue}}" style="width : 90% ; ">
+          </div>
+          <div ng-if="!variant.imageValue">
+            <div>Прикрепите изображение</div>
+            <i class="icon ion-image" style="font-size: 100px;"> </i>
+          </div>
+        </label>
+        <label class="item item-input item-stacked-label" style="text-align: center;" ng-click="takeGeo()">
+          <div ng-if="variant.geoValue">
+            <div>Выбранные координаты {{variant.geoValue}}</div>
+          </div>
+          <div ng-if="!variant.geoValue">
+            <div>Прикрепите местоположение</div>
+          </div>
+          <i class="icon ion-map center" style="font-size: 100px;"> </i>
+        </label>
+      </ion-list>
+    </form>
   </ion-content>
 </ion-view>

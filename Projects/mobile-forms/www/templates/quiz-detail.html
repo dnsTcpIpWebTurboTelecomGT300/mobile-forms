@@ -1,10 +1,11 @@
 <ion-view title="Опрос" style="background-color:#FFFFFF;" show-tabs="true">
+  <div class="spinner" loading>
+    <ion-spinner icon="android"></ion-spinner>
+  </div>
   <ion-nav-buttons side="right" class="has-header">
     <button ng-if="editable" class="button icon ion-android-more-vertical" ng-click="openPopover($event)"></button>
   </ion-nav-buttons>
-
   <ion-tabs class="tabs-positive tabs-icon-top">
-
     <ion-tab title="Опрос" icon="ion-clipboard">
       <ion-view title="Опрос" style="background-color:#FFFFFF;">
         <ion-content padding="true">
