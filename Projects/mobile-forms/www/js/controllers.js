@@ -42,7 +42,7 @@ angular.module('app.controllers', [])
               qAnswer.questionId = item.id;
               qAnswer.textValue = item.aText;
               qAnswer.dateValue = item.aDate;
-              qAnswer.numericValue = item.aNumeric;
+              qAnswer.numericValue = item.aNumber;
               // qAnswer.geoValue = item.aGeoValue;
               // qAnswer.imageValue = item.aImageValue;
               if (item.isMulti) {
