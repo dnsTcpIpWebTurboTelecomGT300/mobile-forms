@@ -45,12 +45,12 @@
                 <i class="icon" ng-class="isGroupShown(user) ? 'ion-minus' : 'ion-plus'"></i>
                 <ion-item class="item-accordion"
                          ng-repeat="answer in user.question.answers"
-                         ng-show="isGroupShown(user)" on-hold="viewGeo(answer.question.geoValue)">
+                         ng-show="isGroupShown(user)">
                          <div ng-if="answer.question.imageValue">
                            <div>Прикрепленное изображение</div>
                            <img ng-src="{{answer.question.imageValue}}" style="width : 90% ; ">
                          </div>
-                         <div ng-if="answer.question.geoValue">
+                         <div ng-if="answer.question.geoValue"  on-hold="viewGeo(answer.question.geoValue)">
                            <i class="icon ion-map center" style="font-size: 100px;"> </i>
                          </div>
                          <div ng-if="answer.question.text">
@@ -59,7 +59,14 @@
                          Ответ:
                          <div ng-if="answer.variants">
                            <div ng-repeat="variant in answer.variants">
-                             {{variant.id}}
+                             {{variant.textValue}}
+                             <div ng-if="variant.imageValue">
+                               <div>Прикрепленное изображение</div>
+                               <img ng-src="{{variant.imageValue}}" style="width : 90% ; ">
+                             </div>
+                             <div ng-if="variant.geoValue" on-hold="viewGeo(variant.geoValue, $event)">
+                               <i class="icon ion-map center" style="font-size: 100px;"> </i>
+                             </div>
                            </div>
                          </div>
                          <div ng-if="answer.textValue">
@@ -77,12 +84,12 @@
           </div>
           <div ng-if="groupBy.id==='q'">
             <ion-list ng-repeat="question in questions" class="manual-list-fullwidth">
-              <ion-item class="" ng-class="{active: isGroupShown(question)}" ng-click="toggleGroup(question)" on-hold="viewGeo(question.geoValue)">
+              <ion-item class="" ng-class="{active: isGroupShown(question)}" ng-click="toggleGroup(question)">
                 <div ng-if="question.imageValue">
                   <div>Прикрепленное изображение</div>
                   <img ng-src="{{question.imageValue}}" style="width : 90% ; ">
                 </div>
-                <div ng-if="question.geoValue">
+                <div ng-if="question.geoValue" on-hold="viewGeo(question.geoValue)">
                   <i class="icon ion-map center" style="font-size: 100px;"> </i>
                 </div>
                 <div ng-if="question.text">
@@ -98,7 +105,14 @@
                          Ответ:
                          <div ng-if="answer.answers[0].variants">
                            <div ng-repeat="variant in answer.answers[0].variants">
-                             {{variant.id}}
+                             {{variant.textValue}}
+                             <div ng-if="variant.imageValue">
+                               <div>Прикрепленное изображение</div>
+                               <img ng-src="{{variant.imageValue}}" style="width : 90% ; ">
+                             </div>
+                             <div ng-if="variant.geoValue" on-hold="viewGeo(variant.geoValue, $event)">
+                               <i class="icon ion-map center" style="font-size: 100px;"> </i>
+                             </div>
                            </div>
                          </div>
                          <div ng-if="answer.answers[0].textValue">

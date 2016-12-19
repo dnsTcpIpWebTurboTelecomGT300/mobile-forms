@@ -49,7 +49,7 @@ angular.module('app.controllers', [])
                 qAnswer.variants = item.answer.filter(function functionName(a) {
                   return a.cheked;
                 }).map(function functionName(a) {
-                  return {variantId : a.aId};
+                  return {variantId : a.id};
                 });
               }else if(item.aId){
                 qAnswer.variants = [{variantId : item.aId}];
@@ -254,7 +254,10 @@ angular.module('app.controllers', [])
       $scope.groups=[{id: "u", name:'пользователям'},{id:"q",name:'вопросам'}];
       $scope.groupBy=$scope.groups[0];
 
-      $scope.viewGeo = function (coord) {
+      $scope.viewGeo = function (coord, e) {
+        if (e) {
+          // e.stopPropagation();
+        }
         if (coord) {
           var map;
           var _marker;
@@ -322,6 +325,12 @@ angular.module('app.controllers', [])
 
                 }
                 item.question = question;
+                item.variants = item.variants.map(function functionName(av) {
+                  av = question.variants.filter(function functionName(qv) {
+                    return av.variantId === qv._id;
+                  })[0];
+                  return av
+                });
                 $scope.answers = answers;
                 groupForShow();
               });
@@ -549,7 +558,7 @@ angular.module('app.controllers', [])
 
       //Дейтсвие сохранения вопроса
       $scope.saveQuestion = function() {
-        var questionIsValid = estion.text && $scope.question.text.length >= 5;
+        var questionIsValid = $scope.question.text && $scope.question.text.length >= 5;
         if (questionIsValid) {
           questionService.save($scope.question).then(function(question) {
             console.log(question);

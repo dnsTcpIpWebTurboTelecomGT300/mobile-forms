@@ -344,7 +344,7 @@ angular.module('app.services', [])
         });
       }
 
-      function findQuizes(userId, top, skip, containedText, orderBy, onlyPublished) {
+      function findQuizes(userId, top, skip, containedText, orderBy) {
         var filters = [];
         var textFilter;
         var filter;
@@ -353,9 +353,6 @@ angular.module('app.services', [])
         var orderByStatement;
         if (userId) {
           filters.push("userId eq \'" + userId + "\'");
-        }
-        if (onlyPublished) {
-          filters.push("isPublished eq \'" + onlyPublished + "\'");
         }
         if (containedText) {
           filters.push('indexof(name,\'' + containedText.toLowerCase() + '\') ge 0');
