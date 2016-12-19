@@ -44,7 +44,7 @@ angular.module('app.controllers', [])
                 qAnswer.variants = item.answer.filter(function functionName(a) {
                   return a.cheked;
                 }).map(function functionName(a) {
-                  return {variantId : a.aId};
+                  return {variantId : a.id};
                 });
               }else if(item.aId){
                 qAnswer.variants = [{variantId : item.aId}];
@@ -274,6 +274,12 @@ angular.module('app.controllers', [])
 
                 }
                 item.question = question;
+                item.variants = item.variants.map(function functionName(av) {
+                  av = question.variants.filter(function functionName(qv) {
+                    return av.variantId === qv._id;
+                  })[0];
+                  return av
+                });
                 $scope.answers = answers;
                 groupForShow();
               });

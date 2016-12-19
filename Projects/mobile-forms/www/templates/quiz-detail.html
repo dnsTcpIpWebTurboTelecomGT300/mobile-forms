@@ -61,7 +61,7 @@
                          Ответ:
                          <div ng-if="answer.variants">
                            <div ng-repeat="variant in answer.variants">
-                             {{variant.id}}
+                             {{variant._id}}
                            </div>
                          </div>
                          <div ng-if="answer.textValue">
@@ -100,7 +100,7 @@
                          Ответ:
                          <div ng-if="answer.answers[0].variants">
                            <div ng-repeat="variant in answer.answers[0].variants">
-                             {{variant.id}}
+                             {{variant._id}}
                            </div>
                          </div>
                          <div ng-if="answer.answers[0].textValue">
