@@ -359,17 +359,26 @@ angular.module('app.controllers', [])
 
       //Дейтсвтие сохранения
       $scope.save = function() {
-        quizService.save($scope.quiz).then(function(quiz) {
-          console.log(quiz);
-          $scope.popover.hide();
-          quizService.setCurrentQuiz(null);
-          $ionicHistory.goBack();
-        }, function(error) {
-          $ionicPopup.alert({
-            title: 'Ошибка сохранения',
-            template: error
+        var quizIsValid = $scope.quiz.name.length > 5 &&  $scope.quiz.name.length <= 50;
+        if (quizIsValid) {
+          quizService.save($scope.quiz).then(function(quiz) {
+            console.log(quiz);
+            $scope.popover.hide();
+            quizService.setCurrentQuiz(null);
+            $ionicHistory.goBack();
+          }, function(error) {
+            $ionicPopup.alert({
+              title: 'Ошибка сохранения',
+              template: error
+            });
           });
-        });
+        } else {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Ошибка валидации',
+            template: 'Проверьте введенные данные'
+          });
+        }
+
       };
       $scope.actions = [
         {
@@ -419,27 +428,36 @@ angular.module('app.controllers', [])
 
       //Дейтсвие сохранения вопроса
       $scope.saveQuestion = function() {
-        questionService.save($scope.question).then(function(question) {
-          console.log(question);
-          if (!$scope.question.id) {
-            $scope.quiz.questions.push(question);
-          } else {
-            var result = $scope.quiz.questions.filter(function (q) {
-              return q.id == question.id;
+        var questionIsValid = estion.text && $scope.question.text.length >= 5;
+        if (questionIsValid) {
+          questionService.save($scope.question).then(function(question) {
+            console.log(question);
+            if (!$scope.question.id) {
+              $scope.quiz.questions.push(question);
+            } else {
+              var result = $scope.quiz.questions.filter(function (q) {
+                return q.id == question.id;
+              });
+              var index = $scope.quiz.questions.indexOf(result[0]);
+              $scope.quiz.questions[index] = question;
+            }
+            $scope.popover.hide();
+            questionService.setCurrentQuestion(null);
+            $ionicHistory.goBack();
+            return question;
+          }, function(error) {
+            $ionicPopup.alert({
+              title: 'Ошибка сохранения',
+              template: error
             });
-            var index = $scope.quiz.questions.indexOf(result[0]);
-            $scope.quiz.questions[index] = question;
-          }
-          $scope.popover.hide();
-          questionService.setCurrentQuestion(null);
-          $ionicHistory.goBack();
-          return question;
-        }, function(error) {
-          $ionicPopup.alert({
-            title: 'Ошибка сохранения',
-            template: error
           });
-        });
+        } else {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Ошибка валидации',
+            template: 'Проверьте введенные данные'
+          });
+        }
+
       };
 
       //Добавляем действие удаления вопроса
