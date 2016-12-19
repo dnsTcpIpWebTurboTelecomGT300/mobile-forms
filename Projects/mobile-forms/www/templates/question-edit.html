@@ -53,6 +53,7 @@
         <label class="item item-select">
           <span class="input-label">Тип вопроса</span>
           <select name="questionType" ng-model="question.questionType" required>
+            <option value selected></option>
             <option value="free" ng-selected="true">Свободный</option>
             <option value="select">С вариантами ответа</option>
           </select>
@@ -61,7 +62,8 @@
         <label ng-if="question.questionType == 'free'" class="item item-select">
           <span class="input-label">Формат ответа</span>
           <select ng-model="question.answerFormat" required>
-            <option value="text" ng-selected="true">Текст</option>
+            <option value selected></option>
+            <option value="text">Текст</option>
             <option value="date">Дата</option>
             <option value="number">Число</option>
           </select>

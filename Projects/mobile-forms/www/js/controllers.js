@@ -9,6 +9,11 @@ angular.module('app.controllers', [])
       };
     }])
 
+  .controller('helpCtrl', ['$scope', '$stateParams', 'authService',
+    function($scope, $stateParams, authService) {
+
+    }])
+
   .controller('quizProgressListForm', ['$scope', '$stateParams', 'authService',
     'questionService', '$ionicPopover', 'answerService', '$ionicHistory', '$ionicPopup',
       function($scope, $stateParams, authService,
@@ -37,7 +42,7 @@ angular.module('app.controllers', [])
               qAnswer.questionId = item.id;
               qAnswer.textValue = item.aText;
               qAnswer.dateValue = item.aDate;
-              qAnswer.numericValue = item.aNumeric;
+              qAnswer.numericValue = item.aNumber;
               // qAnswer.geoValue = item.aGeoValue;
               // qAnswer.imageValue = item.aImageValue;
               if (item.isMulti) {

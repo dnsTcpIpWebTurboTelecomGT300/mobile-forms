@@ -25,6 +25,21 @@ angular.module('app.routes', [])
         }
       })
 
+      .state('app.help', {
+        url: '/help',
+        cache: false,
+        views: {
+          'side-menu': {
+            templateUrl: 'templates/help.html',
+            controller: 'helpCtrl'
+          }
+        },
+        controller: 'helpCtrl',
+        data: {
+          requiresLogin: true
+        }
+      })
+
       .state('app.quizes', {
         url: '/quizes',
         cache: false,
