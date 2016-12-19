@@ -364,7 +364,7 @@ angular.module('app.controllers', [])
                   av = question.variants.filter(function functionName(qv) {
                     return av.variantId === qv._id;
                   })[0];
-                  return av
+                  return av;
                 });
                 $scope.answers = answers;
                 groupForShow();
@@ -404,13 +404,13 @@ angular.module('app.controllers', [])
             }
           });
         });
-        questions.forEach(function(q, i, arr) {
+        questions.forEach(function(que, i, arr) {
           var ans = $scope.answers.filter(function(an) {
              return an.answers.filter(function functionName(a) {
-               return a.questionId === q.id;
+               return a.questionId === que.id;
              })[0];
            });
-          q.answers = ans;
+         que.answers = ans;
         });
         $scope.questions = questions;
         console.log(users);

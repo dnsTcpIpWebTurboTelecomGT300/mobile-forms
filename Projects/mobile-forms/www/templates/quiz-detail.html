@@ -103,26 +103,30 @@
                          <h2>{{answer.user.firstName}}</h2>
                          <p>{{answer.user.lastName}}</p>
                          Ответ:
-                         <div ng-if="answer.answers[0].variants">
-                           <div ng-repeat="variant in answer.answers[0].variants">
-                             {{variant.textValue}}
-                             <div ng-if="variant.imageValue">
-                               <div>Прикрепленное изображение</div>
-                               <img ng-src="{{variant.imageValue}}" style="width : 90% ; ">
-                             </div>
-                             <div ng-if="variant.geoValue" on-hold="viewGeo(variant.geoValue, $event)">
-                               <i class="icon ion-map center" style="font-size: 100px;"> </i>
+                         <div ng-if="answer.answers">
+                           <div ng-repeat="ans in answer.answers">
+                             <div ng-if="ans.questionId===question.id">
+                               <div ng-repeat="variant in ans.variants">
+                                 {{variant.textValue}}
+                                 <div ng-if="variant.imageValue">
+                                   <div>Прикрепленное изображение</div>
+                                   <img ng-src="{{variant.imageValue}}" style="width : 90% ; ">
+                                 </div>
+                                 <div ng-if="variant.geoValue" on-hold="viewGeo(variant.geoValue, $event)">
+                                   <i class="icon ion-map center" style="font-size: 100px;"> </i>
+                                 </div>
+                               </div>
+                               <div ng-if="ans.textValue">
+                                 {{ans.textValue}}
+                               </div>
+                               <div ng-if="ans.dateValue">
+                                 {{ans.dateValue}}
+                               </div>
+                               <div ng-if="ans.numericValue">
+                                 {{ans.numericValue}}
+                               </div>
                              </div>
                            </div>
-                         </div>
-                         <div ng-if="answer.answers[0].textValue">
-                           {{answer.answers[0].textValue}}
-                         </div>
-                         <div ng-if="answer.answers[0].dateValue">
-                           {{answer.answers[0].dateValue}}
-                         </div>
-                         <div ng-if="answer.answers[0].numericValue">
-                           {{answer.answers[0].numericValue}}
                          </div>
                </ion-item>
               </ion-item>
