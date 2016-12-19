@@ -248,6 +248,49 @@ angular.module('app.controllers', [])
       $scope.quizId = $stateParams.quizId;
       $scope.groups=[{id: "u", name:'пользователям'},{id:"q",name:'вопросам'}];
       $scope.groupBy=$scope.groups[0];
+
+      $scope.viewGeo = function (coord) {
+        if (coord) {
+          var map;
+          var _marker;
+          document.addEventListener("deviceready", function() {
+            // Initialize the map view
+            map = plugin.google.maps.Map.getMap();
+
+            // Wait until the map is ready status.
+            map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+
+          }, false);
+
+          map.on(plugin.google.maps.event.MAP_CLICK, function() {
+            var lat = coord.split(',')[0];
+            var lng = coord.split(',')[1];
+            marker = map.addMarker({
+              'position': new plugin.google.maps.LatLng(lat,lng),
+              'draggable': false,
+              'title': coord
+            }, function(marker) {
+              marker.showInfoWindow();
+            });
+          });
+
+          function onMapReady() {
+            map.clear();
+            map.showDialog();
+            var lat = coord.split(',')[0];
+            var lng = coord.split(',')[1];
+            marker = map.addMarker({
+              'position': new plugin.google.maps.LatLng(lat,lng),
+              'draggable': false,
+              'title': coord
+            }, function(marker) {
+              marker.showInfoWindow();
+            });
+          }
+        }
+      };
+
+
       //Подгружаем данные опроса
       quizService.findOne($stateParams.quizId).then(function(quiz) {
         $scope.quiz = quiz;

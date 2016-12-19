@@ -15,7 +15,7 @@
           <div>Прикрепленное изображение</div>
           <img ng-src="{{question.imageValue}}" style="width : 90% ; ">
         </label>
-        <label ng-if="question.geoValue" class="item item-input item-stacked-label" style="text-align: center;"
+        <label ng-if="question.geoValue" class="item item-input item-stacked-label"
                ng-click="viewGeo(question.geoValue)">
           <div>Прикрепленное местоположение</div>
           <i class="icon ion-map center" style="font-size: 100px;"> </i>
@@ -26,8 +26,11 @@
             <span class="">Текст ответа</span>
             <input type="text" placeholder="Текст ответа" ng-model="question.aText">
           </div>
-          <div ng-if="question.answerFormat ==='date'" class="">
+          <div ng-if="question.answerFormat ==='date'" class="" >
             <span class="">Дата <input type="date" ng-model="question.aDate"></i></span>
+            <div style="text-align: center;">
+              <i class="icon ion-calendar center" style="font-size: 50px;"> </i>
+            </div>
           </div>
           <div ng-if="question.answerFormat ==='number'" class="">
             <span class="">Введите число</span>
