@@ -237,17 +237,90 @@ angular.module('app.controllers', [])
 
   .controller('quizDetailCtrl', ['$scope', '$stateParams', '$http', 'apiPrefix',
     '$filter', '$ionicPopover', '$state', '$ionicPopup', '$ionicHistory',
-     'quizService',
+     'quizService', 'answerService', 'userService', 'questionService', 'lodash',
     function($scope, $stateParams, $http, apiPrefix,
       $filter, $ionicPopover, $state, $ionicPopup, $ionicHistory,
-      quizService) {
+      quizService, answerService, userService, questionService, lodash) {
       $scope.editable = $stateParams.editable;
       $scope.quizId = $stateParams.quizId;
-
+      $scope.groups=[{id: "u", name:'пользователям'},{id:"q",name:'вопросам'}];
+      $scope.groupBy=$scope.groups[0];
       //Подгружаем данные опроса
       quizService.findOne($stateParams.quizId).then(function(quiz) {
         $scope.quiz = quiz;
+        answerService.findByQuizId(quiz.id).then(function functionName(answers) {
+          var groupAn = lodash.toPairs(lodash.groupBy(answers, 'userId'));
+          groupAn = groupAn.map(function functionName(i) {
+            var ond = i;
+            i = i[1].sort(function functionName(a,b) {
+              return new Date(b.date).getTime() - new Date(a.date).getTime();
+            })[0];
+            return i;
+          });
+          answers = groupAn;
+          console.log(answers);
+          answers.forEach(function(answer, i, arr) {
+            userService.findOne(answer.userId).then(function functionName(user) {
+              answer.user = user;
+              $scope.answers = answers;
+            });
+            answer.answers.forEach(function(item, i, arr) {
+              questionService.findOne(item.questionId).then(function functionName(question) {
+                if (item.dateValue) {
+                  item.dateValue = new Date(item.dateValue).toLocaleDateString();
+
+                }
+                item.question = question;
+                $scope.answers = answers;
+                groupForShow();
+              });
+            });
+          });
+        });
       });
+
+      $scope.toggleGroup = function(group) {
+        group.show = !group.show;
+      };
+      $scope.isGroupShown = function(group) {
+        return group.show;
+      };
+      var groupForShow = function functionName(groupBy) {
+
+        var users = [];
+        $scope.answers.forEach(function(item, i, arr) {
+          if (item.user && users.filter(function(u){return item.user.id === u.id}).length === 0) {
+            users.push(item.user);
+          }
+        });
+        users.forEach(function(user, i, arr) {
+          var userAns = $scope.answers.filter(function functionName(a) {
+            return a.userId === user.id;
+          });
+          user.question = userAns[0];
+        });
+        $scope.users = users;
+
+        var questions = [];
+        $scope.answers.forEach(function(ans, i, arr) {
+          ans.answers.forEach(function(an, i, arr) {
+            if (an.question && questions.filter(function(u){return an.question.id === u.id}).length === 0) {
+              questions.push(an.question);
+            }
+          });
+        });
+        questions.forEach(function(q, i, arr) {
+          var ans = $scope.answers.filter(function(an) {
+             return an.answers.filter(function functionName(a) {
+               return a.questionId === q.id;
+             })[0];
+           });
+          q.answers = ans;
+        });
+        $scope.questions = questions;
+        console.log(users);
+        console.log(questions);
+      }
 
       //Действие редактирование
       $scope.edit = function() {

@@ -32,12 +32,91 @@
     <ion-tab title="Ответы" icon="ion-ios-copy-outline">
       <ion-view>
         <ion-content padding="true">
-          <div>
-            ОТВЕТЫ
+          <label class="item item-select">
+            <span class="input-label">Группировать по </span>
+            <select ng-model="groupBy" ng-options="group as group.name for group in groups">
+            </select>
+          </label>
+          <div ng-if="groupBy.id==='u'">
+            <ion-list ng-repeat="user in users" class="manual-list-fullwidth">
+              <ion-item class="item-avatar" ng-class="{active: isGroupShown(user)}" ng-click="toggleGroup(user)">
+                <img ng-src={{user.avatar}}>
+                <h2>{{user.firstName}}</h2>
+                <p>{{user.lastName}}</p>
+                <i class="icon" ng-class="isGroupShown(user) ? 'ion-minus' : 'ion-plus'"></i>
+                <ion-item class="item-accordion"
+                         ng-repeat="answer in user.question.answers"
+                         ng-show="isGroupShown(user)">
+                         <div ng-if="answer.question.imageValue">
+                           <div>Прикрепленное изображение</div>
+                           <img ng-src="{{answer.question.imageValue}}" style="width : 90% ; ">
+                         </div>
+                         <div ng-if="answer.question.geoValue">
+                           <div>Выбранные координаты {{answer.question.geoValue}}</div>
+                         </div>
+                         <div ng-if="answer.question.text">
+                           <div>Тект вопроса: {{answer.question.text}}</div>
+                         </div>
+                         Ответ:
+                         <div ng-if="answer.variants">
+                           <div ng-repeat="variant in answer.variants">
+                             {{variant.id}}
+                           </div>
+                         </div>
+                         <div ng-if="answer.textValue">
+                           {{answer.textValue}}
+                         </div>
+                         <div ng-if="answer.dateValue">
+                           {{answer.dateValue}}
+                         </div>
+                         <div ng-if="answer.numericValue">
+                           {{answer.numericValue}}
+                         </div>
+               </ion-item>
+              </ion-item>
+            </ion-list>
+          </div>
+          <div ng-if="groupBy.id==='q'">
+            <ion-list ng-repeat="question in questions" class="manual-list-fullwidth">
+              <ion-item class="" ng-class="{active: isGroupShown(question)}" ng-click="toggleGroup(question)">
+                <div ng-if="question.imageValue">
+                  <div>Прикрепленное изображение</div>
+                  <img ng-src="{{question.imageValue}}" style="width : 90% ; ">
+                </div>
+                <div ng-if="question.geoValue">
+                  <div>Выбранные координаты {{question.geoValue}}</div>
+                </div>
+                <div ng-if="question.text">
+                  <div>Тект вопроса: {{question.text}}</div>
+                </div>
+                <i class="icon" ng-class="isGroupShown(question) ? 'ion-minus' : 'ion-plus'"></i>
+                <ion-item class="item-accordion item-avatar"
+                         ng-repeat="answer in question.answers"
+                         ng-show="isGroupShown(question)">
+                         <img ng-src={{answer.user.avatar}}>
+                         <h2>{{answer.user.firstName}}</h2>
+                         <p>{{answer.user.lastName}}</p>
+                         Ответ:
+                         <div ng-if="answer.answers[0].variants">
+                           <div ng-repeat="variant in answer.answers[0].variants">
+                             {{variant.id}}
+                           </div>
+                         </div>
+                         <div ng-if="answer.answers[0].textValue">
+                           {{answer.answers[0].textValue}}
+                         </div>
+                         <div ng-if="answer.answers[0].dateValue">
+                           {{answer.answers[0].dateValue}}
+                         </div>
+                         <div ng-if="answer.answers[0].numericValue">
+                           {{answer.answers[0].numericValue}}
+                         </div>
+               </ion-item>
+              </ion-item>
+            </ion-list>
           </div>
         </ion-content>
       </ion-view>
     </ion-tab>
-
   </ion-tabs>
 </ion-view>
