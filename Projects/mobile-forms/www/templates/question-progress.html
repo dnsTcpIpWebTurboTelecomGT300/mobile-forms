@@ -3,6 +3,7 @@
     <ion-spinner icon="android"></ion-spinner>
   </div>
   <ion-nav-buttons side="right" class="has-header">
+    <button class="button icon ion-alert-circled" ng-if="question.isRequired" ng-click="openPopover($event)" style="color: red;"></button>
   </ion-nav-buttons>
   <ion-content padding="true" class="has-header">
     <div>

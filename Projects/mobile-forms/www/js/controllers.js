@@ -15,9 +15,9 @@ angular.module('app.controllers', [])
     }])
 
   .controller('quizProgressListForm', ['$scope', '$stateParams', 'authService',
-    'questionService', '$ionicPopover', 'answerService', '$ionicHistory',
+    'questionService', '$ionicPopover', 'answerService', '$ionicHistory', '$ionicPopup',
       function($scope, $stateParams, authService,
-      questionService, $ionicPopover, answerService, $ionicHistory) {
+      questionService, $ionicPopover, answerService, $ionicHistory, $ionicPopup) {
 
         if (questionService.getQuestionsList() && questionService.getQuestionsList().length) {
           $scope.questions = questionService.getQuestionsList();
@@ -55,11 +55,23 @@ angular.module('app.controllers', [])
                 qAnswer.variants = [{variantId : item.aId}];
               }
               answer.answers.push(qAnswer);
+            }else {
+              if (item.isRequired) {
+                answer.error = 'Обязательные вопросы должны быть отвечены.';
+              }
             }
           });
-          answerService.save(answer);
-          questionService.clear();
-          $ionicHistory.goBack();
+          if (!answer.error) {
+            answerService.save(answer);
+            questionService.clear();
+            $ionicHistory.goBack();
+          }else {
+            $scope.popover.hide();
+            var alertPopup = $ionicPopup.alert({
+              title: 'Ошибка',
+              template: answer.error
+            });
+          }
         };
 
         $scope.actions = [
@@ -85,8 +97,31 @@ angular.module('app.controllers', [])
       }])
 
   .controller('quizProgressEditForm', ['$scope', '$stateParams', 'authService',
-    'questionService', '$ionicScrollDelegate',
-      function($scope, $stateParams, authService, questionService, $ionicScrollDelegate) {
+    'questionService', '$ionicScrollDelegate', '$ionicPopover', '$ionicPopup',
+      function($scope, $stateParams, authService, questionService, $ionicScrollDelegate, $ionicPopover, $ionicPopup) {
+
+        //Доступные действия - редактировать, удалить
+        $scope.actions = [
+          {
+            text: 'Данный вопрос является обязательным!',
+          },
+        ];
+
+        //Инициализируем поповер
+        $ionicPopover.fromTemplateUrl('templates/popover/qd-popover-alert.html', {
+          scope: $scope,
+        }).then(function(popover) {
+          $scope.popover = popover;
+        });
+        $scope.openPopover = function($event) {
+          $scope.popover.show($event);
+        };
+        $scope.closePopover = function() {
+          $scope.popover.hide();
+        };
+        $scope.$on('$destroy', function() {
+          $scope.popover.remove();
+        });
 
         var ifMulti = function functionName() {
           if ($scope.question.isMulti) {
