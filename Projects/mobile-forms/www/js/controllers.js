@@ -249,7 +249,10 @@ angular.module('app.controllers', [])
       $scope.groups=[{id: "u", name:'пользователям'},{id:"q",name:'вопросам'}];
       $scope.groupBy=$scope.groups[0];
 
-      $scope.viewGeo = function (coord) {
+      $scope.viewGeo = function (coord, e) {
+        if (e) {
+          // e.stopPropagation();
+        }
         if (coord) {
           var map;
           var _marker;
@@ -550,7 +553,7 @@ angular.module('app.controllers', [])
 
       //Дейтсвие сохранения вопроса
       $scope.saveQuestion = function() {
-        var questionIsValid = estion.text && $scope.question.text.length >= 5;
+        var questionIsValid = $scope.question.text && $scope.question.text.length >= 5;
         if (questionIsValid) {
           questionService.save($scope.question).then(function(question) {
             console.log(question);
