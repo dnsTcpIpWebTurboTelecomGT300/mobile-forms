@@ -20,6 +20,9 @@
         <ion-item id="my-quizes" ng-if="profile.authType != ANON_AUTH" ui-sref="app.quizes({editable: true})" menu-close="">
           Мои опросы
         </ion-item>
+        <ion-item id="help" ui-sref="app.help" menu-close="">
+          Справка
+        </ion-item>
         <ion-item id="logout" ng-click="logout()" menu-close="">Выход</ion-item>
       </ion-list>
     </ion-content>

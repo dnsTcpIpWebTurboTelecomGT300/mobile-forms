@@ -9,6 +9,11 @@ angular.module('app.controllers', [])
       };
     }])
 
+  .controller('helpCtrl', ['$scope', '$stateParams', 'authService',
+    function($scope, $stateParams, authService) {
+
+    }])
+
   .controller('quizProgressListForm', ['$scope', '$stateParams', 'authService',
     'questionService', '$ionicPopover', 'answerService', '$ionicHistory',
       function($scope, $stateParams, authService,
